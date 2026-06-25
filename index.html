@@ -4,15 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trastes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@500&family=DM+Sans:wght@400;500;600&family=Syne:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Trastes</h1>
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="#inicio" class="logo"><img src="assets/icons/Logo_White.svg" alt="Trastes"></a>
+      <ul class="nav-links">
+        <li><a href="#inicio">INICIO</a></li>
+        <li><a href="#origen">ORIGEN</a></li>
+        <li><a href="#paso-a-paso">PASO A PASO</a></li>
+        <li><a href="#cursos">CURSOS</a></li>
+        <li><a href="#contacto">CONTACTANOS</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
   </header>
 
   <main>
+    <section id="inicio" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">El origen<br>del sonido.</h1>
+        <p class="hero-text">Antes de llegar a tus manos, cada instrumento atraviesa un proceso donde la paciencia, la precisión y el oficio son los grandes protagonistas.</p>
+        <a href="#origen" class="btn">CONOCÉ EL TALLER</a>
+      </div>
+      <picture>
+        <source media="(max-width: 900px)" srcset="assets/img/Hero_Mobile.png">
+        <img src="assets/img/Hero_Hombre.png" alt="Luthier trabajando en el taller" class="hero-img">
+      </picture>
+    </section>
 
+    <section class="manifesto">
+      <div class="manifesto-inner">
+        <div class="manifesto-content">
+          <p class="manifesto-label"><span class="slash">/</span> NUESTRO MANIFIESTO</p>
+          <p class="manifesto-text">
+            <span class="text-dark">No construimos guitarras.</span>
+            <span class="text-orange">Construimos historias.</span>
+            <span class="text-gray">Creemos en el valor de lo hecho a mano, en los detalles que no pueden automatizarse y en las</span>
+            <span class="text-orange">piezas que nacen para acompañar toda una vida.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <p class="about-label"><span class="slash">/</span> QUIÉNES SOMOS</p>
+      <div class="about-content">
+        <img src="assets/img/Quienes_Somos.jpg" alt="Luthier trabajando en el taller" class="about-img">
+        <div class="about-text">
+          <h2 class="about-title"><span class="text-orange">Más de 30 años</span> de oficio y experiencia.</h2>
+          <p class="about-description">
+            Desde 1988, nos dedicamos a la construcción, reparación y personalización de guitarras. Con el tiempo, el taller incorporó servicios de calibración, restauración y cursos de lutería.
+          </p>
+          <p class="about-description">
+            Hoy trabajamos con <strong>instrumentos clásicos, acústicos y eléctricos para personas interesadas en aprender el oficio.</strong>
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
