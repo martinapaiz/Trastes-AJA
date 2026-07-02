@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca UI — Trastes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;800&family=DM+Sans:wght@400;500;600&family=Syne:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/detail.css">
+  <style>
+    /* Estilos exclusivos de esta página de referencia (no forman parte del sitio) */
+    .ui-page {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 64px 48px 160px;
+    }
+
+    .ui-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(48, 48, 48, 0.15);
+      margin-bottom: 64px;
+    }
+
+    .ui-top h1 {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 42px;
+      color: var(--black);
+    }
+
+    .ui-top a {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      color: var(--orange);
+      text-decoration: none;
+      border-bottom: 1px solid var(--orange);
+    }
+
+    .ui-section {
+      margin-bottom: 96px;
+    }
+
+    .ui-section > h2 {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+
+    .ui-section > p.ui-desc {
+      font-family: var(--font-text);
+      font-size: 15px;
+      color: rgba(48, 48, 48, 0.6);
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+
+    .ui-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .ui-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ui-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      color: rgba(48, 48, 48, 0.55);
+    }
+
+    /* Colores */
+    .ui-swatch {
+      width: 160px;
+    }
+
+    .ui-swatch-color {
+      width: 160px;
+      height: 100px;
+      border-radius: 4px;
+      border: 1px solid rgba(48, 48, 48, 0.1);
+    }
+
+    /* Tipografía */
+    .ui-type-row {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(48, 48, 48, 0.08);
+    }
+
+    .ui-type-row .ui-label {
+      width: 160px;
+      flex-shrink: 0;
+    }
+
+    /* Cards demo container (fondo oscuro para las course-card) */
+    .ui-dark-surface {
+      background-color: var(--black);
+      padding: 48px;
+      border-radius: 4px;
+    }
+
+    .ui-testimonial-demo .testimonial-card {
+      flex-shrink: 0;
+    }
+
+    .ui-arrow-demo {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .ui-arrow-demo.ui-dark-surface {
+      display: inline-flex;
+      padding: 24px;
+    }
+  </style>
+</head>
+<body style="background-color: var(--cream);">
+  <div class="ui-page">
+    <div class="ui-top">
+      <h1>Biblioteca UI — Trastes</h1>
+      <a href="index.html">&larr; Volver al sitio</a>
+    </div>
+
+    <!-- Colores -->
+    <section class="ui-section">
+      <h2>+ COLORES</h2>
+      <p class="ui-desc">Paleta de variables definidas en <code>:root</code> (css/style.css).</p>
+      <div class="ui-row">
+        <div class="ui-swatch">
+          <div class="ui-swatch-color" style="background-color: var(--cream);"></div>
+          <p class="ui-label">--cream · #F8F7F1</p>
+        </div>
+        <div class="ui-swatch">
+          <div class="ui-swatch-color" style="background-color: var(--orange);"></div>
+          <p class="ui-label">--orange · #FF5F2F</p>
+        </div>
+        <div class="ui-swatch">
+          <div class="ui-swatch-color" style="background-color: var(--black);"></div>
+          <p class="ui-label">--black · #303030</p>
+        </div>
+        <div class="ui-swatch">
+          <div class="ui-swatch-color" style="background-color: var(--gray);"></div>
+          <p class="ui-label">--gray · #8C8C8C</p>
+        </div>
+        <div class="ui-swatch">
+          <div class="ui-swatch-color" style="background-color: var(--course-bg);"></div>
+          <p class="ui-label">--course-bg · #141618</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tipografía -->
+    <section class="ui-section">
+      <h2>+ TIPOGRAFÍA</h2>
+      <p class="ui-desc">Tres familias: Syne para títulos, DM Sans para texto de cuerpo, Chivo Mono para labels/UI.</p>
+
+      <div class="ui-type-row">
+        <p class="ui-label">--font-title (Syne 700)<br>64px</p>
+        <p style="font-family: var(--font-title); font-weight: 700; font-size: 64px;">El próximo instrumento</p>
+      </div>
+      <div class="ui-type-row">
+        <p class="ui-label">--font-title (Syne 700)<br>42px</p>
+        <p style="font-family: var(--font-title); font-weight: 700; font-size: 42px;">La diferencia está en el taller</p>
+      </div>
+      <div class="ui-type-row">
+        <p class="ui-label">--font-title (Syne 600)<br>28px</p>
+        <p style="font-family: var(--font-title); font-weight: 600; font-size: 28px;">Construí tu guitarra criolla</p>
+      </div>
+      <div class="ui-type-row">
+        <p class="ui-label">--font-text (DM Sans 400)<br>18px</p>
+        <p style="font-family: var(--font-text); font-weight: 400; font-size: 18px;">Trabajá con herramientas profesionales, materiales reales e instrumentos que recorren cada etapa del oficio.</p>
+      </div>
+      <div class="ui-type-row">
+        <p class="ui-label">--font-text (DM Sans 400)<br>14px</p>
+        <p style="font-family: var(--font-text); font-weight: 400; font-size: 14px;">6 cuotas sin interés</p>
+      </div>
+      <div class="ui-type-row">
+        <p class="ui-label">--font-mono (Chivo Mono 400)<br>15px</p>
+        <p style="font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.5px;">+ DE MAESTRO A APRENDIZ</p>
+      </div>
+      <div class="ui-type-row">
+        <p class="ui-label">--font-mono (Chivo Mono 400)<br>13px</p>
+        <p style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.5px;">CURSO MÁS ELEGIDO</p>
+      </div>
+    </section>
+
+    <!-- Botones -->
+    <section class="ui-section">
+      <h2>+ BOTONES</h2>
+      <p class="ui-desc">Todos comparten el mismo patrón de hover: cambio de color + <code>transform: scale(0.94)</code>.</p>
+
+      <div class="ui-row">
+        <div class="ui-block">
+          <a href="#" class="btn hero-btn" onclick="return false;">CONOCÉ EL TALLER</a>
+          <p class="ui-label">.btn.hero-btn</p>
+        </div>
+        <div class="ui-block ui-dark-surface" style="padding: 24px;">
+          <a href="#" class="course-nav-cta" onclick="return false;">CONTACTANOS</a>
+          <p class="ui-label" style="color: rgba(248,247,241,0.6);">.course-nav-cta / .nav-cta</p>
+        </div>
+        <div class="ui-block ui-dark-surface" style="padding: 24px;">
+          <a href="#" class="course-btn-secondary" onclick="return false;">VER MÁS CURSOS</a>
+          <p class="ui-label" style="color: rgba(248,247,241,0.6);">.course-btn-secondary</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Iconos / flechas -->
+    <section class="ui-section">
+      <h2>+ BOTONES DE ÍCONO</h2>
+      <p class="ui-desc">Usados en carruseles (galería de instrumentos, testimonios del curso).</p>
+      <div class="ui-row">
+        <div class="ui-block">
+          <div class="ui-arrow-demo">
+            <button class="gallery-arrow" onclick="return false;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="gallery-arrow" onclick="return false;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <p class="ui-label">.gallery-arrow</p>
+        </div>
+        <div class="ui-block ui-dark-surface ui-arrow-demo">
+          <button class="course-testimonial-arrow" onclick="return false;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="course-testimonial-arrow" onclick="return false;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Badge -->
+    <section class="ui-section">
+      <h2>+ BADGES</h2>
+      <p class="ui-desc">Etiqueta que marca la card destacada de la sección "Cursos", superpuesta al borde superior.</p>
+      <div class="ui-row">
+        <div class="ui-block ui-dark-surface" style="padding: 32px;">
+          <span class="course-badge" style="position: static;">CURSO MÁS ELEGIDO</span>
+          <p class="ui-label" style="color: rgba(248,247,241,0.6); margin-top:16px;">.course-badge</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Degradados -->
+    <section class="ui-section">
+      <h2>+ DEGRADADOS · PASO A PASO</h2>
+      <p class="ui-desc">Manchas radiales celeste (#8AAFB9) y naranja con blur, más el grano/ruido sutil, usados de fondo en la sección "Paso a paso".</p>
+      <div style="position: relative; height: 320px; overflow: hidden; border-radius: 4px; background-color: #141618;">
+        <div class="paso-glow paso-glow--blue"></div>
+        <div class="paso-glow paso-glow--orange"></div>
+        <div class="paso-noise"></div>
+      </div>
+      <p class="ui-label" style="margin-top: 16px;">.paso-glow--blue · .paso-glow--orange · .paso-noise</p>
+    </section>
+
+    <!-- Cards de cursos -->
+    <section class="ui-section">
+      <h2>+ CARDS · CURSOS</h2>
+      <p class="ui-desc">Card default y card destacada (<code>.course-card--featured</code>), con degradado naranja/celeste al hacer hover.</p>
+      <div class="ui-dark-surface" style="padding: 48px;">
+        <div class="cursos-grid" style="max-width: 100%;">
+          <article class="course-card">
+            <div class="course-info">
+              <h3 class="course-title">Calibración de violín</h3>
+              <p class="course-description">Ajustá y poné a punto un violín, trabajando el puente, las clavijas y los accesorios.</p>
+              <p class="course-price"><span class="price-sign">$</span>300.000</p>
+              <p class="course-installments">6 cuotas sin interés</p>
+            </div>
+            <div class="course-details">
+              <div class="course-detail-row"><span>NIVEL</span><span>AVANZADO</span></div>
+              <div class="course-detail-row"><span>MODALIDAD</span><span>PRESENCIAL</span></div>
+              <div class="course-detail-row"><span>DURACIÓN</span><span>4 MESES</span></div>
+              <a href="#" class="course-btn" onclick="return false;">CONOCER MÁS</a>
+            </div>
+          </article>
+
+          <article class="course-card course-card--featured">
+            <span class="course-badge">CURSO MÁS ELEGIDO</span>
+            <div class="course-info">
+              <h3 class="course-title">Construí tu guitarra criolla</h3>
+              <p class="course-description">Diseñá y construí una guitarra hecha con tus propias manos.</p>
+              <p class="course-price"><span class="price-sign">$</span>560.000</p>
+              <p class="course-installments">6 cuotas sin interés</p>
+            </div>
+            <div class="course-details">
+              <div class="course-detail-row"><span>NIVEL</span><span>PRINCIPIANTE</span></div>
+              <div class="course-detail-row"><span>MODALIDAD</span><span>PRESENCIAL</span></div>
+              <div class="course-detail-row"><span>DURACIÓN</span><span>6 MESES</span></div>
+              <a href="#" class="course-btn" onclick="return false;">CONOCER MÁS</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-info">
+              <h3 class="course-title">Personalizá tu instrumento</h3>
+              <p class="course-description">Aprendé técnicas de personalización para transformar instrumentos con acabados, colores y detalles únicos.</p>
+              <p class="course-price"><span class="price-sign">$</span>210.000</p>
+              <p class="course-installments">6 cuotas sin interés</p>
+            </div>
+            <div class="course-details">
+              <div class="course-detail-row"><span>NIVEL</span><span>PRINCIPIANTE</span></div>
+              <div class="course-detail-row"><span>MODALIDAD</span><span>PRESENCIAL</span></div>
+              <div class="course-detail-row"><span>DURACIÓN</span><span>2 MESES</span></div>
+              <a href="#" class="course-btn" onclick="return false;">CONOCER MÁS</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="ui-section">
+      <h2>+ CARD · TESTIMONIO</h2>
+      <div class="ui-row ui-testimonial-demo">
+        <div class="testimonial-card">
+          <span class="testimonial-quote">&ldquo;</span>
+          <p class="testimonial-text">El curso superó mis expectativas. Terminé con una guitarra criolla que refleja el sonido que buscaba.</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-person">
+              <p class="testimonial-name">MATÍAS ARIAS</p>
+              <p class="testimonial-role">Diseñador Industrial</p>
+            </div>
+            <p class="testimonial-tag">CONSTRUÍ TU PROPIA<br>GUITARRA CRIOLLA</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="ui-section">
+      <h2>+ ESTADÍSTICAS</h2>
+      <p class="ui-desc">Números animados (cuentan desde 0 al entrar en pantalla) con líneas divisorias sutiles.</p>
+      <div class="stats-grid" style="max-width: 900px;">
+        <div class="stat">
+          <p class="stat-number"><span class="stat-count">30</span> <span class="stat-suffix">+</span></p>
+          <p class="stat-label">Años de experiencia</p>
+        </div>
+        <div class="stat">
+          <p class="stat-number"><span class="stat-count">500</span> <span class="stat-suffix">+</span></p>
+          <p class="stat-label">Instrumentos realizados</p>
+        </div>
+        <div class="stat">
+          <p class="stat-number"><span class="stat-count">100</span> <span class="stat-suffix">%</span></p>
+          <p class="stat-label">Trabajo artesanal</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery card -->
+    <section class="ui-section">
+      <h2>+ CARD · GALERÍA</h2>
+      <div class="ui-row" style="background-color: var(--cream); padding: 32px 0;">
+        <div class="gallery-card is-center" style="position: static;">
+          <img src="assets/img/electrica_galeria_3.jpg" alt="Guitarra eléctrica">
+          <p class="gallery-card-name">Guitarra eléctrica</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

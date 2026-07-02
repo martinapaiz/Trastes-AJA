@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construí tu guitarra criolla — Trastes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;800&family=DM+Sans:wght@400;500;600&family=Syne:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+  <div class="page-lines"></div>
+  <div id="gridWipe">
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:0ms"></div>
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:75ms"></div>
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:150ms"></div>
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:225ms"></div>
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:300ms"></div>
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:375ms"></div>
+  </div>
+
+  <!-- ─── Nav ─── -->
+  <header class="course-header">
+    <a href="index.html" class="course-nav-logo" data-wipe>
+      <img src="assets/icons/Logo_White.svg" alt="Trastes">
+    </a>
+    <ul class="course-nav-links">
+      <li><a href="#curso">CURSO</a></li>
+      <li><a href="#recorrido">RECORRIDO</a></li>
+      <li><a href="#profesores">PROFESORES</a></li>
+      <li><a href="index.html#paso-a-paso" data-wipe>PASO A PASO</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="course-nav-right">
+      <a href="index.html#contacto" class="course-nav-cta" data-wipe>CONTACTO</a>
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ─── Hero ─── -->
+    <section class="course-hero">
+
+      <div class="course-hero-photo">
+        <img src="assets/img/hero_curso.jpg" alt="Luthier construyendo guitarra criolla en el taller Trastes">
+      </div>
+
+      <div class="course-hero-content">
+        <p class="course-badge"><span class="slash">+</span> CURSO MÁS ELEGIDO</p>
+        <h1 class="course-hero-title">Construí tu propia guitarra criolla</h1>
+        <p class="course-hero-desc">Diseñá y construí una guitarra hecha con tus propias manos, recorriendo cada etapa del proceso artesanal.</p>
+
+        <div class="course-hero-table">
+          <div class="course-hero-row">
+            <span class="course-hero-row-label">NIVEL</span>
+            <span class="course-hero-row-value">PRINCIPIANTE</span>
+          </div>
+          <div class="course-hero-row">
+            <span class="course-hero-row-label">MODALIDAD</span>
+            <span class="course-hero-row-value">PRESENCIAL</span>
+          </div>
+          <div class="course-hero-row">
+            <span class="course-hero-row-label">DURACIÓN</span>
+            <span class="course-hero-row-value">6 MESES</span>
+          </div>
+        </div>
+
+        <div class="course-hero-btns">
+          <a href="index.html#contacto" class="course-btn-primary">INSCRIBIRME AHORA</a>
+          <a href="#contenido" class="course-btn-secondary">CONOCER EL CURSO</a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ─── Sobre el curso ─── -->
+    <section class="detail-about" id="curso">
+      <div class="detail-about-content">
+        <div class="detail-about-text">
+          <p class="detail-about-label"><span class="slash">+</span> SOBRE EL CURSO</p>
+          <h2 class="detail-about-title">Construí una guitarra <span class="text-orange">desde cero</span></h2>
+          <p class="detail-about-desc">
+            Durante el curso desarrollarás las técnicas, el criterio y la precisión necesarios para construir una guitarra criolla desde cero.
+          </p>
+          <p class="detail-about-desc">
+            Trabajarás con <strong>materiales reales, herramientas profesionales y el acompañamiento permanente de luthiers especializados</strong> que te guiarán en cada etapa del proceso.
+          </p>
+        </div>
+        <div class="detail-about-polaroid">
+          <div class="polaroid-meta">
+            <span class="polaroid-location">BUENOS AIRES / TALLER</span>
+            <span class="polaroid-tag">35MM</span>
+          </div>
+          <img src="assets/img/sobrecurso_chica.png" alt="Luthier construyendo una guitarra en el taller" class="detail-about-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Qué incluye ─── -->
+    <section class="detail-includes-section">
+      <p class="detail-includes-label"><span class="slash">+</span> ¿QUÉ INCLUYE?</p>
+      <h2 class="detail-includes-title">Un entorno <span class="text-orange">pensado para aprender el oficio</span></h2>
+
+      <div class="includes-grid">
+        <div class="includes-item">
+          <p class="includes-category">MATERIALES</p>
+          <h3 class="includes-item-title">Materiales seleccionados</h3>
+          <p class="includes-item-desc">Trabajá con maderas y componentes de calidad profesional.</p>
+        </div>
+        <div class="includes-item">
+          <p class="includes-category">HERRAMIENTAS</p>
+          <h3 class="includes-item-title">Taller equipado</h3>
+          <p class="includes-item-desc">Utilizá herramientas específicas de luthería durante toda la cursada.</p>
+        </div>
+        <div class="includes-item">
+          <p class="includes-category">DOCENTES</p>
+          <h3 class="includes-item-title">Acompañamiento</h3>
+          <p class="includes-item-desc">Contá con el seguimiento de luthiers en cada etapa.</p>
+        </div>
+        <div class="includes-item">
+          <p class="includes-category">RESULTADO</p>
+          <h3 class="includes-item-title">Guitarra terminada</h3>
+          <p class="includes-item-desc">Finalizá el curso con un instrumento construido por vos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Recorrido del curso ─── -->
+    <section class="detail-recorrido" id="recorrido">
+
+      <div class="detail-recorrido-header">
+        <p class="detail-recorrido-label"><span class="slash">+</span> RECORRIDO DEL CURSO</p>
+        <h2 class="detail-recorrido-title">Cada etapa <span class="text-orange">construye el resultado</span></h2>
+        <p class="detail-recorrido-subtitle">A lo largo del curso recorrerás las principales etapas de la construcción de una guitarra criolla, <strong>desde la selección de los materiales hasta la calibración final.</strong></p>
+      </div>
+
+      <div class="recorrido-timeline">
+
+        <!-- Etapa 1: imagen izquierda, texto derecha -->
+        <div class="recorrido-step">
+          <div class="recorrido-img-col">
+            <img src="assets/img/recorrido_fundamentos.jpg" alt="Fundamentos de la luthería">
+          </div>
+          <div class="recorrido-center">
+            <div class="recorrido-dot"></div>
+          </div>
+          <div class="recorrido-content">
+            <p class="recorrido-meta">ETAPA 1 · MES 1</p>
+            <h3 class="recorrido-step-title">01. Fundamentos de la luthería</h3>
+            <p class="recorrido-step-desc">Conocé las bases del oficio y familiarizate con las herramientas, los materiales y las técnicas esenciales. Aprenderás a comprender la función de cada componente de la guitarra y cómo cada decisión influye en el resultado final del instrumento.</p>
+          </div>
+        </div>
+
+        <!-- Etapa 2: texto izquierda, imagen derecha -->
+        <div class="recorrido-step recorrido-step--reverse">
+          <div class="recorrido-content">
+            <p class="recorrido-meta recorrido-meta--reverse">ETAPA 2 · MESES 2, 3, 4</p>
+            <h3 class="recorrido-step-title">02. Construcción</h3>
+            <p class="recorrido-step-desc">Desarrollá paso a paso el cuerpo, el mástil y las principales piezas de la guitarra criolla. Aplicarás técnicas de corte, moldeado, encolado y ensamblado, siempre acompañado por el docente para garantizar un proceso preciso.</p>
+          </div>
+          <div class="recorrido-center">
+            <div class="recorrido-dot"></div>
+          </div>
+          <div class="recorrido-img-col">
+            <img src="assets/img/recorrido_construccion.jpg" alt="Construcción de la guitarra">
+          </div>
+        </div>
+
+        <!-- Etapa 3: imagen izquierda, texto derecha -->
+        <div class="recorrido-step">
+          <div class="recorrido-img-col">
+            <img src="assets/img/recorrido_terminaciones.jpg" alt="Terminaciones">
+          </div>
+          <div class="recorrido-center">
+            <div class="recorrido-dot"></div>
+          </div>
+          <div class="recorrido-content">
+            <p class="recorrido-meta">ETAPA 3 · MES 5</p>
+            <h3 class="recorrido-step-title">03. Terminaciones</h3>
+            <p class="recorrido-step-desc">Diseño e incrustación de la roseta, filetes y binding. Lijado, aplicación de selladores y lacas. Cada terminación es trabajada a mano para que el instrumento tenga identidad propia.</p>
+          </div>
+        </div>
+
+        <!-- Etapa 4: texto izquierda, imagen derecha -->
+        <div class="recorrido-step recorrido-step--reverse">
+          <div class="recorrido-content">
+            <p class="recorrido-meta recorrido-meta--reverse">ETAPA 4 · MES 6</p>
+            <h3 class="recorrido-step-title">04. Ajuste final</h3>
+            <p class="recorrido-step-desc">Ajuste del puente, cejuela y clavijero. Afinación y control de acción. Al terminar, te llevás la guitarra que construiste con tus propias manos, calibrada y lista para tocar.</p>
+          </div>
+          <div class="recorrido-center">
+            <div class="recorrido-dot"></div>
+          </div>
+          <div class="recorrido-img-col">
+            <img src="assets/img/recorrido_ajustefinal.jpg" alt="Ajuste final de la guitarra">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Testimonios ─── -->
+    <section class="course-testimonial" id="courseTestimonial">
+      <div class="course-testimonial-track" id="courseTestimonialTrack">
+        <div class="course-testimonial-slide">
+          <img src="assets/img/testimonio_curso_juan.jpg" alt="Juan Ortega en el taller" class="course-testimonial-img">
+          <div class="course-testimonial-overlay"></div>
+
+          <div class="course-testimonial-content">
+            <p class="course-testimonial-name">Juan Ortega</p>
+            <p class="course-testimonial-quote">&ldquo;El acompañamiento hizo que todo el proceso fuera mucho más simple.&rdquo;</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-testimonial-nav">
+        <button class="course-testimonial-arrow" id="courseTestimonialPrev" aria-label="Testimonio anterior">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="course-testimonial-arrow" id="courseTestimonialNext" aria-label="Testimonio siguiente">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ─── Equipo docente ─── -->
+    <section class="detail-team" id="profesores">
+      <div class="detail-team-header">
+        <div>
+          <p class="detail-team-label"><span class="slash">+</span> EQUIPO DOCENTE</p>
+          <h2 class="detail-team-title"><span class="text-orange">Quienes hacen posible</span> cada aprendizaje</h2>
+        </div>
+        <p class="detail-team-desc">Detrás de cada clase hay un equipo de luthiers dedicado a compartir el oficio, resolver cada desafío técnico y acompañarte durante todo el recorrido.</p>
+      </div>
+
+      <div class="detail-team-grid">
+        <div class="team-card">
+          <img src="assets/img/equipo_jorge_1.jpg" alt="Jorge Talledo">
+          <div class="team-card-info">
+            <h3 class="team-card-name">Jorge Talledo</h3>
+            <p class="team-card-role"><span class="slash">+</span> DIRECTOR DEL TALLER</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="assets/img/equipo_rodrigo_2.jpg" alt="Rodrigo Beder">
+          <div class="team-card-info">
+            <h3 class="team-card-name">Rodrigo Beder</h3>
+            <p class="team-card-role"><span class="slash">+</span> LUTHIER</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="assets/img/equipo_tomas_3.jpg" alt="Tomás Casán">
+          <div class="team-card-info">
+            <h3 class="team-card-name">Tomás Casán</h3>
+            <p class="team-card-role"><span class="slash">+</span> AYUDANTE DE TALLER</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Preguntas frecuentes ─── -->
+    <section class="detail-faq" id="faq">
+      <div class="detail-faq-left">
+        <p class="detail-faq-label"><span class="slash">+</span> PREGUNTAS FRECUENTES</p>
+        <h2 class="detail-faq-title">Todo lo que <span class="text-orange">necesitás saber.</span></h2>
+        <p class="detail-faq-desc">Reunimos las consultas más frecuentes sobre la cursada, los materiales, la modalidad y el proceso de inscripción para que puedas conocer todos los detalles antes de comenzar.</p>
+      </div>
+
+      <div class="detail-faq-right">
+        <div class="faq-item" data-index="1">
+          <button class="faq-header">
+            <span class="faq-question">¿Necesito experiencia previa para hacer el curso?</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>No, el curso está pensado para principiantes. Arrancamos desde los fundamentos de la luthería y vas incorporando técnicas más avanzadas a medida que avanza la cursada, siempre acompañado por el docente.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-index="2">
+          <button class="faq-header">
+            <span class="faq-question">¿Los materiales están incluidos en el precio?</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Sí, el valor del curso incluye todas las maderas y materiales necesarios para construir tu guitarra, además del acceso completo a las herramientas del taller durante toda la cursada.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-index="3">
+          <button class="faq-header">
+            <span class="faq-question">¿Cuál es la modalidad de cursada?</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>El curso es 100% presencial y se dicta los sábados y domingos de 9:00 a 13:00 hs en nuestro taller de Buenos Aires. Los cupos son reducidos para garantizar atención personalizada.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-index="4">
+          <button class="faq-header">
+            <span class="faq-question">¿Cómo es el proceso de inscripción?</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Podés reservar tu lugar completando el formulario de contacto. Un miembro del equipo se comunica con vos para coordinar el pago en cuotas y confirmar tu cupo en la próxima comisión.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA final ─── -->
+    <section class="detail-cta-section">
+      <h2 class="detail-cta-title">¿Listo para construir<br>tu primer instrumento?</h2>
+      <p class="detail-cta-desc">Los cupos son limitados. Si querés reservar tu lugar o tenés alguna pregunta, escribinos y te respondemos a la brevedad.</p>
+      <a href="index.html#contacto" class="course-btn-primary detail-cta-btn">INSCRIBIRME AHORA</a>
+    </section>
+
+  </main>
+
+  <!-- ─── Footer ─── -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html#inicio" class="footer-logo"><img src="assets/icons/Logo_White.svg" alt="Trastes"></a>
+        <p class="footer-tagline">Más de 30 años dedicados a la construcción, restauración y enseñanza de la luthería. Un taller donde el oficio, la experiencia y el trabajo artesanal dan vida a instrumentos con identidad propia.</p>
+      </div>
+
+      <nav class="footer-nav">
+        <p class="footer-label"><span class="slash">+</span> NAVEGACIÓN</p>
+        <ul class="footer-links">
+          <li><a href="index.html#inicio">INICIO</a></li>
+          <li><a href="index.html#nosotros">NOSOTROS</a></li>
+          <li><a href="index.html#cursos">CURSOS</a></li>
+          <li><a href="index.html#materiales">MATERIALES</a></li>
+          <li><a href="index.html#paso-a-paso">PASO A PASO</a></li>
+          <li><a href="index.html#galeria">GALERÍA</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <p class="footer-label"><span class="slash">+</span> CONTACTO</p>
+        <p class="footer-contact-item">Av. Corrientes 1234, CABA</p>
+        <p class="footer-contact-item">+54 11 2345-6789</p>
+        <p class="footer-contact-item">hola@trastes.com.ar</p>
+      </div>
+
+      <div class="footer-social">
+        <p class="footer-label"><span class="slash">+</span> SEGUINOS</p>
+        <div class="footer-social-icons">
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="social-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 8.5h2V5h-2c-2.2 0-4 1.8-4 4v2H9v3h2v7h3v-7h2.2l.8-3H14v-2c0-.5.4-.5 1-.5Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="TikTok" class="social-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 3c.5 2.3 2 3.8 4.3 4v3c-1.6.1-3-.4-4.3-1.3v6.6a5.2 5.2 0 1 1-5.2-5.2c.3 0 .6 0 .9.1v3.1a2.2 2.2 0 1 0 1.5 2.1V3h2.8Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Trastes. Todos los derechos reservados.</p>
+      <p class="footer-credit">Hecho a mano en Buenos Aires.</p>
+    </div>
+    <p class="footer-signature">Martina Paiz - Belluccia 3 - Comisión 1</p>
+  </footer>
+
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/transitions.js"></script>
+</body>
+</html>

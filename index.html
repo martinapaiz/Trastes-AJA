@@ -10,26 +10,33 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="page-lines"></div>
+  <div id="gridWipe">
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:0ms"></div>
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:75ms"></div>
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:150ms"></div>
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:225ms"></div>
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:300ms"></div>
+    <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:375ms"></div>
+  </div>
   <header class="site-header">
-    <nav class="nav-container">
-      <a href="#inicio" class="logo"><img src="assets/icons/Logo_White.svg" alt="Trastes"></a>
-      <ul class="nav-links">
-        <li><a href="#inicio">INICIO</a></li>
-        <li><a href="#nosotros">NOSOTROS</a></li>
-        <li><a href="#cursos">CURSOS</a></li>
-        <li><a href="#materiales">MATERIALES</a></li>
-        <li><a href="#paso-a-paso">PASO A PASO</a></li>
-        <li><a href="#galeria">GALERÍA</a></li>
-      </ul>
-      <div class="nav-right">
-        <a href="#contacto" class="nav-cta">SOLICITAR PRESUPUESTO</a>
-        <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </nav>
+    <a href="#inicio" class="logo"><img src="assets/icons/Logo_White.svg" alt="Trastes"></a>
+    <ul class="nav-links">
+      <li><a href="#inicio">INICIO</a></li>
+      <li><a href="#nosotros">NOSOTROS</a></li>
+      <li><a href="#cursos">CURSOS</a></li>
+      <li><a href="#materiales">MATERIALES</a></li>
+      <li><a href="#paso-a-paso">PASO A PASO</a></li>
+      <li><a href="#galeria">GALERÍA</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#contacto" class="nav-cta">CONTACTO</a>
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </header>
 
   <main>
@@ -43,11 +50,14 @@
         <source media="(max-width: 900px)" srcset="assets/img/Hero_Mobile.png">
         <img src="assets/img/Hero_Hombre.png" alt="Luthier trabajando en el taller" class="hero-img">
       </picture>
+      <div class="hero-line"></div>
     </section>
 
     <section class="manifesto">
       <div class="manifesto-inner">
         <div class="manifesto-content">
+          <div class="manifesto-line manifesto-line--top" id="manifestoLineTop"></div>
+          <div class="manifesto-line manifesto-line--bottom" id="manifestoLineBottom"></div>
           <p class="manifesto-label"><span class="slash">+</span> NUESTRO MANIFIESTO</p>
           <p class="manifesto-text">
             <span class="text-dark">No construimos guitarras.</span>
@@ -61,10 +71,6 @@
     <section class="about" id="nosotros">
       <div class="about-content">
         <div class="polaroid">
-          <div class="polaroid-meta">
-            <span class="polaroid-location">BUENOS AIRES / SINCE 1988</span>
-            <span class="polaroid-tag">35MM</span>
-          </div>
           <img src="assets/img/Quienes_Somos.jpg" alt="Luthier trabajando en el taller" class="about-img">
         </div>
         <div class="about-text">
@@ -81,24 +87,26 @@
 
       <div class="about-stats">
         <p class="about-label"><span class="slash">+</span> EN NÚMEROS</p>
+        <div class="stats-line stats-line--top" id="statsLineTop"></div>
         <div class="stats-grid">
           <div class="stat">
-            <p class="stat-number">30 <span class="stat-suffix">+</span></p>
+            <p class="stat-number"><span class="stat-count" data-target="30">0</span> <span class="stat-suffix">+</span></p>
             <p class="stat-label">Años de experiencia</p>
           </div>
           <div class="stat">
-            <p class="stat-number">500 <span class="stat-suffix">+</span></p>
+            <p class="stat-number"><span class="stat-count" data-target="500">0</span> <span class="stat-suffix">+</span></p>
             <p class="stat-label">Instrumentos realizados</p>
           </div>
           <div class="stat">
-            <p class="stat-number">200 <span class="stat-suffix">+</span></p>
+            <p class="stat-number"><span class="stat-count" data-target="200">0</span> <span class="stat-suffix">+</span></p>
             <p class="stat-label">Alumnos formados</p>
           </div>
           <div class="stat">
-            <p class="stat-number">100 <span class="stat-suffix">%</span></p>
+            <p class="stat-number"><span class="stat-count" data-target="100">0</span> <span class="stat-suffix">%</span></p>
             <p class="stat-label">Trabajo artesanal</p>
           </div>
         </div>
+        <div class="stats-line stats-line--bottom" id="statsLineBottom"></div>
       </div>
     </section>
 
@@ -111,12 +119,12 @@
         <div class="why-item">
           <img src="assets/img/acústica_galería.png" alt="Detalle de guitarra acústica">
           <p class="why-item-title">EL VALOR DE LO ÚNICO</p>
-          <p class="why-item-desc">Aprendé a tratar cada bloque de madera como una pieza irrepetible, adaptándote a su veta para liberar su sonido natural.</p>
+          <p class="why-item-desc">Tratá cada bloque de madera como una pieza irrepetible, adaptándote a su veta para liberar su sonido natural.</p>
         </div>
         <div class="why-item">
           <img src="assets/img/herramienta_galería.png" alt="Herramientas de trabajo">
           <p class="why-item-title">CONEXIÓN ANALÓGICA</p>
-          <p class="why-item-desc">El oficio se ensucia las manos. Te damos un banco propio y herramientas profesionales para dominar el material desde el primer día.</p>
+          <p class="why-item-desc">El oficio se ensucia las manos. Te damos un banco propio y herramientas para dominar el material desde el primer día.</p>
         </div>
         <div class="why-item">
           <img src="assets/img/señor_galería.png" alt="Luthier trabajando en el taller">
@@ -126,7 +134,7 @@
         <div class="why-item">
           <img src="assets/img/violín_galería.png" alt="Restauración de violín">
           <p class="why-item-title">OBSESIÓN POR EL DETALLE</p>
-          <p class="why-item-desc">Te enseñamos a controlar el milímetro exacto que cambia la acústica y la ergonomía para que el instrumento sea perfecto.</p>
+          <p class="why-item-desc">Controlá el milímetro exacto que cambia la acústica y la ergonomía para que el instrumento sea perfecto.</p>
         </div>
       </div>
     </section>
@@ -152,8 +160,8 @@
         </article>
 
         <article class="course-card course-card--featured">
+          <span class="course-badge">CURSO MÁS ELEGIDO</span>
           <div class="course-info">
-            <span class="course-badge">CURSO MÁS ELEGIDO</span>
             <h3 class="course-title">Construí tu guitarra criolla</h3>
             <p class="course-description">Diseñá y construí una guitarra hecha con tus propias manos, recorriendo cada etapa del proceso artesanal.</p>
             <p class="course-price"><span class="price-sign">$</span>560.000</p>
@@ -163,7 +171,7 @@
             <div class="course-detail-row"><span>NIVEL</span><span>PRINCIPIANTE</span></div>
             <div class="course-detail-row"><span>MODALIDAD</span><span>PRESENCIAL</span></div>
             <div class="course-detail-row"><span>DURACIÓN</span><span>6 MESES</span></div>
-            <a href="#" class="course-btn">CONOCER MÁS</a>
+            <a href="curso-guitarra-criolla.html" data-wipe class="course-btn">CONOCER MÁS</a>
           </div>
         </article>
 
@@ -355,11 +363,12 @@
 
     <section class="paso-a-paso" id="paso-a-paso">
       <div class="paso-inner">
+        <div class="paso-glow paso-glow--blue" id="pasoGlowBlue"></div>
+        <div class="paso-glow paso-glow--orange" id="pasoGlowOrange"></div>
+        <div class="paso-noise"></div>
         <div class="paso-header">
-          <div>
-            <p class="paso-label"><span class="slash">+</span> PASO A PASO</p>
-            <h2 class="paso-title"><span class="text-orange">El recorrido de</span> cada instrumento.</h2>
-          </div>
+          <p class="paso-label"><span class="slash">+</span> PASO A PASO</p>
+          <h2 class="paso-title"><span class="text-orange">El recorrido de</span> cada instrumento.</h2>
           <p class="paso-subtitle">Cada etapa se realiza de forma manual y se controla para garantizar <strong>precisión, estabilidad y calidad.</strong></p>
         </div>
 
@@ -393,7 +402,7 @@
 
     <section class="gallery" id="galeria">
       <div class="gallery-header">
-        <p class="gallery-label"><span class="slash">+</span> INSTRUMENTOS</p>
+        <p class="gallery-label"><span class="slash">+</span> INSTRUMENTOS QUE HACEMOS</p>
         <h2 class="gallery-title">Encontrá el instrumento<br><span class="text-orange">que mejor se adapta a vos.</span></h2>
       </div>
       <div class="gallery-track-wrapper" id="galleryWrapper">
@@ -420,6 +429,14 @@
           </div>
         </div>
       </div>
+      <div class="gallery-nav">
+        <button class="gallery-arrow" id="galleryPrev" aria-label="Instrumento anterior">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="gallery-arrow" id="galleryNext" aria-label="Instrumento siguiente">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
     </section>
 
     <section class="cta">
@@ -432,7 +449,7 @@
   <footer class="site-footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#inicio" class="logo"><img src="assets/icons/Logo_White.svg" alt="Trastes"></a>
+        <a href="#inicio" class="footer-logo"><img src="assets/icons/Logo_White.svg" alt="Trastes"></a>
         <p class="footer-tagline">Más de 30 años dedicados a la construcción, restauración y enseñanza de la luthería. Un taller donde el oficio, la experiencia y el trabajo artesanal dan vida a instrumentos con identidad propia.</p>
       </div>
 
@@ -483,8 +500,11 @@
       <p class="footer-copy">© 2026 Trastes. Todos los derechos reservados.</p>
       <p class="footer-credit">Hecho a mano en Buenos Aires.</p>
     </div>
+    <p class="footer-signature">Martina Paiz - Belluccia 3 - Comisión 1</p>
   </footer>
 
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/transitions.js"></script>
 </body>
 </html>
