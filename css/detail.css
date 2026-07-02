@@ -231,8 +231,8 @@
 .detail-about-polaroid {
   flex: 1;
   background-color: #fff;
-  padding: 20px 20px 24px;
-  border-radius: 4px;
+  padding: 20px 75px 20px 20px;
+  border-radius: 0;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
@@ -321,11 +321,15 @@
 /* ---- Sección: Recorrido del curso ---- */
 
 .detail-recorrido {
+  position: relative;
   background-color: var(--course-bg);
   padding: 170px 0;
+  overflow: hidden;
 }
 
 .detail-recorrido-header {
+  position: relative;
+  z-index: 1;
   max-width: var(--content-max);
   margin: 0 auto 100px;
   padding: 0 var(--side-margin);
@@ -373,6 +377,7 @@
 
 .recorrido-timeline {
   position: relative;
+  z-index: 1;
   text-align: left;
   padding: 0 240px;
 }
@@ -404,6 +409,14 @@
 
 .recorrido-img-col {
   grid-column: 1;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.recorrido-step.is-revealed .recorrido-img-col {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .recorrido-step--reverse .recorrido-img-col {
@@ -436,6 +449,12 @@
   border-radius: 50%;
   background-color: #F8F7F1;
   flex-shrink: 0;
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1) 0.2s;
+}
+
+.recorrido-step.is-revealed .recorrido-dot {
+  transform: scale(1);
 }
 
 .recorrido-content {
@@ -456,6 +475,14 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.recorrido-step.is-revealed .recorrido-meta {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Conector: línea que sale del dot hacia el texto */

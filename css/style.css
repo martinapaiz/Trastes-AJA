@@ -1660,7 +1660,9 @@ img {
 }
 
 .paso-step-name.is-revealed .mask-word,
-.paso-step-desc.is-revealed .mask-word {
+.paso-step-desc.is-revealed .mask-word,
+.recorrido-step-title.is-revealed .mask-word,
+.recorrido-step-desc.is-revealed .mask-word {
   transform: translateY(0);
 }
 
@@ -2355,10 +2357,11 @@ img {
 
   .cta {
     padding: 90px var(--side-margin);
-    /* La imagen es apaisada (ancha); en pantallas angostas "cover" la
-       recortaba mucho y solo se veía la franja celeste del medio. Fijar
-       el ancho al 100% muestra todo el degradado de colores. */
-    background-size: 100% auto;
+    /* La imagen es apaisada (1920x791). "100% auto" dejaba franjas de
+       cream arriba/abajo porque la sección mobile es mucho más alta que
+       ancha. "cover" llena todo el alto sin dejar huecos; se recorta el
+       ancho pero al estar centrado se sigue viendo la mezcla de colores. */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }

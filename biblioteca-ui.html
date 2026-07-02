@@ -132,6 +132,12 @@
       display: inline-flex;
       padding: 24px;
     }
+
+    /* El "+" del acordeón es negro por defecto; sobre fondo oscuro necesita ser claro */
+    .ui-icon-cream::before,
+    .ui-icon-cream::after {
+      background-color: var(--cream);
+    }
   </style>
 </head>
 <body style="background-color: var(--cream);">
@@ -165,6 +171,10 @@
         <div class="ui-swatch">
           <div class="ui-swatch-color" style="background-color: var(--course-bg);"></div>
           <p class="ui-label">--course-bg · #141618</p>
+        </div>
+        <div class="ui-swatch">
+          <div class="ui-swatch-color" style="background-color: #8AAFB9;"></div>
+          <p class="ui-label">celeste (degradados) · #8AAFB9</p>
         </div>
       </div>
     </section>
@@ -248,6 +258,53 @@
           <button class="course-testimonial-arrow" onclick="return false;">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Líneas y detalles decorativos -->
+    <section class="ui-section">
+      <h2>+ LÍNEAS Y DETALLES DECORATIVOS</h2>
+      <p class="ui-desc">Elementos gráficos chicos que se repiten a lo largo del sitio para separar y marcar contenido.</p>
+
+      <div class="ui-row" style="align-items: stretch; margin-bottom: 32px;">
+        <div class="ui-block" style="width: 320px;">
+          <p style="font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.5px;"><span class="slash" style="color: var(--orange);">+</span> DE MAESTRO A APRENDIZ</p>
+          <p class="ui-label">.slash — prefijo de los labels de sección</p>
+        </div>
+
+        <div class="ui-block" style="width: 320px;">
+          <div style="position: relative; height: 24px;">
+            <div style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; background-color: rgba(48, 48, 48, 0.35); transform: translateY(-50%) scaleX(1);"></div>
+          </div>
+          <p class="ui-label">.manifesto-line / .stats-line — crecen desde un costado al hacer scroll</p>
+        </div>
+
+        <div class="ui-block ui-dark-surface" style="width: 320px; padding: 16px 24px;">
+          <div class="stepper" style="margin: 0; max-width: 100%;">
+            <div class="stepper-line" style="position: relative; top: 0; transform: none;">
+              <div class="stepper-progress" style="width: 45%;"></div>
+            </div>
+            <button class="stepper-dot is-done" style="position: relative;"></button>
+            <button class="stepper-dot is-active" style="position: relative;"></button>
+            <button class="stepper-dot" style="position: relative;"></button>
+          </div>
+          <p class="ui-label" style="color: rgba(248,247,241,0.6); margin-top: 12px;">.stepper-line / .stepper-dot — "Paso a paso"</p>
+        </div>
+      </div>
+
+      <div class="ui-row" style="align-items: center;">
+        <div class="ui-block ui-dark-surface" style="width: 220px; align-items: center; padding: 32px;">
+          <div class="accordion-item" style="border: none; margin: 0; padding: 0; width: auto;">
+            <div class="accordion-icon ui-icon-cream"></div>
+          </div>
+          <p class="ui-label" style="color: rgba(248,247,241,0.6);">.accordion-icon (cerrado)</p>
+        </div>
+        <div class="ui-block ui-dark-surface" style="width: 220px; align-items: center; padding: 32px;">
+          <div class="accordion-item is-active" style="border: none; margin: 0; padding: 0; width: auto; background: none;">
+            <div class="accordion-icon"></div>
+          </div>
+          <p class="ui-label" style="color: rgba(248,247,241,0.6);">.accordion-icon.is-active (abierto → "-")</p>
         </div>
       </div>
     </section>

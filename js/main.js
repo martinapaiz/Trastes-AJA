@@ -92,6 +92,60 @@ function updateHeroShrink(manifestoSection, heroImg) {
   heroImg.style.transform = `scale(${scale})`;
 }
 
+function setupRecorridoReveal() {
+  const steps = document.querySelectorAll('.recorrido-step');
+  if (!steps.length) return;
+
+  steps.forEach((step) => {
+    const title = step.querySelector('.recorrido-step-title');
+    const desc = step.querySelector('.recorrido-step-desc');
+    if (title) title.innerHTML = maskifyWords(title.innerHTML);
+    if (desc) desc.innerHTML = maskifyWords(desc.innerHTML);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        const title = entry.target.querySelector('.recorrido-step-title');
+        const desc = entry.target.querySelector('.recorrido-step-desc');
+        if (title) title.classList.add('is-revealed');
+        if (desc) desc.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  steps.forEach((step) => observer.observe(step));
+}
+
+function setupRecorridoGlow() {
+  const section = document.querySelector('.detail-recorrido');
+  const glowBlue = document.getElementById('recorridoGlowBlue');
+  const glowOrange = document.getElementById('recorridoGlowOrange');
+  if (!section || !glowBlue || !glowOrange) return;
+
+  let ticking = false;
+  function update() {
+    const rect = section.getBoundingClientRect();
+    const range = rect.height - window.innerHeight;
+    const progress = range > 0 ? Math.min(Math.max(-rect.top / range, 0), 1) : 0;
+    const travel = rect.height - 640;
+
+    glowBlue.style.transform = `translateY(${progress * travel}px)`;
+    glowOrange.style.transform = `translateY(${-progress * travel}px)`;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  });
+  update();
+}
+
 function setupStatCounters() {
   const counters = document.querySelectorAll('.stat-count');
   if (!counters.length) return;
@@ -725,6 +779,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   setupStatCounters();
+  setupRecorridoGlow();
+  setupRecorridoReveal();
   setupTestimonialsCarousel();
   setupAccordion();
   setupFaq();
