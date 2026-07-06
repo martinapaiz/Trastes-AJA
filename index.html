@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;800&family=DM+Sans:wght@400;500;600&family=Syne:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
   <div class="page-lines"></div>
@@ -71,7 +71,7 @@
     <section class="about" id="nosotros">
       <div class="about-content">
         <div class="polaroid">
-          <img src="assets/img/Quienes_Somos.jpg" alt="Luthier trabajando en el taller" class="about-img">
+          <img src="assets/img/QuienesSomos_Polaroid-06.png" alt="Luthier trabajando en el taller" class="about-img">
         </div>
         <div class="about-text">
           <p class="about-label"><span class="slash">+</span> QUIÉNES SOMOS</p>
@@ -117,7 +117,7 @@
 
       <div class="why-grid">
         <div class="why-item">
-          <img src="assets/img/acústica_galería.png" alt="Detalle de guitarra acústica">
+          <img src="assets/img/Valor_Galería.png" alt="Detalle de guitarra acústica">
           <p class="why-item-title">EL VALOR DE LO ÚNICO</p>
           <p class="why-item-desc">Tratá cada bloque de madera como una pieza irrepetible, adaptándote a su veta para liberar su sonido natural.</p>
         </div>
@@ -132,7 +132,7 @@
           <p class="why-item-desc">Trabajá codo a codo con luthiers en actividad. Es la transmisión directa de la experiencia, de maestro a alumno.</p>
         </div>
         <div class="why-item">
-          <img src="assets/img/violín_galería.png" alt="Restauración de violín">
+          <img src="assets/img/Obsesión_Galería.png" alt="Restauración de violín">
           <p class="why-item-title">OBSESIÓN POR EL DETALLE</p>
           <p class="why-item-desc">Controlá el milímetro exacto que cambia la acústica y la ergonomía para que el instrumento sea perfecto.</p>
         </div>
@@ -362,16 +362,20 @@
     </section>
 
     <section class="paso-a-paso" id="paso-a-paso">
-      <div class="paso-inner">
+      <div class="paso-noise paso-noise--full"></div>
+
+      <div class="paso-bg">
         <div class="paso-glow paso-glow--blue" id="pasoGlowBlue"></div>
         <div class="paso-glow paso-glow--orange" id="pasoGlowOrange"></div>
-        <div class="paso-noise"></div>
-        <div class="paso-header">
-          <p class="paso-label"><span class="slash">+</span> PASO A PASO</p>
-          <h2 class="paso-title"><span class="text-orange">El recorrido de</span> cada instrumento.</h2>
-          <p class="paso-subtitle">Cada etapa se realiza de forma manual y se controla para garantizar <strong>precisión, estabilidad y calidad.</strong></p>
-        </div>
+      </div>
 
+      <div class="paso-header">
+        <p class="paso-label"><span class="slash">+</span> PASO A PASO</p>
+        <h2 class="paso-title"><span class="text-orange">El recorrido de</span> cada instrumento.</h2>
+        <p class="paso-subtitle">Cada etapa se realiza de forma manual y se controla para garantizar <strong>precisión, estabilidad y calidad.</strong></p>
+      </div>
+
+      <div class="paso-inner">
         <div class="stepper">
           <div class="stepper-line">
             <div class="stepper-progress" id="stepperProgress"></div>
@@ -394,49 +398,60 @@
               <span class="paso-frame-location" id="pasoFrameLabel">SELECCIÓN DE MADERAS</span>
               <span class="paso-frame-tag" id="pasoFrameTag">ETAPA 01</span>
             </div>
-            <img src="assets/img/etapa_01.png" alt="Selección de materiales" id="pasoImg">
+            <img class="paso-frame-stack paso-frame-stack--2" src="assets/img/Etapa03_Polaroid.png" alt="" id="pasoImgStack2" aria-hidden="true">
+            <img class="paso-frame-stack paso-frame-stack--1" src="assets/img/Etapa02_Polaroid.png" alt="" id="pasoImgStack1" aria-hidden="true">
+            <img src="assets/img/Etapa01_Polaroid.png" alt="Selección de materiales" id="pasoImg">
           </div>
         </div>
       </div>
     </section>
 
-    <section class="gallery" id="galeria">
-      <div class="gallery-header">
-        <p class="gallery-label"><span class="slash">+</span> INSTRUMENTOS QUE HACEMOS</p>
-        <h2 class="gallery-title">Encontrá el instrumento<br><span class="text-orange">que mejor se adapta a vos.</span></h2>
+    <section class="detail-instruments" id="galeria">
+      <div class="detail-instruments-header">
+        <p class="detail-instruments-label"><span class="slash">+</span> INSTRUMENTOS ARTESANALES</p>
+        <h2 class="detail-instruments-title">Instrumentos construidos en <span class="text-orange">nuestro taller</span></h2>
+        <p class="detail-instruments-subtitle">Cada pieza se construye artesanalmente con materiales seleccionados, atención al detalle y la posibilidad de personalizar cada proyecto.</p>
       </div>
-      <div class="gallery-track-wrapper" id="galleryWrapper">
-        <div class="gallery-track" id="galleryTrack">
-          <div class="gallery-card" data-size="side">
-            <img src="assets/img/acustica_galeria_1.jpg" alt="Guitarra acústica">
-            <p class="gallery-card-name">Guitarra acústica</p>
+
+      <div class="instruments-fan">
+        <div class="instrument-fan-card">
+          <img src="assets/img/acústica_GALERÍA.png" alt="Guitarra acústica">
+          <div class="instrument-fan-info">
+            <p class="instrument-fan-title">Guitarra acústica</p>
+            <p class="instrument-fan-desc">Construida a mano, cuerda por cuerda.</p>
           </div>
-          <div class="gallery-card" data-size="side">
-            <img src="assets/img/violin_galeria_2.jpg" alt="Violín en proceso">
-            <p class="gallery-card-name">Violín</p>
+        </div>
+        <div class="instrument-fan-card">
+          <img src="assets/img/violín_GALERÍA.png" alt="Violín en proceso">
+          <div class="instrument-fan-info">
+            <p class="instrument-fan-title">Violín</p>
+            <p class="instrument-fan-desc">Restaurado con técnicas tradicionales.</p>
           </div>
-          <div class="gallery-card" data-size="center">
-            <img src="assets/img/electrica_galeria_3.jpg" alt="Guitarra eléctrica">
-            <p class="gallery-card-name">Guitarra eléctrica</p>
+        </div>
+        <div class="instrument-fan-card">
+          <img src="assets/img/eléctrica_GALERÍA.png" alt="Guitarra eléctrica">
+          <div class="instrument-fan-info">
+            <p class="instrument-fan-title">Guitarra eléctrica</p>
+            <p class="instrument-fan-desc">Diseño propio, terminación artesanal.</p>
           </div>
-          <div class="gallery-card" data-size="side">
-            <img src="assets/img/ukelele_galeria_4.jpg" alt="Ukelele artesanal">
-            <p class="gallery-card-name">Ukelele</p>
+        </div>
+        <div class="instrument-fan-card">
+          <img src="assets/img/ukelele_GALERÍA.png" alt="Ukelele artesanal">
+          <div class="instrument-fan-info">
+            <p class="instrument-fan-title">Ukelele</p>
+            <p class="instrument-fan-desc">Chico en tamaño, grande en sonido.</p>
           </div>
-          <div class="gallery-card" data-size="side">
-            <img src="assets/img/bajo_galeria_5.jpg" alt="Bajo eléctrico">
-            <p class="gallery-card-name">Bajo eléctrico</p>
+        </div>
+        <div class="instrument-fan-card">
+          <img src="assets/img/bajo_GALERÍA.png" alt="Bajo eléctrico">
+          <div class="instrument-fan-info">
+            <p class="instrument-fan-title">Bajo eléctrico</p>
+            <p class="instrument-fan-desc">Personalizado a pedido del alumno.</p>
           </div>
         </div>
       </div>
-      <div class="gallery-nav">
-        <button class="gallery-arrow" id="galleryPrev" aria-label="Instrumento anterior">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="gallery-arrow" id="galleryNext" aria-label="Instrumento siguiente">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </div>
+
+      <a href="#" class="btn hero-btn detail-instruments-btn">VER TODOS LOS INSTRUMENTOS</a>
     </section>
 
     <section class="cta">
@@ -504,7 +519,7 @@
   </footer>
 
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=3"></script>
   <script src="js/transitions.js"></script>
 </body>
 </html>

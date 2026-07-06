@@ -176,7 +176,7 @@ img {
   position: relative;
   font-family: var(--font-mono);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.5px;
   color: #F8F7F1;
   opacity: 0.7;
@@ -455,7 +455,7 @@ img {
   left: 0;
   right: 0;
   height: 1px;
-  background-color: rgba(48, 48, 48, 0.35);
+  background-color: rgba(140, 138, 128, 0.38);
   transform: scaleX(0);
   will-change: transform;
 }
@@ -472,7 +472,7 @@ img {
 
 .manifesto-label {
   max-width: var(--content-max);
-  margin: 0 auto 70px;
+  margin: 0 auto 32px;
   font-family: var(--font-mono);
   font-weight: 500;
   font-size: 15px;
@@ -519,7 +519,7 @@ img {
   z-index: 2;
   margin-top: -2px;
   background-color: var(--cream);
-  padding: 0 var(--side-margin) 170px;
+  padding: 0 var(--side-margin) 90px;
 }
 
 .about-label {
@@ -528,7 +528,7 @@ img {
   font-size: 15px;
   color: var(--black);
   letter-spacing: 0.5px;
-  margin-bottom: 70px;
+  margin-bottom: 32px;
 }
 
 .about-stats .about-label {
@@ -543,20 +543,17 @@ img {
 
 .about-content {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 102px;
   max-width: var(--content-max);
   margin: 0 auto;
 }
 
 .polaroid {
-  width: calc(51% + 55px);
-  margin-left: -55px;
+  width: 49%;
   flex-shrink: 0;
-  background-color: #fff;
-  padding: 20px 20px 24px 75px;
-  border-radius: 0;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transform: rotate(-2deg);
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
 }
 
 
@@ -601,7 +598,7 @@ img {
 
 .stats-line {
   height: 1px;
-  background-color: rgba(48, 48, 48, 0.35);
+  background-color: rgba(140, 138, 128, 0.38);
   transform: scaleX(0);
   will-change: transform;
 }
@@ -661,12 +658,126 @@ img {
   margin-top: 20px;
 }
 
+/* Instrumentos realizados (abanico de fotos, compartido entre home y
+   la página de detalle) */
+
+.detail-instruments {
+  position: relative;
+  z-index: 3;
+  background-color: var(--cream);
+  padding: 170px var(--side-margin) 100px;
+  overflow: hidden;
+}
+
+.detail-instruments-btn {
+  display: flex;
+  width: fit-content;
+  margin: 60px auto 0;
+}
+
+.detail-instruments-header {
+  max-width: var(--content-max);
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.detail-instruments-label {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--black);
+  letter-spacing: 0.5px;
+  margin-bottom: 32px;
+}
+
+.detail-instruments-label .slash {
+  color: var(--orange);
+}
+
+.detail-instruments-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.3;
+  color: var(--black);
+}
+
+.detail-instruments-subtitle {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--black);
+  max-width: 600px;
+  margin: 16px auto 0;
+}
+
+/* Las cards se posicionan con coordenadas explícitas calculadas en JS
+   (setupInstrumentsFan(), position:absolute + translate), no con flex,
+   para garantizar que siempre queden pegadas con el mismo solapamiento
+   sin importar cuánto se achique o agrande cada una. */
+.instruments-fan {
+  position: relative;
+  height: 515px;
+}
+
+.instrument-fan-card {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  overflow: hidden;
+  cursor: pointer;
+  filter: grayscale(60%) brightness(0.75);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), height 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease, z-index 0s;
+}
+
+.instrument-fan-card img {
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.instrument-fan-info {
+  flex-shrink: 0;
+  background-color: var(--course-bg);
+  padding: 14px 20px;
+}
+
+.instrument-fan-title {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--cream);
+}
+
+/* Las laterales solo muestran el título; la central (foco inicial)
+   muestra además la descripción completa */
+.instrument-fan-desc {
+  display: none;
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 6px;
+}
+
+.instrument-fan-card.is-focused .instrument-fan-desc {
+  display: block;
+}
+
 /* Gallery */
 
 .gallery {
   position: relative;
+  z-index: 3;
   background-color: var(--cream);
-  padding: 170px 0;
+  padding: 170px 0 90px;
   overflow: hidden;
 }
 
@@ -676,8 +787,9 @@ img {
 }
 
 .gallery-header {
+  text-align: center;
   padding: 0 var(--side-margin);
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
 
 .gallery-label {
@@ -686,7 +798,7 @@ img {
   font-size: 15px;
   color: var(--black);
   letter-spacing: 0.5px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .gallery-label .slash {
@@ -700,9 +812,21 @@ img {
   line-height: 1.25;
   color: var(--black);
   max-width: 700px;
+  margin: 0 auto;
+}
+
+.gallery-subtitle {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--black);
+  max-width: 600px;
+  margin: 16px auto 0;
 }
 
 .gallery-track-wrapper {
+  position: relative;
   height: 744px;
   cursor: grab;
   user-select: none;
@@ -725,9 +849,6 @@ img {
   position: relative;
   flex-shrink: 0;
   width: 366px;
-  background-color: #fff;
-  padding: 12px 12px 36px;
-  border-radius: 0;
   opacity: 0.5;
   transform: scale(1);
   transform-origin: center;
@@ -738,24 +859,7 @@ img {
   width: 100%;
   height: auto;
   display: block;
-}
-
-.gallery-card-name {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 12px;
-  text-transform: uppercase;
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--black);
-  letter-spacing: 0.5px;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
 }
 
 .gallery-card.is-center {
@@ -765,10 +869,16 @@ img {
 }
 
 .gallery-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 48px;
+  justify-content: space-between;
+  padding: 0 var(--side-margin);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .gallery-arrow {
@@ -778,17 +888,19 @@ img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1px solid rgba(48, 48, 48, 0.25);
-  background: none;
-  color: var(--black);
+  border: 1px solid var(--black);
+  background-color: var(--black);
+  color: var(--cream);
   cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .gallery-arrow:hover {
-  background-color: var(--black);
+  background-color: var(--cream);
   border-color: var(--black);
-  color: var(--cream);
+  color: var(--black);
   transform: scale(0.94);
 }
 
@@ -797,7 +909,7 @@ img {
 .why {
   position: relative;
   background-color: var(--cream);
-  padding: 170px var(--side-margin);
+  padding: 90px var(--side-margin) 170px;
   text-align: center;
   overflow: hidden;
 }
@@ -810,7 +922,7 @@ img {
   color: var(--black);
   letter-spacing: 0.5px;
   max-width: var(--content-max);
-  margin: 0 auto 24px;
+  margin: 0 auto 32px;
 }
 
 .why-label .slash {
@@ -833,7 +945,7 @@ img {
   font-size: 18px;
   line-height: 1.6;
   color: var(--black);
-  max-width: 587px;
+  max-width: 700px;
   margin: 0 auto 90px;
 }
 
@@ -935,7 +1047,7 @@ img {
   color: var(--cream);
   letter-spacing: 0.5px;
   max-width: var(--content-max);
-  margin: 0 auto 24px;
+  margin: 0 auto 32px;
 }
 
 .cursos-label .slash {
@@ -1140,7 +1252,7 @@ img {
   font-size: 15px;
   color: var(--black);
   letter-spacing: 0.5px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .testimonials-label .slash {
@@ -1267,7 +1379,7 @@ img {
   color: var(--black);
   letter-spacing: 0.5px;
   max-width: var(--content-max);
-  margin: 0 auto 24px;
+  margin: 0 auto 32px;
 }
 
 .origen-label .slash {
@@ -1448,13 +1560,30 @@ img {
 
 .paso-inner {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 130px;
+  height: calc(100vh - 130px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 var(--side-margin);
+  padding: 0 var(--side-margin) 120px;
   overflow: hidden;
+}
+
+/* Capa de fondo (degradados) que se "pinea" desde el arranque de la
+   sección y dura los 550vh completos, para que el título (que ya no
+   está adentro de .paso-inner) comparta el mismo fondo que el bloque
+   pineado de abajo, sin costuras. Va pegada a top:0 (no al offset del
+   nav) para que siempre cubra desde la punta de arriba: el contenido
+   (.paso-inner) es el que se corre hacia abajo para no quedar tapado
+   por el nav, pero el fondo no necesita ese hueco. */
+.paso-bg {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  margin-bottom: -100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .paso-glow {
@@ -1500,8 +1629,9 @@ img {
   grid-template-columns: 1fr auto;
   column-gap: 60px;
   width: 100%;
-  max-width: var(--content-max);
-  margin: 0 auto 90px;
+  max-width: calc(var(--content-max) + 2 * var(--side-margin));
+  margin: 0 auto;
+  padding: 90px var(--side-margin) 40px;
 }
 
 .paso-label {
@@ -1512,7 +1642,7 @@ img {
   font-size: 15px;
   color: var(--cream);
   letter-spacing: 0.5px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .paso-label .slash {
@@ -1680,12 +1810,41 @@ img {
 }
 
 .paso-frame {
+  position: relative;
   flex-shrink: 0;
-  width: 782px;
-  background-color: #fff;
-  border-radius: 0;
-  padding: 20px 75px 20px 20px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  width: 708px;
+}
+
+/* Fotos reales de las próximas etapas, apiladas detrás de la actual */
+.paso-frame-stack {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.paso-frame-stack--1 {
+  z-index: 0;
+  transform: rotate(-5deg) translate(-14px, 10px);
+}
+
+.paso-frame-stack--2 {
+  z-index: -1;
+  transform: rotate(6deg) translate(16px, 14px);
+}
+
+/* Mientras la foto de arriba se despega (is-leaving), la pila avanza un
+   lugar: la primera pasa al frente y la segunda ocupa el lugar de la
+   primera, dando la sensación de "sacar la de arriba de la pila". */
+.paso-frame.is-shifting .paso-frame-stack--1 {
+  transform: none;
+}
+
+.paso-frame.is-shifting .paso-frame-stack--2 {
+  transform: rotate(-5deg) translate(-14px, 10px);
 }
 
 .paso-frame-meta {
@@ -1710,11 +1869,16 @@ img {
   transition: opacity 0.35s ease;
 }
 
-.paso-frame img {
-  width: 687px;
-  height: 514px;
-  object-fit: cover;
+.paso-frame img:not(.paso-frame-stack) {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
   display: block;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
+  opacity: 1;
+  transform: translateX(0) rotate(0deg);
+  transition: opacity 0.4s cubic-bezier(0.65, 0, 0.35, 1), transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .paso-frame-location.is-fading,
@@ -1722,25 +1886,11 @@ img {
   opacity: 0;
 }
 
-/* El marco completo (borde blanco + foto) es lo que se anima */
-.paso-frame {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.35s cubic-bezier(0.65, 0, 0.35, 1), transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-/* Sale desvaneciéndose y deslizándose un poco hacia arriba */
-.paso-frame.is-leaving {
+/* La foto de encima "se despega" de la pila y se va hacia un costado,
+   mientras la pila avanza (.is-shifting) para revelar la siguiente */
+.paso-frame.is-leaving img:not(.paso-frame-stack) {
   opacity: 0;
-  transform: translateY(-14px);
-}
-
-/* Entra ya corrido hacia abajo (sin transición) para soltarse y
-   deslizarse hasta su lugar en el frame siguiente */
-.paso-frame.is-entering {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: none;
+  transform: translateX(60px) rotate(8deg);
 }
 
 /* CTA */
@@ -1751,7 +1901,7 @@ img {
   background-image: url('../assets/img/degradado2_presupuesto.jpg');
   background-size: cover;
   background-position: center;
-  padding: 170px var(--side-margin);
+  padding: 100px var(--side-margin) 170px;
   text-align: center;
 }
 
@@ -1959,12 +2109,8 @@ img {
 }
 
 @media (max-width: 1600px) and (min-width: 901px) {
-  .paso-inner {
-    padding-top: 140px;
-  }
-
   .paso-header {
-    margin-bottom: 48px;
+    padding-bottom: 32px;
   }
 
   .paso-title {
@@ -1989,12 +2135,30 @@ img {
   }
 
   .paso-frame {
-    width: 600px;
+    width: 580px;
+  }
+}
+
+/* Pantallas de poca altura (laptops chicas): la sección "Paso a paso" está
+   pineada a 100vh con overflow:hidden, así que si el contenido no entra
+   se corta abajo. Achicamos foto y márgenes para que siempre entre. */
+@media (max-height: 820px) and (min-width: 901px) {
+  .paso-inner {
+    justify-content: flex-start;
+    padding-top: 40px;
+    padding-bottom: 64px;
   }
 
-  .paso-frame img {
-    width: 505px;
-    height: 378px;
+  .paso-header {
+    margin-bottom: 40px;
+  }
+
+  .stepper {
+    margin-bottom: 40px;
+  }
+
+  .paso-frame {
+    width: 420px;
   }
 }
 
@@ -2055,12 +2219,47 @@ img {
     max-width: 100%;
   }
 
+  .detail-instruments {
+    padding: 90px var(--side-margin) 64px;
+  }
+
+  .detail-instruments-header {
+    margin-bottom: 48px;
+  }
+
+  .detail-instruments-title {
+    font-size: 28px;
+  }
+
+  /* En mobile no hay hover real, así que se muestran todas en una grilla
+     simple; !important porque setupInstrumentsFan() sigue fijando
+     estilos en línea (position/width/height/transform) en cualquier
+     tamaño de pantalla. */
+  .instruments-fan {
+    position: static !important;
+    height: auto !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 24px;
+    column-gap: 12px;
+  }
+
+  .instrument-fan-card {
+    position: static !important;
+    width: 260px !important;
+    height: 360px !important;
+    transform: none !important;
+    filter: none !important;
+    z-index: 1 !important;
+  }
+
   .gallery {
     padding: 90px 0;
   }
 
   .gallery-header {
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
 
   .gallery-title {
@@ -2139,7 +2338,7 @@ img {
   }
 
   .manifesto-label {
-    margin-bottom: 50px;
+    margin-bottom: 32px;
   }
 
   .manifesto-text {
@@ -2161,7 +2360,7 @@ img {
   }
 
   .about-label {
-    margin-bottom: 50px;
+    margin-bottom: 32px;
   }
 
   .about-content {
@@ -2171,8 +2370,6 @@ img {
 
   .polaroid {
     width: 100%;
-    margin-left: 0;
-    padding: 10px 10px 14px;
   }
 
   .about-text {
@@ -2288,10 +2485,10 @@ img {
 
   .paso-inner {
     position: sticky;
-    top: 0;
-    height: 100vh;
+    top: 130px;
+    height: calc(100vh - 130px);
     overflow: hidden;
-    padding: 24px var(--side-margin);
+    padding: 56px var(--side-margin);
   }
 
   .paso-glow {
@@ -2303,7 +2500,7 @@ img {
   .paso-header {
     grid-template-columns: 1fr;
     row-gap: 12px;
-    margin-bottom: 24px;
+    padding: 60px var(--side-margin) 24px;
   }
 
   .paso-subtitle {
@@ -2346,13 +2543,6 @@ img {
   .paso-frame {
     width: 100%;
     max-width: 340px;
-    padding: 10px 10px 14px;
-  }
-
-  .paso-frame img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 687 / 514;
   }
 
   .cta {
@@ -2466,6 +2656,10 @@ img {
     font-size: 26px;
   }
 
+  .gallery-subtitle {
+    font-size: 16px;
+  }
+
   .cursos {
     padding: 64px var(--side-margin);
   }
@@ -2515,7 +2709,7 @@ img {
   }
 
   .paso-inner {
-    padding: 24px var(--side-margin);
+    padding: 40px var(--side-margin);
   }
 
   .paso-glow {

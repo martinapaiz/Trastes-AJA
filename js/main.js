@@ -92,6 +92,65 @@ function updateHeroShrink(manifestoSection, heroImg) {
   heroImg.style.transform = `scale(${scale})`;
 }
 
+function setupInstrumentsFan() {
+  const fans = document.querySelectorAll('.instruments-fan');
+  if (!fans.length) return;
+
+  // Medidas exactas por distancia a la card enfocada (0 = la enfocada).
+  const SIZE_BY_DISTANCE = [
+    [437, 515],
+    [332, 392],
+    [301, 355],
+    [276, 326],
+    [247, 292],
+  ];
+
+  const OVERLAP = 30;
+
+  fans.forEach((fan) => {
+    const cards = Array.from(fan.querySelectorAll('.instrument-fan-card'));
+    const centerIndex = Math.floor((cards.length - 1) / 2);
+
+    function applyDistance(focusIndex) {
+      const sizes = cards.map((_, i) => {
+        const distance = Math.min(Math.abs(i - focusIndex), SIZE_BY_DISTANCE.length - 1);
+        return { distance, width: SIZE_BY_DISTANCE[distance][0], height: SIZE_BY_DISTANCE[distance][1] };
+      });
+
+      // Posiciones explícitas: cada card empieza donde termina la
+      // anterior, menos el solapamiento fijo. Así siempre quedan pegadas
+      // sin importar cuánto se achique/agrande cada una.
+      let left = 0;
+      const lefts = sizes.map((size, i) => {
+        const x = left;
+        left += size.width - OVERLAP;
+        return x;
+      });
+      const totalWidth = left + OVERLAP;
+      const fanWidth = fan.clientWidth;
+      const centerOffset = (fanWidth - totalWidth) / 2;
+
+      cards.forEach((card, i) => {
+        const { distance, width, height } = sizes[i];
+        card.style.width = `${width}px`;
+        card.style.height = `${height}px`;
+        card.style.transform = `translate(${lefts[i] + centerOffset}px, -50%)`;
+        card.style.zIndex = String(100 - distance);
+        card.style.filter = distance === 0 ? 'none' : 'grayscale(60%) brightness(0.75)';
+        card.classList.toggle('is-focused', distance === 0);
+      });
+    }
+
+    cards.forEach((card, i) => {
+      card.addEventListener('mouseenter', () => applyDistance(i));
+    });
+
+    fan.addEventListener('mouseleave', () => applyDistance(centerIndex));
+
+    applyDistance(centerIndex);
+  });
+}
+
 function setupRecorridoReveal() {
   const steps = document.querySelectorAll('.recorrido-step');
   if (!steps.length) return;
@@ -300,14 +359,15 @@ function setupGallery() {
   function goToOffset(newOffset) {
     // No se "recorta" (wrap) antes de animar: así el track sigue de largo
     // visualmente por las tarjetas clonadas en vez de saltar para atrás.
+    // Misma duración/easing que el slider de testimonios de arriba.
     offset = newOffset;
-    track.style.transition = 'transform 0.5s cubic-bezier(0.65, 0, 0.35, 1)';
+    track.style.transition = 'transform 900ms cubic-bezier(0.3, 1.2, 0.6, 1)';
     render();
     setTimeout(() => {
       track.style.transition = '';
       wrap();
       render();
-    }, 500);
+    }, 900);
   }
 
   function goToStep(dir) {
@@ -444,17 +504,20 @@ const COURSE_TESTIMONIALS = [
     name: 'Juan Ortega',
     quote: '&ldquo;El acompañamiento hizo que todo el proceso fuera mucho más simple.&rdquo;',
     img: 'assets/img/testimonio_curso_juan.jpg',
+    date: 'assets/img/Fechas_Testimonio_Febrero.png',
   },
   {
     name: 'Paula Pergolini',
     quote: '&ldquo;Nunca imaginé que podría construir una guitarra. Hoy la toco todos los días.&rdquo;',
     img: 'assets/img/testimonio_curso_paula.jpg',
     objectPosition: '38% center',
+    date: 'assets/img/Fechas_Testimonio_Mayo.png',
   },
   {
     name: 'Julio Demner',
     quote: '&ldquo;El ambiente del taller y el equipo docente hicieron que cada clase valiera la pena.&rdquo;',
     img: 'assets/img/testimonio_curso_julio.jpg',
+    date: 'assets/img/Fechas_Testimonio_Noviembre.png',
   },
 ];
 
@@ -485,7 +548,10 @@ function setupCourseTestimonial() {
       <div class="course-testimonial-overlay"></div>
       <div class="course-testimonial-content">
         <p class="course-testimonial-name">${item.name}</p>
-        <p class="course-testimonial-quote">${item.quote}</p>
+        <div class="course-testimonial-quote-block">
+          <p class="course-testimonial-quote">${item.quote}</p>
+          ${item.date ? `<img src="${item.date}" alt="" class="course-testimonial-date" aria-hidden="true">` : ''}
+        </div>
       </div>
     `;
     return slide;
@@ -602,35 +668,35 @@ const PASO_STEPS = {
     number: '01',
     name: 'Selección de materiales',
     desc: 'Cada veta es única y cada elección influye en el carácter del instrumento. Trabajamos con maderas seleccionadas como <strong>cedro, palisandro, ébano y caoba</strong>, elegidas por su resonancia, estabilidad y belleza natural.',
-    img: 'assets/img/etapa_01.png',
+    img: 'assets/img/Etapa01_Polaroid.png',
     frameLabel: 'SELECCIÓN DE MADERAS',
   },
   2: {
     number: '02',
     name: 'Diseño y corte',
     desc: 'Cada instrumento comienza a tomar forma a partir de <strong>planos, plantillas y cortes precisos.</strong> Cada pieza se trabaja cuidadosamente para garantizar un encastre perfecto y respetar las proporciones que definirán su sonido y comodidad.',
-    img: 'assets/img/etapa_02.png',
+    img: 'assets/img/Etapa02_Polaroid.png',
     frameLabel: 'DISEÑO Y CORTE',
   },
   3: {
     number: '03',
     name: 'Ensamblado',
     desc: 'Con cada pieza preparada, <strong>comienza el proceso de unión.</strong> Tapa, fondo, aros y mástil se ensamblan cuidadosamente para dar vida a una estructura sólida, equilibrada y lista para desarrollar todo su potencial acústico.',
-    img: 'assets/img/etapa_03.png',
+    img: 'assets/img/Etapa03_Polaroid.png',
     frameLabel: 'ENSAMBLADO',
   },
   4: {
     number: '04',
     name: 'Lijado y terminación',
     desc: 'Cada superficie se trabaja completamente a mano para lograr un acabado uniforme y agradable al tacto. Luego se aplican las terminaciones que protegen la madera y resaltan la belleza natural de cada instrumento.',
-    img: 'assets/img/etapa_04.png',
+    img: 'assets/img/Etapa04_Polaroid.png',
     frameLabel: 'LIJADO Y TERMINACIÓN',
   },
   5: {
     number: '05',
     name: 'Calibración y puesta a punto',
     desc: 'Antes de entregar el instrumento realizamos los ajustes finales de cuerdas, altura, afinación y entonación. Cada detalle se calibra para ofrecer una experiencia cómoda, precisa y un sonido listo para tocar.',
-    img: 'assets/img/etapa_05.png',
+    img: 'assets/img/Etapa05_Polaroid.png',
     frameLabel: 'CALIBRACIÓN Y PUESTA A PUNTO',
   },
 };
@@ -645,12 +711,25 @@ function setupPasoStepper() {
   const descEl = document.getElementById('pasoDesc');
   const frameEl = document.getElementById('pasoFrame');
   const imgEl = document.getElementById('pasoImg');
+  const stackEl1 = document.getElementById('pasoImgStack1');
+  const stackEl2 = document.getElementById('pasoImgStack2');
   const labelEl = document.getElementById('pasoFrameLabel');
   const tagEl = document.getElementById('pasoFrameTag');
   if (!dots.length || !progress) return;
 
+  const TOTAL_STEPS = Object.keys(PASO_STEPS).length;
+
+  // Precarga todas las fotos para que el cambio de src en cada etapa sea
+  // instantáneo (si no, la imagen queda en blanco un instante mientras carga).
+  Object.values(PASO_STEPS).forEach((data) => {
+    if (data.img) {
+      const preloadImg = new Image();
+      preloadImg.src = data.img;
+    }
+  });
+
   const fadeEls = [numberEl, nameEl, descEl, labelEl, tagEl];
-  const FADE_MS = 350;
+  const FADE_MS = 400;
   let currentStep = 1;
   let isFading = false;
 
@@ -677,6 +756,11 @@ function setupPasoStepper() {
       imgEl.src = data.img;
       imgEl.alt = data.name;
       frameEl.style.display = '';
+
+      const nextStep1 = (step % TOTAL_STEPS) + 1;
+      const nextStep2 = ((step + 1) % TOTAL_STEPS) + 1;
+      if (stackEl1) stackEl1.src = PASO_STEPS[nextStep1].img;
+      if (stackEl2) stackEl2.src = PASO_STEPS[nextStep2].img;
     } else {
       frameEl.style.display = 'none';
     }
@@ -695,19 +779,31 @@ function setupPasoStepper() {
     currentStep = step;
     isFading = true;
     fadeEls.forEach((el) => el.classList.add('is-fading'));
+
+    // La foto de arriba se despega hacia un costado mientras, al mismo
+    // tiempo, la pila avanza: la que estaba apilada primero pasa al frente.
     frameEl.classList.add('is-leaving');
+    frameEl.classList.add('is-shifting');
 
     setTimeout(() => {
       applyStep(step);
 
-      // El marco (foto + borde blanco) entra corrido hacia abajo (sin
-      // transición) y se suelta en el frame siguiente para que se deslice
-      // hasta su lugar mientras aparece.
+      // Reacomodo instantáneo (sin transición): la foto que "ya estaba ahí"
+      // (venía de la pila) queda al frente, y la pila se corre un lugar,
+      // sin que nada quede en blanco ni se note el salto.
+      [imgEl, stackEl1, stackEl2].forEach((el) => {
+        if (el) el.style.transition = 'none';
+      });
+
       frameEl.classList.remove('is-leaving');
-      frameEl.classList.add('is-entering');
+      frameEl.classList.remove('is-shifting');
+
+      // Fuerza reflow para que el "sin transición" se aplique antes de
+      // restaurar las transiciones en el siguiente frame.
+      void frameEl.offsetWidth;
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          frameEl.classList.remove('is-entering');
+        [imgEl, stackEl1, stackEl2].forEach((el) => {
+          if (el) el.style.transition = '';
         });
       });
 
@@ -787,6 +883,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupCourseTestimonial();
   setupPasoStepper();
   setupGallery();
+  setupInstrumentsFan();
 
   const manifestoSection = document.querySelector('.manifesto');
   const manifestoText = document.querySelector('.manifesto-text');

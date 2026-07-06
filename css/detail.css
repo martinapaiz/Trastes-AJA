@@ -176,7 +176,7 @@
 
 .detail-about {
   background-color: var(--cream);
-  padding: 120px var(--side-margin);
+  padding: 170px var(--side-margin) 80px;
 }
 
 .detail-about-content {
@@ -198,7 +198,7 @@
   font-size: 15px;
   color: var(--black);
   letter-spacing: 0.5px;
-  margin-bottom: 70px;
+  margin-bottom: 32px;
 }
 
 .detail-about-label .slash {
@@ -229,23 +229,21 @@
 }
 
 .detail-about-polaroid {
-  flex: 1;
-  background-color: #fff;
-  padding: 20px 75px 20px 20px;
-  border-radius: 0;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  width: 49%;
+  flex-shrink: 0;
 }
 
 .detail-about-img {
   width: 100%;
   display: block;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15));
 }
 
 /* ---- Sección: Qué incluye ---- */
 
 .detail-includes-section {
   background-color: var(--cream);
-  padding: 170px var(--side-margin);
+  padding: 80px var(--side-margin) 170px;
 }
 
 .detail-includes-label {
@@ -254,7 +252,7 @@
   font-size: 15px;
   color: var(--black);
   letter-spacing: 0.5px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   max-width: var(--content-max);
   margin-left: auto;
   margin-right: auto;
@@ -342,7 +340,7 @@
   font-size: 15px;
   color: #F8F7F1;
   letter-spacing: 0.5px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .detail-recorrido-label .slash {
@@ -573,13 +571,26 @@
   flex-shrink: 0;
 }
 
+.course-testimonial-quote-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 949px;
+}
+
 .course-testimonial-quote {
   font-family: var(--font-title);
   font-weight: 500;
   font-size: 64px;
   line-height: 1.2;
   color: #DFDED3;
-  max-width: 949px;
+  align-self: stretch;
+}
+
+.course-testimonial-date {
+  width: 230px;
+  height: auto;
+  margin-top: 16px;
 }
 
 .course-testimonial-nav {
@@ -612,11 +623,16 @@
   transform: scale(0.94);
 }
 
+/* ---- Sección: Instrumentos realizados ---- */
+/* El estilo completo (.detail-instruments*, .instruments-fan,
+   .instrument-fan-card, etc.) vive en css/style.css porque esta sección
+   se reutiliza tanto acá como en el home. */
+
 /* ---- Sección: Equipo docente ---- */
 
 .detail-team {
   background-color: var(--cream);
-  padding: 170px var(--side-margin);
+  padding: 90px var(--side-margin) 170px;
 }
 
 .detail-team-header {
@@ -634,7 +650,7 @@
   font-size: 15px;
   color: var(--black);
   letter-spacing: 0.5px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .detail-team-label .slash {
@@ -656,7 +672,7 @@
   font-size: 16px;
   line-height: 1.65;
   color: var(--black);
-  max-width: 340px;
+  max-width: 464px;
   flex-shrink: 0;
 }
 
@@ -671,6 +687,7 @@
 .team-card {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .team-card img {
@@ -678,6 +695,12 @@
   aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
+  transform-origin: center bottom;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-card:hover img {
+  transform: scale(1.05);
 }
 
 .team-card-info {
@@ -687,10 +710,9 @@
 
 .team-card-name {
   font-family: var(--font-title);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 24px;
   color: var(--cream);
-  margin-bottom: 10px;
 }
 
 .team-card-role {
@@ -698,6 +720,16 @@
   font-size: 12px;
   letter-spacing: 0.5px;
   color: #F8F7F1;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease, margin-top 0.3s ease;
+}
+
+.team-card:hover .team-card-role {
+  max-height: 24px;
+  opacity: 1;
+  margin-top: 10px;
 }
 
 .team-card-role .slash {
@@ -720,7 +752,7 @@
   font-size: 15px;
   color: #303030;
   letter-spacing: 0.5px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .detail-faq-label .slash {
@@ -957,6 +989,10 @@
     max-width: 100%;
   }
 
+  .detail-about-polaroid {
+    width: 100%;
+  }
+
   .detail-about-label {
     margin-bottom: 32px;
   }
@@ -1062,9 +1098,18 @@
     padding: 40px var(--side-margin) 120px;
   }
 
+  .course-testimonial-quote-block {
+    align-items: flex-start;
+    order: 1;
+    max-width: 100%;
+  }
+
   .course-testimonial-quote {
     font-size: 32px;
-    order: 1;
+  }
+
+  .course-testimonial-date {
+    width: 175px;
   }
 
   .course-testimonial-name {
