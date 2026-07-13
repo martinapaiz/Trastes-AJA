@@ -3311,7 +3311,7 @@ img {
   display: grid;
   grid-template-columns: 32px 500px 1fr 500px 32px;
   border-top: 1px solid rgba(140, 138, 128, 0.38);
-  min-height: 720px;
+  min-height: 550px;
   align-items: center;
 }
 
