@@ -3362,9 +3362,11 @@ img {
   white-space: nowrap;
 }
 
+.why-custom-text-wrap .why-custom-label .slash,
 .why-custom-section-tag .slash,
 .why-custom-label .slash {
   color: #FF5F2F !important;
+  fill: #FF5F2F !important;
 }
 
 .why-custom-label {
