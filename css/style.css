@@ -3330,6 +3330,11 @@ img {
   border-right: 1px solid rgba(140, 138, 128, 0.38);
 }
 
+.why-custom-col--margin-left,
+.why-custom-col--margin-right {
+  border-right: none;
+}
+
 .why-custom-col--center {
   justify-content: center;
   padding: 80px 40px;
