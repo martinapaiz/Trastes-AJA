@@ -1010,7 +1010,8 @@ function setupWhyCustomReveal() {
       const distance = Math.abs(rowCenter - viewportCenter);
       const maxDistance = viewportHeight / 2;
 
-      let opacity = 1 - (distance / maxDistance);
+      // Squared curve for quicker fade in/out
+      let opacity = 1 - Math.pow(distance / maxDistance, 2);
       opacity = Math.max(0, Math.min(1, opacity));
 
       // Parallax effect: move text down as user scrolls down
