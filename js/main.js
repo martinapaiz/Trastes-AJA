@@ -999,26 +999,34 @@ function setupWhyCustomReveal() {
   function updateWhyCustomOpacity() {
     const viewportHeight = window.innerHeight;
     const viewportCenter = viewportHeight / 2;
+    const isMobile = window.innerWidth < 900;
 
     rows.forEach((row) => {
       const textWrap = row.querySelector('.why-custom-text-wrap');
       if (!textWrap) return;
 
-      const rect = row.getBoundingClientRect();
-      const rowCenter = rect.top + rect.height / 2;
-      const distance = Math.abs(rowCenter - viewportCenter);
-      const maxDistance = viewportHeight / 2;
+      if (isMobile) {
+        // On mobile: full opacity and no parallax
+        textWrap.style.opacity = 1;
+        textWrap.style.transform = 'none';
+      } else {
+        // On desktop: animated opacity and parallax
+        const rect = row.getBoundingClientRect();
+        const rowCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(rowCenter - viewportCenter);
+        const maxDistance = viewportHeight / 2;
 
-      // Squared curve for quicker fade in/out, but still show nearby rows
-      let opacity = 1 - Math.pow(distance / maxDistance, 1.5);
-      opacity = Math.max(0, Math.min(1, opacity));
+        // Squared curve for quicker fade in/out, but still show nearby rows
+        let opacity = 1 - Math.pow(distance / maxDistance, 1.5);
+        opacity = Math.max(0, Math.min(1, opacity));
 
-      // Parallax effect: move text down as user scrolls down
-      const scrollProgress = (viewportCenter - rowCenter) / viewportHeight;
-      const translateY = scrollProgress * 520 * 0.7; // 520px parallax range, slower speed
+        // Parallax effect: move text down as user scrolls down
+        const scrollProgress = (viewportCenter - rowCenter) / viewportHeight;
+        const translateY = scrollProgress * 520 * 0.7; // 520px parallax range, slower speed
 
-      textWrap.style.opacity = opacity;
-      textWrap.style.transform = `translateY(${translateY}px)`;
+        textWrap.style.opacity = opacity;
+        textWrap.style.transform = `translateY(${translateY}px)`;
+      }
     });
   }
 
