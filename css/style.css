@@ -624,7 +624,7 @@ img {
 .about-title {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 42px;
+  font-size: 36px;
   line-height: 1.3;
   color: var(--black);
 }
@@ -755,7 +755,7 @@ img {
 .gallery-title {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 42px;
+  font-size: 36px;
   line-height: 1.25;
   color: var(--black);
   max-width: 700px;
@@ -872,7 +872,7 @@ img {
 .why-title {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 42px;
+  font-size: 36px;
   line-height: 1.3;
   color: var(--black);
   max-width: var(--content-max);
@@ -1081,7 +1081,7 @@ img {
 .cursos-title {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 42px;
+  font-size: 36px;
   line-height: 1.3;
   color: var(--cream);
   max-width: var(--content-max);
@@ -1321,7 +1321,7 @@ img {
 .testimonials-title {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 42px;
+  font-size: 36px;
   line-height: 1.25;
   color: var(--black);
 }
@@ -1448,7 +1448,7 @@ img {
 .origen-title {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 42px;
+  font-size: 36px;
   line-height: 1.3;
   color: var(--black);
   max-width: var(--content-max);
@@ -1786,7 +1786,7 @@ img {
   grid-row: 2;
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 42px;
+  font-size: 36px;
   line-height: 1.3;
   color: var(--cream);
 }
@@ -2068,7 +2068,7 @@ img {
   grid-row: 2;
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 42px;
+  font-size: 36px;
   line-height: 1.3;
   color: var(--black);
   max-width: 625px;
