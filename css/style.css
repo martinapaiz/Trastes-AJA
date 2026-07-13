@@ -2266,7 +2266,7 @@ img {
 }
 
 .explore-prev {
-  right: calc(var(--side-margin) + 3 * clamp(300px, 24.1667vw, 464px) + 2 * 24px - 40px);
+  right: calc(var(--side-margin) + 3 * clamp(300px, 24.1667vw, 464px) + 2 * 24px - 16px);
   opacity: 0;
   pointer-events: none;
 }
