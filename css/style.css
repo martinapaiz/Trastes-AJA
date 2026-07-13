@@ -3458,11 +3458,13 @@ img {
   }
 
   .explore-next {
-    left: calc(var(--side-margin) + 3 * 338px + 2 * 24px - 16px);
+    right: 20px;
+    left: auto;
   }
 
   .explore-prev {
-    right: calc(var(--side-margin) + 3 * 338px + 2 * 24px - 40px);
+    left: 20px;
+    right: auto;
   }
 }
 
