@@ -1095,14 +1095,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateScrollReveal(manifestoSection, words, lineTop, lineBottom);
         if (heroImg) updateHeroShrink(manifestoSection, heroImg);
 
-        if (statsSection && statsLineTop && statsLineBottom) {
-          const rect = statsSection.getBoundingClientRect();
-          const progress = getProgress(rect, window.innerHeight, 0.95, 0.1);
-          const statsRevealPercent = (1 - progress) * 100;
-          statsLineTop.style.clipPath = `inset(0 ${statsRevealPercent}% 0 0)`;
-          statsLineBottom.style.clipPath = `inset(0 0 0 ${statsRevealPercent}%)`;
-        }
-
         ticking = false;
       });
       ticking = true;
