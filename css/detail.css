@@ -55,12 +55,12 @@
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.4px;
-  color: var(--orange);
+  color: var(--cream);
   margin-bottom: 32px;
 }
 
 .course-badge .slash {
-  color: var(--orange);
+  color: var(--cream);
 }
 
 .course-hero-title {
@@ -1031,7 +1031,7 @@
   background-image:
     radial-gradient(ellipse 70% 55% at 15% 100%, rgba(255, 95, 47, 0.7) 0%, rgba(255, 95, 47, 0.35) 40%, rgba(255, 95, 47, 0.1) 70%, rgba(255, 95, 47, 0) 100%),
     radial-gradient(ellipse 70% 55% at 85% 100%, rgba(138, 175, 185, 0.7) 0%, rgba(138, 175, 185, 0.35) 40%, rgba(138, 175, 185, 0.1) 70%, rgba(138, 175, 185, 0) 100%);
-  padding: 170px var(--side-margin);
+  padding: 190px var(--side-margin);
   text-align: center;
   overflow: hidden;
 }
