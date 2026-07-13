@@ -762,11 +762,11 @@
 }
 
 .detail-team-line--top {
-  top: 150px;
+  top: 316px;
 }
 
 .detail-team-line--bottom {
-  bottom: 0;
+  bottom: 150;
 }
 
 .team-card {
@@ -1082,10 +1082,9 @@
 }
 
 .detail-cta-section .course-btn-secondary {
-  color: var(--black);
-  background-color: #353738;
-  border: 1px solid var(--black);
   color: #ffffff;
+  background-color: #353738;
+  border: 1px solid var(--cream);
 }
 
 .detail-cta-section .course-btn-secondary:hover {
