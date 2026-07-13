@@ -3298,6 +3298,10 @@ img {
     font-size: 16px;
   }
 
+  .cta-label {
+    font-size: 15px;
+  }
+
   .cta .btn {
     width: auto;
     max-width: 100%;
