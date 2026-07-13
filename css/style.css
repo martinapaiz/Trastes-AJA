@@ -645,6 +645,7 @@ img {
   transform: translateX(-50%);
   top: 30px;
   clip-path: inset(0 0 0 0);
+  display: none;
 }
 
 .stats-line--bottom {
