@@ -749,6 +749,24 @@
   gap: 24px;
   max-width: var(--content-max);
   margin: 0 auto;
+  position: relative;
+}
+
+.detail-team-line {
+  position: absolute;
+  left: 50%;
+  width: 100vw;
+  height: 1px;
+  background-color: rgba(140, 138, 128, 0.38);
+  transform: translateX(-50%);
+}
+
+.detail-team-line--top {
+  top: 0;
+}
+
+.detail-team-line--bottom {
+  bottom: 0;
 }
 
 .team-card {
