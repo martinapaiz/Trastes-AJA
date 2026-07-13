@@ -1009,7 +1009,7 @@
 
 .detail-cta-section {
   position: relative;
-  background-color: var(--course-bg);
+  background-color: var(--cream);
   background-image:
     radial-gradient(ellipse 70% 55% at 15% 100%, rgba(255, 95, 47, 0.7) 0%, rgba(255, 95, 47, 0.35) 40%, rgba(255, 95, 47, 0.1) 70%, rgba(255, 95, 47, 0) 100%),
     radial-gradient(ellipse 70% 55% at 85% 100%, rgba(138, 175, 185, 0.7) 0%, rgba(138, 175, 185, 0.35) 40%, rgba(138, 175, 185, 0.1) 70%, rgba(138, 175, 185, 0) 100%);
