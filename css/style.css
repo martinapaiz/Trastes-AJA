@@ -3459,13 +3459,11 @@ img {
   }
 
   .explore-next {
-    right: 20px;
-    left: auto;
+    left: calc(var(--side-margin) + 3 * 338px + 2 * 24px - 16px);
   }
 
   .explore-prev {
-    left: 20px;
-    right: auto;
+    right: calc(var(--side-margin) + 3 * 338px + 2 * 24px - 40px);
   }
 }
 
