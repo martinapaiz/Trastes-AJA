@@ -407,10 +407,19 @@ function setupGallery() {
     });
   }
 
-  measure();
-  setInitialOffset();
-  render();
-  applyActiveByLogicalIndex(centerLogicalIndex);
+  function initializeGallery() {
+    measure();
+    setInitialOffset();
+    render();
+    applyActiveByLogicalIndex(centerLogicalIndex);
+  }
+
+  initializeGallery();
+
+  // Reinitialize after images load to ensure correct measurements
+  window.addEventListener('load', () => {
+    initializeGallery();
+  });
 
   window.addEventListener('resize', () => {
     measure();
