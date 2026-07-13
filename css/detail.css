@@ -874,7 +874,7 @@
 
 .detail-faq {
   background-color: var(--cream);
-  padding: 170px var(--side-margin);
+  padding: 100px var(--side-margin);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -1070,9 +1070,9 @@
 }
 
 .detail-cta-section .course-btn-secondary:hover {
-  background-color: var(--black);
-  color: #ffffff;
-  border-color: var(--black);
+  background-color: #ffffff;
+  color: var(--black);
+  border-color: #ffffff;
 }
 
 /* ---- Responsive ---- */
