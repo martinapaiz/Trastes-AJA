@@ -2115,9 +2115,9 @@ img {
 
 .explore-card {
   position: relative;
-  flex: 0 0 464px;
-  width: 464px;
-  height: 549px;
+  flex: 0 0 clamp(300px, 24.1667vw, 464px);
+  width: clamp(300px, 24.1667vw, 464px);
+  height: clamp(355px, 28.5938vw, 549px);
   scroll-snap-align: start;
   display: block;
   text-decoration: none;
@@ -2262,11 +2262,11 @@ img {
 }
 
 .explore-next {
-  left: calc(var(--side-margin) + 3 * 464px + 2 * 24px - 16px);
+  left: calc(var(--side-margin) + 3 * clamp(300px, 24.1667vw, 464px) + 2 * 24px - 16px);
 }
 
 .explore-prev {
-  right: calc(var(--side-margin) + 3 * 464px + 2 * 24px - 40px);
+  right: calc(var(--side-margin) + 3 * clamp(300px, 24.1667vw, 464px) + 2 * 24px - 40px);
   opacity: 0;
   pointer-events: none;
 }
@@ -3450,20 +3450,6 @@ img {
   .why-custom-img-wrap {
     width: 340px;
     height: 378px;
-  }
-
-  .explore-card {
-    flex: 0 0 338px;
-    width: 338px;
-    height: 400px;
-  }
-
-  .explore-next {
-    left: calc(var(--side-margin) + 3 * 338px + 2 * 24px - 16px);
-  }
-
-  .explore-prev {
-    right: calc(var(--side-margin) + 3 * 338px + 2 * 24px - 40px);
   }
 }
 
