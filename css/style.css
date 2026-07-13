@@ -3326,15 +3326,9 @@ img {
   position: relative;
 }
 
-.why-custom-col:not(:last-child) {
+.why-custom-col--center {
+  border-left: 1px solid rgba(140, 138, 128, 0.38);
   border-right: 1px solid rgba(140, 138, 128, 0.38);
-}
-
-.why-custom-col--margin-left,
-.why-custom-col--margin-right,
-.why-custom-col--img-left,
-.why-custom-col--img-right {
-  border-right: none;
 }
 
 .why-custom-col--center {
