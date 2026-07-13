@@ -2100,7 +2100,6 @@ img {
   overflow-y: visible;
   overflow-anchor: none;
   scroll-snap-type: x mandatory;
-  scroll-padding-left: var(--side-margin);
   scrollbar-width: none;
   padding: 40px var(--side-margin) 40px 0;
 }
