@@ -104,30 +104,26 @@ function setupExploreCards() {
   const prevBtn = document.getElementById('explorePrev');
   if (!cards || !nextBtn || !prevBtn) return;
 
-  function getStep() {
-    const card = cards.querySelector('.explore-card');
-    if (!card) return 300;
-    const gap = parseFloat(getComputedStyle(cards).columnGap) || 0;
-    return card.getBoundingClientRect().width + gap;
+  const items = Array.from(cards.querySelectorAll('.explore-card'));
+  let index = 0;
+
+  // Cada card puede quedar flush contra el borde izquierdo del viewport
+  // usando su propio offsetLeft (así no arrastramos el desfasaje del
+  // margin-left de la primera card, que rompía el alineado tras el 1er click).
+  function scrollToIndex(i) {
+    index = Math.max(0, Math.min(i, items.length - 1));
+    const target = index === 0 ? 0 : items[index].offsetLeft;
+    cards.scrollTo({ left: target, behavior: 'smooth' });
+    prevBtn.classList.toggle('is-visible', index > 0);
   }
 
   nextBtn.addEventListener('click', () => {
-    const step = getStep();
-    const atEnd = cards.scrollLeft + cards.clientWidth >= cards.scrollWidth - 10;
-    const target = atEnd ? 0 : cards.scrollLeft + step;
-    cards.scrollTo({ left: target, behavior: 'smooth' });
-    prevBtn.classList.toggle('is-visible', target > 10);
+    const atEnd = index >= items.length - 1;
+    scrollToIndex(atEnd ? 0 : index + 1);
   });
 
   prevBtn.addEventListener('click', () => {
-    const step = getStep();
-    const target = Math.max(cards.scrollLeft - step, 0);
-    cards.scrollTo({ left: target, behavior: 'smooth' });
-    prevBtn.classList.toggle('is-visible', target > 10);
-  });
-
-  cards.addEventListener('scroll', () => {
-    prevBtn.classList.toggle('is-visible', cards.scrollLeft > 10);
+    scrollToIndex(index - 1);
   });
 }
 
