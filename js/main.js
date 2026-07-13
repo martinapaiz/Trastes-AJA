@@ -995,7 +995,7 @@ function setupWhyCustomReveal() {
 
   rows.forEach((row) => observer.observe(row));
 
-  // Scroll-triggered text opacity animation
+  // Scroll-triggered text opacity and parallax animation
   function updateWhyCustomOpacity() {
     rows.forEach((row) => {
       const textWrap = row.querySelector('.why-custom-text-wrap');
@@ -1013,7 +1013,12 @@ function setupWhyCustomReveal() {
       let opacity = 1 - (distance / maxDistance);
       opacity = Math.max(0, Math.min(1, opacity));
 
+      // Parallax effect: move text down as user scrolls down
+      const scrollProgress = (viewportCenter - rowCenter) / viewportHeight;
+      const translateY = scrollProgress * 60; // 60px parallax range
+
       textWrap.style.opacity = opacity;
+      textWrap.style.transform = `translateY(${translateY}px)`;
     });
   }
 
