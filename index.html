@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trastes</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/Icono_3.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;800&family=DM+Sans:wght@400;500;600&family=Syne:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=65">
 </head>
 <body>
-  <div class="page-lines"></div>
+  <div class="page-lines page-lines--desktop-only"></div>
   <div id="gridWipe">
     <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:0ms"></div>
     <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:75ms"></div>
@@ -22,12 +23,11 @@
   <header class="site-header">
     <a href="#inicio" class="logo"><img src="assets/icons/Logo_White.svg" alt="Trastes"></a>
     <ul class="nav-links">
-      <li><a href="#inicio">INICIO</a></li>
       <li><a href="#nosotros">NOSOTROS</a></li>
       <li><a href="#cursos">CURSOS</a></li>
+      <li><a href="#galeria">INSTRUMENTOS</a></li>
       <li><a href="#materiales">MATERIALES</a></li>
       <li><a href="#paso-a-paso">PASO A PASO</a></li>
-      <li><a href="#galeria">GALERÍA</a></li>
     </ul>
     <div class="nav-right">
       <a href="#contacto" class="nav-cta">CONTACTO</a>
@@ -41,13 +41,18 @@
 
   <main>
     <section id="inicio" class="hero">
+      <div class="page-lines page-lines--hero"></div>
       <div class="hero-content">
-        <h1 class="hero-title">El origen<br>de <span class="text-orange">tu sonido</span></h1>
-        <p class="hero-text">Antes de llegar a tus manos, cada instrumento atraviesa un proceso donde la paciencia, la precisión y el oficio son los grandes protagonistas.</p>
-        <a href="#origen" class="btn hero-btn">CONOCÉ EL TALLER</a>
+        <h1 class="hero-title">El origen de <br><span class="text-orange">tu sonido</span></h1>
+        <p class="hero-text">Construimos instrumentos artesanales y compartimos el oficio que los hace posibles. Descubrí nuestro trabajo y los cursos pensados para vos.</p>
+        <div class="hero-line-mobile"></div>
+        <div class="hero-btns">
+          <a href="#cursos" class="btn hero-btn">CONOCER CURSOS</a>
+          <a href="#cta-final" class="btn hero-btn hero-btn-secondary">PEDIR PRESUPUESTO</a>
+        </div>
       </div>
       <picture>
-        <source media="(max-width: 900px)" srcset="assets/img/Hero_Mobile.png">
+        <source media="(max-width: 900px)" srcset="assets/img/Hero_Mobile_3.png">
         <img src="assets/img/Hero_Hombre.png" alt="Luthier trabajando en el taller" class="hero-img">
       </picture>
       <div class="hero-line"></div>
@@ -85,6 +90,7 @@
         </div>
       </div>
 
+      <div class="about-stats-wrap">
       <div class="about-stats">
         <p class="about-label"><span class="slash">+</span> EN NÚMEROS</p>
         <div class="stats-line stats-line--top" id="statsLineTop"></div>
@@ -107,6 +113,7 @@
           </div>
         </div>
         <div class="stats-line stats-line--bottom" id="statsLineBottom"></div>
+      </div>
       </div>
     </section>
 
@@ -160,7 +167,7 @@
         </article>
 
         <article class="course-card course-card--featured">
-          <span class="course-badge">CURSO MÁS ELEGIDO</span>
+          <span class="course-badge"><span class="slash">+</span> CURSO MÁS ELEGIDO</span>
           <div class="course-info">
             <h3 class="course-title">Construí tu guitarra criolla</h3>
             <p class="course-description">Diseñá y construí una guitarra hecha con tus propias manos, recorriendo cada etapa del proceso artesanal.</p>
@@ -205,7 +212,7 @@
         <div class="testimonials-track" id="testimonialsTrack">
           <div class="testimonial-card">
             <span class="testimonial-quote">&ldquo;</span>
-            <p class="testimonial-text">El curso superó mis expectativas. No solo aprendí técnicas de luthería, sino que terminé con una guitarra criolla que refleja el sonido y la estética que buscaba.</p>
+            <p class="testimonial-text">El curso superó mis expectativas. No solo aprendí técnicas de luthería, sino que terminé con una guitarra criolla que refleja el sonido y la estética que buscaba"</p>
             <div class="testimonial-footer">
               <div class="testimonial-person">
                 <p class="testimonial-name">MATÍAS ARIAS</p>
@@ -217,7 +224,7 @@
 
           <div class="testimonial-card">
             <span class="testimonial-quote">&ldquo;</span>
-            <p class="testimonial-text">Llegué con conocimientos básicos y me fui con la confianza para reparar y calibrar violines correctamente. La práctica en el taller hizo toda la diferencia.</p>
+            <p class="testimonial-text">Llegué con conocimientos básicos y me fui con la confianza para reparar violines correctamente. La práctica en el taller hizo la diferencia"</p>
             <div class="testimonial-footer">
               <div class="testimonial-person">
                 <p class="testimonial-name">ROCIO PONZIO</p>
@@ -229,7 +236,7 @@
 
           <div class="testimonial-card">
             <span class="testimonial-quote">&ldquo;</span>
-            <p class="testimonial-text">Aprendí a intervenir instrumentos respetando su construcción original y a desarrollar terminaciones que realmente reflejan la identidad de cada proyecto.</p>
+            <p class="testimonial-text">Aprendí a intervenir instrumentos respetando su construcción original y a desarrollar terminaciones que realmente reflejan la identidad de cada proyecto"</p>
             <div class="testimonial-footer">
               <div class="testimonial-person">
                 <p class="testimonial-name">ALBERTO ÁVILA</p>
@@ -241,7 +248,7 @@
 
           <div class="testimonial-card">
             <span class="testimonial-quote">&ldquo;</span>
-            <p class="testimonial-text">Siempre quise construir un instrumento desde cero. El curso combina teoría y práctica de forma muy clara, y terminé con un ukelele completamente funcional.</p>
+            <p class="testimonial-text">Siempre quise construir un instrumento desde cero. El curso combina teoría y práctica de forma muy clara, y terminé con un ukelele completamente funcional"</p>
             <div class="testimonial-footer">
               <div class="testimonial-person">
                 <p class="testimonial-name">FLORENCIA LUKMAN</p>
@@ -253,7 +260,7 @@
 
           <div class="testimonial-card">
             <span class="testimonial-quote">&ldquo;</span>
-            <p class="testimonial-text">Cada clase fue un paso más en el proceso. El acompañamiento y la atención al detalle hicieron que el resultado final superara lo que imaginaba.</p>
+            <p class="testimonial-text">Cada clase fue un paso más en el proceso. El acompañamiento y la atención al detalle hicieron que el resultado final superara lo que imaginaba"</p>
             <div class="testimonial-footer">
               <div class="testimonial-person">
                 <p class="testimonial-name">NICOLÁS HERRERA</p>
@@ -265,7 +272,7 @@
 
           <div class="testimonial-card">
             <span class="testimonial-quote">&ldquo;</span>
-            <p class="testimonial-text">El enfoque práctico del curso me permitió incorporar técnicas de reparación y ajuste que hoy aplico en mi trabajo con total seguridad.</p>
+            <p class="testimonial-text">El enfoque práctico del curso me permitió incorporar técnicas de reparación y ajuste que hoy aplico en mi trabajo con total seguridad"</p>
             <div class="testimonial-footer">
               <div class="testimonial-person">
                 <p class="testimonial-name">CAMILA ROSSI</p>
@@ -280,11 +287,130 @@
 
     <section class="video-section">
       <div class="video-frame">
-        <img src="assets/img/Video.jpg" alt="Video del taller">
-        <button class="video-play" aria-label="Reproducir video">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 4.5L19 12L6 19.5V4.5Z" fill="currentColor"/>
-          </svg>
+        <video class="video-bg-img" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback controlsList="nodownload noremoteplayback nofullscreen" poster="assets/img/Video.jpg">
+          <source src="assets/img/Preview_Video_1.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-content">
+          <img src="assets/img/Dentro del taller_Video.png" alt="Desde el taller" class="video-label">
+          <h2 class="video-title">Donde la madera empieza a<br>convertirse en música</h2>
+          <button class="video-btn" id="videoOpenBtn" aria-label="Reproducir video">
+            VER EL PROCESO
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 4.5L19 12L6 19.5V4.5Z" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="video-modal" id="videoModal">
+      <button class="video-modal-close" id="videoCloseBtn" aria-label="Cerrar video">&times;</button>
+      <div class="video-modal-frame">
+        <iframe id="videoModalIframe" src="" title="Donde la madera empieza a convertirse en música." frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <section class="explore-instruments" id="galeria">
+      <div class="explore-header">
+        <p class="explore-label"><span class="slash">+</span> INSTRUMENTOS</p>
+        <h2 class="explore-title">Encontrá el instrumento <span class="text-orange">que mejor se adapte a vos</span></h2>
+        <p class="explore-subtitle">Cada pieza se construye artesanalmente con materiales seleccionados, atención al detalle y la posibilidad de personalizar cada proyecto.</p>
+      </div>
+
+      <div class="explore-row-wrapper">
+        <div class="explore-cards" id="exploreCards">
+          <a href="#" class="explore-card">
+            <span class="explore-card-inner">
+              <span class="explore-card-media">
+              <img src="assets/img/acustica_galeria_1.jpg" alt="Guitarra acústica">
+              <span class="explore-card-content">
+                <span class="explore-card-text">
+                  <span class="explore-card-title">Guitarra acústica</span>
+                  <span class="explore-card-desc">Construida con maderas seleccionadas para lograr un sonido cálido, equilibrado y natural.</span>
+                </span>
+                <span class="explore-card-btn">VER MÁS</span>
+              </span>
+              </span>
+            </span>
+          </a>
+          <a href="#" class="explore-card">
+            <span class="explore-card-inner">
+              <span class="explore-card-media">
+              <img src="assets/img/violin_galeria_2.jpg" alt="Violín">
+              <span class="explore-card-content">
+                <span class="explore-card-text">
+                  <span class="explore-card-title">Violín</span>
+                  <span class="explore-card-desc">Elaborado con técnicas tradicionales y materiales seleccionados para conseguir un instrumento preciso.</span>
+                </span>
+                <span class="explore-card-btn">VER MÁS</span>
+              </span>
+              </span>
+            </span>
+          </a>
+          <a href="#" class="explore-card">
+            <span class="explore-card-inner">
+              <span class="explore-card-media">
+              <img src="assets/img/electrica_galeria_3.jpg" alt="Guitarra eléctrica">
+              <span class="explore-card-content">
+                <span class="explore-card-text">
+                  <span class="explore-card-title">Guitarra eléctrica</span>
+                  <span class="explore-card-desc">Diseñada con materiales de calidad y configuraciones pensadas para cada músico.</span>
+                </span>
+                <span class="explore-card-btn">VER MÁS</span>
+              </span>
+              </span>
+            </span>
+          </a>
+          <a href="#" class="explore-card">
+            <span class="explore-card-inner">
+              <span class="explore-card-media">
+              <img src="assets/img/ukelele_galeria_4.jpg" alt="Ukelele">
+              <span class="explore-card-content">
+                <span class="explore-card-text">
+                  <span class="explore-card-title">Ukelele</span>
+                  <span class="explore-card-desc">Construido para ofrecer un instrumento liviano, cómodo y sonido auténtico.</span>
+                </span>
+                <span class="explore-card-btn">VER MÁS</span>
+              </span>
+              </span>
+            </span>
+          </a>
+          <a href="#" class="explore-card">
+            <span class="explore-card-inner">
+              <span class="explore-card-media">
+              <img src="assets/img/bajo_galeria_5.jpg" alt="Bajo eléctrico">
+              <span class="explore-card-content">
+                <span class="explore-card-text">
+                  <span class="explore-card-title">Bajo eléctrico</span>
+                  <span class="explore-card-desc">Construido para ofrecer graves definidos y un equilibrio entre precisión y resistencia.</span>
+                </span>
+                <span class="explore-card-btn">VER MÁS</span>
+              </span>
+              </span>
+            </span>
+          </a>
+          <a href="#" class="explore-card">
+            <span class="explore-card-inner">
+              <span class="explore-card-media">
+              <img src="assets/img/Mandolina_galería.png" alt="Mandolina">
+              <span class="explore-card-content">
+                <span class="explore-card-text">
+                  <span class="explore-card-title">Mandolina</span>
+                  <span class="explore-card-desc">Elaborada con precisión artesanal para lograr un timbre brillante y una respuesta ágil en cada nota.</span>
+                </span>
+                <span class="explore-card-btn">VER MÁS</span>
+              </span>
+              </span>
+            </span>
+          </a>
+        </div>
+
+        <button class="explore-prev" id="explorePrev" aria-label="Ver instrumentos anteriores">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="explore-next" id="exploreNext" aria-label="Ver más instrumentos">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
     </section>
@@ -304,11 +430,11 @@
             <div class="accordion-panel-inner">
               <div class="accordion-text">
                 <p>Cada veta es única y cada elección influye en el carácter del instrumento. Trabajamos con maderas seleccionadas como <strong>cedro, palisandro, ébano y caoba</strong>, elegidas por su resonancia, estabilidad y belleza natural.</p>
-                <p><strong>Su combinación define la personalidad, la respuesta y el sonido de cada guitarra.</strong></p>
+                <p>Su combinación define la personalidad, la respuesta y el sonido de cada guitarra.</p>
               </div>
               <div class="accordion-images">
-                <img src="assets/img/maderas_1.png" alt="Maderas seleccionadas para la construcción">
-                <img src="assets/img/maderas_2.png" alt="Cuerpos de guitarra en proceso">
+                <img src="assets/img/maderas_nuevo_2.png" alt="Cuerpos de guitarra en proceso">
+                <img src="assets/img/maderas_nuevo_1.png" alt="Maderas seleccionadas para la construcción">
               </div>
             </div>
           </div>
@@ -323,7 +449,12 @@
           <div class="accordion-panel">
             <div class="accordion-panel-inner">
               <div class="accordion-text">
-                <p class="accordion-placeholder">Próximamente.</p>
+                <p>Las cuerdas son el punto de encuentro entre el músico y el instrumento. Su material, tensión y calibre influyen directamente en la comodidad al tocar, la proyección y el carácter del sonido.</p>
+                <p>Seleccionamos cuerdas de calidad que complementan cada instrumento, logrando una <strong>respuesta equilibrada, una afinación estable y una experiencia de interpretación más precisa.</strong></p>
+              </div>
+              <div class="accordion-images">
+                <img src="assets/img/cuerdas_1.png" alt="Detalle de las cuerdas de una guitarra acústica">
+                <img src="assets/img/cuerdas_2.png" alt="Ajuste de cuerdas en el taller">
               </div>
             </div>
           </div>
@@ -338,7 +469,12 @@
           <div class="accordion-panel">
             <div class="accordion-panel-inner">
               <div class="accordion-text">
-                <p class="accordion-placeholder">Próximamente.</p>
+                <p>Los herrajes cumplen un papel fundamental en el funcionamiento y la durabilidad del instrumento. <strong>Clavijas, puentes y demás componentes se eligen por su resistencia, precisión y rendimiento.</strong></p>
+                <p>Cada pieza es cuidadosamente seleccionada para garantizar estabilidad, comodidad y un funcionamiento confiable.</p>
+              </div>
+              <div class="accordion-images">
+                <img src="assets/img/herrajes_1.png" alt="Herrajes de una guitarra eléctrica">
+                <img src="assets/img/herrajes_2.png" alt="Ajuste de herrajes en el taller">
               </div>
             </div>
           </div>
@@ -347,13 +483,18 @@
         <div class="accordion-item" data-index="4">
           <button class="accordion-header">
             <span class="accordion-number">04</span>
-            <span class="accordion-name">Acabados</span>
+            <span class="accordion-name">Terminaciones</span>
             <span class="accordion-icon"></span>
           </button>
           <div class="accordion-panel">
             <div class="accordion-panel-inner">
               <div class="accordion-text">
-                <p class="accordion-placeholder">Próximamente.</p>
+                <p>El acabado protege la madera y realza toda su belleza natural. Más allá de la estética, influye en la sensación al tocar, la conservación del instrumento y su respuesta con el paso del tiempo.</p>
+                <p>Aplicamos terminaciones artesanales que respetan las características de cada madera, <strong>resaltando su textura y otorgando un aspecto único a cada instrumento.</strong></p>
+              </div>
+              <div class="accordion-images">
+                <img src="assets/img/terminaciones_1.png" alt="Aplicación de barniz sobre una guitarra">
+                <img src="assets/img/terminaciones_2.png" alt="Pulido de terminación en el taller">
               </div>
             </div>
           </div>
@@ -406,58 +547,67 @@
       </div>
     </section>
 
-    <section class="detail-instruments" id="galeria">
-      <div class="detail-instruments-header">
-        <p class="detail-instruments-label"><span class="slash">+</span> INSTRUMENTOS ARTESANALES</p>
-        <h2 class="detail-instruments-title">Instrumentos construidos en <span class="text-orange">nuestro taller</span></h2>
-        <p class="detail-instruments-subtitle">Cada pieza se construye artesanalmente con materiales seleccionados, atención al detalle y la posibilidad de personalizar cada proyecto.</p>
+    <section id="a-medida" class="why-custom">
+      <!-- Fila 1 -->
+      <div class="why-custom-row">
+        <div class="why-custom-col why-custom-col--margin-left"></div>
+        <div class="why-custom-col why-custom-col--img-left"></div>
+        <div class="why-custom-col why-custom-col--center">
+          <div class="why-custom-text-wrap">
+            <p class="why-custom-section-tag"><span class="slash">+</span> ¿POR QUÉ ELEGIR UN INSTRUMENTO A MEDIDA?</p>
+            <p class="why-custom-label"><span class="slash">+</span> HECHO PARA VOS</p>
+            <h2 class="why-custom-title">Un instrumento pensado<br>para tu forma de tocar.</h2>
+          </div>
+        </div>
+        <div class="why-custom-col why-custom-col--img-right">
+          <div class="why-custom-img-wrap">
+            <img src="assets/img/Hechoparavos_1.png" alt="Un instrumento pensado para tu forma de tocar" class="why-custom-img">
+          </div>
+        </div>
+        <div class="why-custom-col why-custom-col--margin-right"></div>
       </div>
 
-      <div class="instruments-fan">
-        <div class="instrument-fan-card">
-          <img src="assets/img/acústica_GALERÍA.png" alt="Guitarra acústica">
-          <div class="instrument-fan-info">
-            <p class="instrument-fan-title">Guitarra acústica</p>
-            <p class="instrument-fan-desc">Construida a mano, cuerda por cuerda.</p>
+      <!-- Fila 2 -->
+      <div class="why-custom-row">
+        <div class="why-custom-col why-custom-col--margin-left"></div>
+        <div class="why-custom-col why-custom-col--img-left">
+          <div class="why-custom-img-wrap">
+            <img src="assets/img/Detalle_2.png" alt="Vos elegís. Nosotros lo hacemos realidad" class="why-custom-img">
           </div>
         </div>
-        <div class="instrument-fan-card">
-          <img src="assets/img/violín_GALERÍA.png" alt="Violín en proceso">
-          <div class="instrument-fan-info">
-            <p class="instrument-fan-title">Violín</p>
-            <p class="instrument-fan-desc">Restaurado con técnicas tradicionales.</p>
+        <div class="why-custom-col why-custom-col--center">
+          <div class="why-custom-text-wrap">
+            <p class="why-custom-label"><span class="slash">+</span> CADA DETALLE IMPORTA</p>
+            <h2 class="why-custom-title">Vos elegís. Nosotros lo<br>hacemos realidad.</h2>
           </div>
         </div>
-        <div class="instrument-fan-card">
-          <img src="assets/img/eléctrica_GALERÍA.png" alt="Guitarra eléctrica">
-          <div class="instrument-fan-info">
-            <p class="instrument-fan-title">Guitarra eléctrica</p>
-            <p class="instrument-fan-desc">Diseño propio, terminación artesanal.</p>
-          </div>
-        </div>
-        <div class="instrument-fan-card">
-          <img src="assets/img/ukelele_GALERÍA.png" alt="Ukelele artesanal">
-          <div class="instrument-fan-info">
-            <p class="instrument-fan-title">Ukelele</p>
-            <p class="instrument-fan-desc">Chico en tamaño, grande en sonido.</p>
-          </div>
-        </div>
-        <div class="instrument-fan-card">
-          <img src="assets/img/bajo_GALERÍA.png" alt="Bajo eléctrico">
-          <div class="instrument-fan-info">
-            <p class="instrument-fan-title">Bajo eléctrico</p>
-            <p class="instrument-fan-desc">Personalizado a pedido del alumno.</p>
-          </div>
-        </div>
+        <div class="why-custom-col why-custom-col--img-right"></div>
+        <div class="why-custom-col why-custom-col--margin-right"></div>
       </div>
 
-      <a href="#" class="btn hero-btn detail-instruments-btn">VER TODOS LOS INSTRUMENTOS</a>
+      <!-- Fila 3 -->
+      <div class="why-custom-row">
+        <div class="why-custom-col why-custom-col--margin-left"></div>
+        <div class="why-custom-col why-custom-col--img-left"></div>
+        <div class="why-custom-col why-custom-col--center">
+          <div class="why-custom-text-wrap">
+            <p class="why-custom-label"><span class="slash">+</span> PARA TODA LA VIDA</p>
+            <h2 class="why-custom-title">Una guitarra que<br>envejece con vos.</h2>
+          </div>
+        </div>
+        <div class="why-custom-col why-custom-col--img-right">
+          <div class="why-custom-img-wrap">
+            <img src="assets/img/Envejece_3.png" alt="Una guitarra que envejece con vos" class="why-custom-img">
+          </div>
+        </div>
+        <div class="why-custom-col why-custom-col--margin-right"></div>
+      </div>
     </section>
 
-    <section class="cta">
+    <section class="cta" id="cta-final">
       <h2 class="cta-title">El próximo instrumento<br><span class="text-orange">puede ser tuyo.</span></h2>
       <p class="cta-text">Trabajamos junto a cada músico para crear guitarras con <strong>identidad, carácter y un sonido propio.</strong></p>
-      <a href="#contacto" class="btn hero-btn">SOLICITAR PRESUPUESTO</a>
+      <a href="#contacto" class="btn hero-btn">PEDIR PRESUPUESTO</a>
     </section>
   </main>
 
@@ -465,18 +615,17 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#inicio" class="footer-logo"><img src="assets/icons/Logo_White.svg" alt="Trastes"></a>
-        <p class="footer-tagline">Más de 30 años dedicados a la construcción, restauración y enseñanza de la luthería. Un taller donde el oficio, la experiencia y el trabajo artesanal dan vida a instrumentos con identidad propia.</p>
+        <p class="footer-tagline">Más de 30 años dedicados a la construcción y enseñanza de la luthería. Un taller donde el oficio, la experiencia y el trabajo artesanal dan vida a instrumentos con identidad propia.</p>
       </div>
 
       <nav class="footer-nav">
         <p class="footer-label"><span class="slash">+</span> NAVEGACIÓN</p>
         <ul class="footer-links">
-          <li><a href="#inicio">INICIO</a></li>
           <li><a href="#nosotros">NOSOTROS</a></li>
           <li><a href="#cursos">CURSOS</a></li>
+          <li><a href="#galeria">INSTRUMENTOS</a></li>
           <li><a href="#materiales">MATERIALES</a></li>
           <li><a href="#paso-a-paso">PASO A PASO</a></li>
-          <li><a href="#galeria">GALERÍA</a></li>
         </ul>
       </nav>
 
@@ -519,7 +668,8 @@
   </footer>
 
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="js/main.js?v=3"></script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="js/main.js?v=15"></script>
   <script src="js/transitions.js"></script>
 </body>
 </html>

@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Construí tu guitarra criolla — Trastes</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/Icono_3.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;800&family=DM+Sans:wght@400;500;600&family=Syne:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/detail.css">
+  <link rel="stylesheet" href="css/style.css?v=65">
+  <link rel="stylesheet" href="css/detail.css?v=35">
 </head>
 <body>
-  <div class="page-lines"></div>
+  <div class="page-lines page-lines--desktop-only"></div>
   <div id="gridWipe">
     <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:0ms"></div>
     <div class="gwipe-cell gwipe-cell--enter" style="transition-delay:75ms"></div>
@@ -27,10 +28,11 @@
       <img src="assets/icons/Logo_White.svg" alt="Trastes">
     </a>
     <ul class="course-nav-links">
-      <li><a href="#curso">CURSO</a></li>
+      <li><a href="#inicio">INICIO</a></li>
+      <li><a href="#incluye">CURSO</a></li>
       <li><a href="#recorrido">RECORRIDO</a></li>
+      <li><a href="#courseTestimonial">TESTIMONIOS</a></li>
       <li><a href="#profesores">PROFESORES</a></li>
-      <li><a href="index.html#paso-a-paso" data-wipe>PASO A PASO</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="course-nav-right">
@@ -46,10 +48,14 @@
   <main>
 
     <!-- ─── Hero ─── -->
-    <section class="course-hero">
+    <section class="course-hero" id="inicio">
+      <div class="page-lines page-lines--hero"></div>
 
       <div class="course-hero-photo">
-        <img src="assets/img/hero_curso.jpg" alt="Luthier construyendo guitarra criolla en el taller Trastes">
+        <picture>
+          <source media="(max-width: 900px)" srcset="assets/img/Detalle_Hero_Mobile.png">
+          <img src="assets/img/hero_curso.jpg" alt="Luthier construyendo guitarra criolla en el taller Trastes">
+        </picture>
       </div>
 
       <div class="course-hero-content">
@@ -72,12 +78,38 @@
           </div>
         </div>
 
+        <p class="course-hero-price"><span class="course-hero-price-symbol">$</span>560.000 <span class="course-hero-price-note">6 cuotas sin interés</span></p>
+
         <div class="course-hero-btns">
           <a href="index.html#contacto" class="course-btn-primary">INSCRIBIRME AHORA</a>
           <a href="#contenido" class="course-btn-secondary">CONOCER EL CURSO</a>
         </div>
       </div>
 
+    </section>
+
+    <!-- ─── Qué incluye ─── -->
+    <section class="detail-includes-section" id="incluye">
+      <p class="detail-includes-label"><span class="slash">+</span> ¿QUÉ INCLUYE?</p>
+      <h2 class="detail-includes-title"><span class="text-orange">Todo lo necesario</span> para aprender el oficio</h2>
+
+      <div class="includes-grid">
+        <div class="includes-item">
+          <p class="includes-category">MATERIALES</p>
+          <h3 class="includes-item-title">Materiales seleccionados</h3>
+          <p class="includes-item-desc">Trabajá con maderas y componentes de alta calidad seleccionados para tu proyecto.</p>
+        </div>
+        <div class="includes-item">
+          <p class="includes-category">DOCENTES</p>
+          <h3 class="includes-item-title">Acompañamiento</h3>
+          <p class="includes-item-desc">Contá con el seguimiento personalizado de luthiers expertos en cada etapa del proceso.</p>
+        </div>
+        <div class="includes-item">
+          <p class="includes-category">HERRAMIENTAS</p>
+          <h3 class="includes-item-title">Taller equipado</h3>
+          <p class="includes-item-desc">Utilizá herramientas específicas y profesionales de luthería durante toda la cursada.</p>
+        </div>
+      </div>
     </section>
 
     <!-- ─── Sobre el curso ─── -->
@@ -99,39 +131,12 @@
       </div>
     </section>
 
-    <!-- ─── Qué incluye ─── -->
-    <section class="detail-includes-section">
-      <p class="detail-includes-label"><span class="slash">+</span> ¿QUÉ INCLUYE?</p>
-      <h2 class="detail-includes-title">Un entorno <span class="text-orange">pensado para aprender el oficio</span></h2>
-
-      <div class="includes-grid">
-        <div class="includes-item">
-          <p class="includes-category">MATERIALES</p>
-          <h3 class="includes-item-title">Materiales seleccionados</h3>
-          <p class="includes-item-desc">Trabajá con maderas y componentes de calidad profesional.</p>
-        </div>
-        <div class="includes-item">
-          <p class="includes-category">HERRAMIENTAS</p>
-          <h3 class="includes-item-title">Taller equipado</h3>
-          <p class="includes-item-desc">Utilizá herramientas específicas de luthería durante toda la cursada.</p>
-        </div>
-        <div class="includes-item">
-          <p class="includes-category">DOCENTES</p>
-          <h3 class="includes-item-title">Acompañamiento</h3>
-          <p class="includes-item-desc">Contá con el seguimiento de luthiers en cada etapa.</p>
-        </div>
-        <div class="includes-item">
-          <p class="includes-category">RESULTADO</p>
-          <h3 class="includes-item-title">Guitarra terminada</h3>
-          <p class="includes-item-desc">Finalizá el curso con un instrumento construido por vos.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- ─── Recorrido del curso ─── -->
     <section class="detail-recorrido" id="recorrido">
       <div class="paso-glow paso-glow--blue" id="recorridoGlowBlue"></div>
       <div class="paso-glow paso-glow--orange" id="recorridoGlowOrange"></div>
+      <div class="paso-glow paso-glow--orange recorrido-glow-extra recorrido-glow-extra--1"></div>
+      <div class="paso-glow paso-glow--orange recorrido-glow-extra recorrido-glow-extra--2"></div>
       <div class="paso-noise"></div>
 
       <div class="detail-recorrido-header">
@@ -141,11 +146,12 @@
       </div>
 
       <div class="recorrido-timeline">
+        <div class="recorrido-progress-line" id="recorridoProgressLine"></div>
 
         <!-- Etapa 1: imagen izquierda, texto derecha -->
         <div class="recorrido-step">
           <div class="recorrido-img-col">
-            <img src="assets/img/recorrido_fundamentos.jpg" alt="Fundamentos de la luthería">
+            <img src="assets/img/recorrido_fundamentos.png" alt="Fundamentos de la luthería">
           </div>
           <div class="recorrido-center">
             <div class="recorrido-dot"></div>
@@ -168,14 +174,14 @@
             <div class="recorrido-dot"></div>
           </div>
           <div class="recorrido-img-col">
-            <img src="assets/img/recorrido_construccion.jpg" alt="Construcción de la guitarra">
+            <img src="assets/img/recorrido_construccion.png" alt="Construcción de la guitarra">
           </div>
         </div>
 
         <!-- Etapa 3: imagen izquierda, texto derecha -->
         <div class="recorrido-step">
           <div class="recorrido-img-col">
-            <img src="assets/img/recorrido_terminaciones.jpg" alt="Terminaciones">
+            <img src="assets/img/recorrido_terminaciones.png" alt="Terminaciones">
           </div>
           <div class="recorrido-center">
             <div class="recorrido-dot"></div>
@@ -198,7 +204,7 @@
             <div class="recorrido-dot"></div>
           </div>
           <div class="recorrido-img-col">
-            <img src="assets/img/recorrido_ajustefinal.jpg" alt="Ajuste final de la guitarra">
+            <img src="assets/img/recorrido_ajustefinal.png" alt="Ajuste final de la guitarra">
           </div>
         </div>
 
@@ -211,13 +217,15 @@
         <div class="course-testimonial-slide">
           <img src="assets/img/testimonio_curso_juan.jpg" alt="Juan Ortega en el taller" class="course-testimonial-img">
           <div class="course-testimonial-overlay"></div>
+        </div>
+      </div>
 
-          <div class="course-testimonial-content">
-            <p class="course-testimonial-name">Juan Ortega</p>
-            <div class="course-testimonial-quote-block">
-              <p class="course-testimonial-quote">&ldquo;El acompañamiento hizo que todo el proceso fuera mucho más simple.&rdquo;</p>
-              <img src="assets/img/Fechas_Testimonio_Febrero.png" alt="" class="course-testimonial-date" aria-hidden="true">
-            </div>
+      <div class="course-testimonial-content-track" id="courseTestimonialContentTrack">
+        <div class="course-testimonial-content">
+          <p class="course-testimonial-name">Juan Ortega</p>
+          <div class="course-testimonial-quote-block">
+            <p class="course-testimonial-quote">&ldquo;El acompañamiento hizo que todo el proceso fuera mucho más simple.&rdquo;</p>
+            <img src="assets/img/Fechas_Testimonio_Febrero.png" alt="" class="course-testimonial-date" aria-hidden="true" style="margin-left: -16px;">
           </div>
         </div>
       </div>
@@ -281,24 +289,42 @@
 
       <div class="detail-team-grid">
         <div class="team-card">
-          <img src="assets/img/Jorge_Profe.png" alt="Jorge Talledo">
-          <div class="team-card-info">
-            <h3 class="team-card-name">Jorge Talledo</h3>
-            <p class="team-card-role"><span class="slash">+</span> DIRECTOR DEL TALLER</p>
+          <div class="team-card-inner">
+            <div class="team-card-media">
+              <img src="assets/img/Jorge_Profe.png" alt="Jorge Talledo">
+              <div class="team-card-glow"></div>
+              <div class="team-card-content">
+                <p class="team-card-role"><span class="slash">+</span> DIRECTOR Y MAESTRO LUTHIER</p>
+                <h3 class="team-card-name">Jorge Talledo</h3>
+                <p class="team-card-desc">Luthier con amplia trayectoria en guitarras de autor. Coordina el programa académico y guía a los alumnos en los procesos estructurales más complejos del oficio.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="team-card">
-          <img src="assets/img/Rodrigo_Profe.png" alt="Rodrigo Beder">
-          <div class="team-card-info">
-            <h3 class="team-card-name">Rodrigo Beder</h3>
-            <p class="team-card-role"><span class="slash">+</span> LUTHIER</p>
+          <div class="team-card-inner">
+            <div class="team-card-media">
+              <img src="assets/img/Rodrigo_Profe.png" alt="Rodrigo Beder">
+              <div class="team-card-glow"></div>
+              <div class="team-card-content">
+                <p class="team-card-role"><span class="slash">+</span> ESPECIALISTA EN ACÚSTICA</p>
+                <h3 class="team-card-name">Rodrigo Beder</h3>
+                <p class="team-card-desc">Luthier especializado en maderas nobles y calibración. Cuenta con más de ocho años guiando a alumnos en la creación de sus primeros instrumentos.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="team-card">
-          <img src="assets/img/Tomás_Profe.png" alt="Tomás Casán">
-          <div class="team-card-info">
-            <h3 class="team-card-name">Tomás Casán</h3>
-            <p class="team-card-role"><span class="slash">+</span> AYUDANTE DE TALLER</p>
+          <div class="team-card-inner">
+            <div class="team-card-media">
+              <img src="assets/img/Tomás_Profe.png" alt="Tomás Casán">
+              <div class="team-card-glow"></div>
+              <div class="team-card-content">
+                <h3 class="team-card-name">Tomás Casán</h3>
+                <p class="team-card-role"><span class="slash">+</span> INSTRUCTOR DE TALLER</p>
+                <p class="team-card-desc">Artesano enfocado en la enseñanza de las técnicas de lutería tradicional. Acompaña el proceso diario en el taller, desde el tratamiento del material crudo hasta el acabado final.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -308,7 +334,7 @@
     <section class="detail-faq" id="faq">
       <div class="detail-faq-left">
         <p class="detail-faq-label"><span class="slash">+</span> PREGUNTAS FRECUENTES</p>
-        <h2 class="detail-faq-title">Todo lo que <span class="text-orange">necesitás saber.</span></h2>
+        <h2 class="detail-faq-title">Lo que querés saber <span class="text-orange">antes de comenzar</span></h2>
         <p class="detail-faq-desc">Reunimos las consultas más frecuentes sobre la cursada, los materiales, la modalidad y el proceso de inscripción para que puedas conocer todos los detalles antes de comenzar.</p>
       </div>
 
@@ -360,14 +386,30 @@
             </div>
           </div>
         </div>
+
+        <div class="faq-item" data-index="5">
+          <button class="faq-header">
+            <span class="faq-question">¿Me llevo la guitarra al terminar el curso?</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Sí, la guitarra que construís durante la cursada es tuya. Al finalizar el proceso te la llevás terminada, calibrada y lista para tocar.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ─── CTA final ─── -->
     <section class="detail-cta-section">
-      <h2 class="detail-cta-title">¿Listo para construir<br>tu primer instrumento?</h2>
-      <p class="detail-cta-desc">Los cupos son limitados. Si querés reservar tu lugar o tenés alguna pregunta, escribinos y te respondemos a la brevedad.</p>
-      <a href="index.html#contacto" class="course-btn-primary detail-cta-btn">INSCRIBIRME AHORA</a>
+      <p class="detail-cta-label"><span class="slash">+</span> RESERVÁ TU LUGAR</p>
+      <h2 class="detail-cta-title">¿Preparado para vivir la experiencia del taller?<br></h2>
+      <p class="detail-cta-desc">Los cupos son limitados. Asegurá tu lugar en este taller o explorá el resto de nuestras propuestas de lutería.</p>
+      <div class="detail-cta-btns">
+        <a href="index.html#contacto" class="course-btn-primary detail-cta-btn">INSCRIBIRME AHORA</a>
+        <a href="index.html#cursos" class="course-btn-secondary detail-cta-btn">VER OTROS CURSOS</a>
+      </div>
     </section>
 
   </main>
@@ -431,7 +473,7 @@
   </footer>
 
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
   <script src="js/transitions.js"></script>
 </body>
 </html>

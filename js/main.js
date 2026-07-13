@@ -15,6 +15,11 @@ function setupLenis() {
 
   document.querySelectorAll('a[href*="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
+      if (link.getAttribute('href') === '#') {
+        e.preventDefault();
+        return;
+      }
+
       let url;
       try {
         url = new URL(link.href);
@@ -80,8 +85,9 @@ function updateScrollReveal(section, words, lineTop, lineBottom) {
     wordSpan.classList.toggle('is-leading', i === revealCount);
   });
 
-  if (lineTop) lineTop.style.transform = `scaleX(${progress})`;
-  if (lineBottom) lineBottom.style.transform = `scaleX(${progress})`;
+  const revealPercent = (1 - progress) * 100;
+  if (lineTop) lineTop.style.clipPath = `inset(0 ${revealPercent}% 0 0)`;
+  if (lineBottom) lineBottom.style.clipPath = `inset(0 0 0 ${revealPercent}%)`;
 }
 
 function updateHeroShrink(manifestoSection, heroImg) {
@@ -92,62 +98,36 @@ function updateHeroShrink(manifestoSection, heroImg) {
   heroImg.style.transform = `scale(${scale})`;
 }
 
-function setupInstrumentsFan() {
-  const fans = document.querySelectorAll('.instruments-fan');
-  if (!fans.length) return;
+function setupExploreCards() {
+  const cards = document.getElementById('exploreCards');
+  const nextBtn = document.getElementById('exploreNext');
+  const prevBtn = document.getElementById('explorePrev');
+  if (!cards || !nextBtn || !prevBtn) return;
 
-  // Medidas exactas por distancia a la card enfocada (0 = la enfocada).
-  const SIZE_BY_DISTANCE = [
-    [437, 515],
-    [332, 392],
-    [301, 355],
-    [276, 326],
-    [247, 292],
-  ];
+  function getStep() {
+    const card = cards.querySelector('.explore-card');
+    if (!card) return 300;
+    const gap = parseFloat(getComputedStyle(cards).columnGap) || 0;
+    return card.getBoundingClientRect().width + gap;
+  }
 
-  const OVERLAP = 30;
+  nextBtn.addEventListener('click', () => {
+    const step = getStep();
+    const atEnd = cards.scrollLeft + cards.clientWidth >= cards.scrollWidth - 10;
+    const target = atEnd ? 0 : cards.scrollLeft + step;
+    cards.scrollTo({ left: target, behavior: 'smooth' });
+    prevBtn.classList.toggle('is-visible', target > 10);
+  });
 
-  fans.forEach((fan) => {
-    const cards = Array.from(fan.querySelectorAll('.instrument-fan-card'));
-    const centerIndex = Math.floor((cards.length - 1) / 2);
+  prevBtn.addEventListener('click', () => {
+    const step = getStep();
+    const target = Math.max(cards.scrollLeft - step, 0);
+    cards.scrollTo({ left: target, behavior: 'smooth' });
+    prevBtn.classList.toggle('is-visible', target > 10);
+  });
 
-    function applyDistance(focusIndex) {
-      const sizes = cards.map((_, i) => {
-        const distance = Math.min(Math.abs(i - focusIndex), SIZE_BY_DISTANCE.length - 1);
-        return { distance, width: SIZE_BY_DISTANCE[distance][0], height: SIZE_BY_DISTANCE[distance][1] };
-      });
-
-      // Posiciones explícitas: cada card empieza donde termina la
-      // anterior, menos el solapamiento fijo. Así siempre quedan pegadas
-      // sin importar cuánto se achique/agrande cada una.
-      let left = 0;
-      const lefts = sizes.map((size, i) => {
-        const x = left;
-        left += size.width - OVERLAP;
-        return x;
-      });
-      const totalWidth = left + OVERLAP;
-      const fanWidth = fan.clientWidth;
-      const centerOffset = (fanWidth - totalWidth) / 2;
-
-      cards.forEach((card, i) => {
-        const { distance, width, height } = sizes[i];
-        card.style.width = `${width}px`;
-        card.style.height = `${height}px`;
-        card.style.transform = `translate(${lefts[i] + centerOffset}px, -50%)`;
-        card.style.zIndex = String(100 - distance);
-        card.style.filter = distance === 0 ? 'none' : 'grayscale(60%) brightness(0.75)';
-        card.classList.toggle('is-focused', distance === 0);
-      });
-    }
-
-    cards.forEach((card, i) => {
-      card.addEventListener('mouseenter', () => applyDistance(i));
-    });
-
-    fan.addEventListener('mouseleave', () => applyDistance(centerIndex));
-
-    applyDistance(centerIndex);
+  cards.addEventListener('scroll', () => {
+    prevBtn.classList.toggle('is-visible', cards.scrollLeft > 10);
   });
 }
 
@@ -180,9 +160,8 @@ function setupRecorridoReveal() {
 
 function setupRecorridoGlow() {
   const section = document.querySelector('.detail-recorrido');
-  const glowBlue = document.getElementById('recorridoGlowBlue');
-  const glowOrange = document.getElementById('recorridoGlowOrange');
-  if (!section || !glowBlue || !glowOrange) return;
+  const glows = section ? section.querySelectorAll('.paso-glow') : [];
+  if (!section || !glows.length) return;
 
   let ticking = false;
   function update() {
@@ -190,11 +169,67 @@ function setupRecorridoGlow() {
     const range = rect.height - window.innerHeight;
     const progress = range > 0 ? Math.min(Math.max(-rect.top / range, 0), 1) : 0;
     const travel = rect.height - 640;
+    const offset = progress * travel;
 
-    glowBlue.style.transform = `translateY(${progress * travel}px)`;
-    glowOrange.style.transform = `translateY(${-progress * travel}px)`;
+    glows.forEach((glow) => {
+      glow.style.transform = `translateY(${offset}px)`;
+    });
     ticking = false;
   }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  });
+  update();
+}
+
+function setupRecorridoLineFill() {
+  const timeline = document.querySelector('.recorrido-timeline');
+  const line = document.getElementById('recorridoProgressLine');
+  const dots = document.querySelectorAll('.recorrido-dot');
+  if (!timeline || !line || !dots.length) return;
+
+  // La línea empieza y termina en el centro del primer/último punto en vez de
+  // ocupar todo el alto del contenedor (que suele ser más alto por el resto
+  // del contenido de cada fila).
+  let lineStart = 0;
+  let lineLength = 0;
+
+  function measureLine() {
+    const timelineRect = timeline.getBoundingClientRect();
+    const firstDot = dots[0].getBoundingClientRect();
+    const lastDot = dots[dots.length - 1].getBoundingClientRect();
+
+    lineStart = firstDot.top + firstDot.height / 2 - timelineRect.top;
+    lineLength = (lastDot.top + lastDot.height / 2) - (firstDot.top + firstDot.height / 2);
+
+    timeline.style.setProperty('--line-start', `${lineStart}px`);
+    timeline.style.setProperty('--line-length', `${lineLength}px`);
+  }
+
+  let ticking = false;
+  function update() {
+    const timelineRect = timeline.getBoundingClientRect();
+    const lineTop = timelineRect.top + lineStart;
+    const triggerY = window.innerHeight * 0.5;
+    const progress = lineLength > 0 ? Math.min(Math.max((triggerY - lineTop) / lineLength, 0), 1) : 0;
+
+    line.style.transform = `translateX(-50%) scaleY(${progress})`;
+
+    dots.forEach((dot) => {
+      const dotRect = dot.getBoundingClientRect();
+      const passed = dotRect.top + dotRect.height / 2 <= triggerY;
+      dot.classList.toggle('is-active', passed);
+    });
+
+    ticking = false;
+  }
+
+  measureLine();
+  window.addEventListener('resize', measureLine);
 
   window.addEventListener('scroll', () => {
     if (!ticking) {
@@ -235,6 +270,65 @@ function setupStatCounters() {
   counters.forEach((el) => observer.observe(el));
 }
 
+function setupScrollInset(selector, maxInsetDesktop = 137, maxInsetMobile = 30) {
+  const frame = document.querySelector(selector);
+  if (!frame) return;
+
+  let ticking = false;
+  function update() {
+    const maxInset = window.innerWidth <= 900 ? maxInsetMobile : maxInsetDesktop;
+    const rect = frame.getBoundingClientRect();
+    // Arranca con margen cuando la sección recién entra en pantalla
+    // y llega a full width (0px) cuando la sección ocupa casi todo el alto
+    // de la ventana, ya scrolleada hacia el centro.
+    const start = window.innerHeight;
+    const end = window.innerHeight * 0.15;
+    const progress = Math.min(Math.max((start - rect.top) / (start - end), 0), 1);
+    const inset = Math.round(maxInset * (1 - progress));
+
+    frame.style.margin = `0 ${inset}px`;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  });
+  window.addEventListener('resize', update);
+  update();
+}
+
+function setupVideoModal() {
+  const openBtn = document.getElementById('videoOpenBtn');
+  const closeBtn = document.getElementById('videoCloseBtn');
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('videoModalIframe');
+  if (!openBtn || !closeBtn || !modal || !iframe) return;
+
+  const videoSrc = 'https://player.vimeo.com/video/1209308640?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1';
+
+  function openModal() {
+    iframe.src = videoSrc;
+    modal.classList.add('is-open');
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    iframe.src = '';
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+}
+
 function setupGallery() {
   const wrapper = document.getElementById('galleryWrapper');
   const track = document.getElementById('galleryTrack');
@@ -249,9 +343,6 @@ function setupGallery() {
   let offset = 0;
   let loopWidth = 0;
   let cardStep = 0;
-  let isDragging = false;
-  let dragStartX = 0;
-  let dragStartOffset = 0;
 
   function measure() {
     // Se calcula el "paso" real entre tarjetas (ancho + gap) y el largo del
@@ -327,34 +418,6 @@ function setupGallery() {
     render();
     updateActiveCard();
   });
-
-  function startDrag(clientX) {
-    isDragging = true;
-    dragStartX = clientX;
-    dragStartOffset = offset;
-    wrapper.classList.add('dragging');
-  }
-
-  function moveDrag(clientX) {
-    if (!isDragging) return;
-    offset = dragStartOffset - (clientX - dragStartX);
-    wrap();
-    render();
-    updateActiveCard();
-  }
-
-  function endDrag() {
-    isDragging = false;
-    wrapper.classList.remove('dragging');
-  }
-
-  wrapper.addEventListener('mousedown', (e) => startDrag(e.clientX));
-  window.addEventListener('mousemove', (e) => moveDrag(e.clientX));
-  window.addEventListener('mouseup', endDrag);
-
-  wrapper.addEventListener('touchstart', (e) => startDrag(e.touches[0].clientX), { passive: true });
-  wrapper.addEventListener('touchmove', (e) => moveDrag(e.touches[0].clientX), { passive: true });
-  wrapper.addEventListener('touchend', endDrag);
 
   function goToOffset(newOffset) {
     // No se "recorta" (wrap) antes de animar: así el track sigue de largo
@@ -505,6 +568,7 @@ const COURSE_TESTIMONIALS = [
     quote: '&ldquo;El acompañamiento hizo que todo el proceso fuera mucho más simple.&rdquo;',
     img: 'assets/img/testimonio_curso_juan.jpg',
     date: 'assets/img/Fechas_Testimonio_Febrero.png',
+    dateOffset: -16,
   },
   {
     name: 'Paula Pergolini',
@@ -512,6 +576,7 @@ const COURSE_TESTIMONIALS = [
     img: 'assets/img/testimonio_curso_paula.jpg',
     objectPosition: '38% center',
     date: 'assets/img/Fechas_Testimonio_Mayo.png',
+    dateOffset: -60,
   },
   {
     name: 'Julio Demner',
@@ -524,12 +589,14 @@ const COURSE_TESTIMONIALS = [
 function setupCourseTestimonial() {
   const section = document.getElementById('courseTestimonial');
   const track = document.getElementById('courseTestimonialTrack');
-  if (!section || !track) return;
+  const contentTrack = document.getElementById('courseTestimonialContentTrack');
+  if (!section || !track || !contentTrack) return;
 
   const prevBtn = document.getElementById('courseTestimonialPrev');
   const nextBtn = document.getElementById('courseTestimonialNext');
   let current = 0;
   let currentSlide = track.querySelector('.course-testimonial-slide');
+  let currentContent = contentTrack.querySelector('.course-testimonial-content');
   let isAnimating = false;
   const SLIDE_MS = 900;
   const EASING = 'cubic-bezier(0.3, 1.2, 0.6, 1)';
@@ -546,15 +613,21 @@ function setupCourseTestimonial() {
     slide.innerHTML = `
       <img src="${item.img}" alt="${item.name}" class="course-testimonial-img" style="object-position: ${position};">
       <div class="course-testimonial-overlay"></div>
-      <div class="course-testimonial-content">
-        <p class="course-testimonial-name">${item.name}</p>
-        <div class="course-testimonial-quote-block">
-          <p class="course-testimonial-quote">${item.quote}</p>
-          ${item.date ? `<img src="${item.date}" alt="" class="course-testimonial-date" aria-hidden="true">` : ''}
-        </div>
-      </div>
     `;
     return slide;
+  }
+
+  function buildContent(item) {
+    const content = document.createElement('div');
+    content.className = 'course-testimonial-content';
+    content.innerHTML = `
+      <p class="course-testimonial-name">${item.name}</p>
+      <div class="course-testimonial-quote-block">
+        <p class="course-testimonial-quote">${item.quote}</p>
+        ${item.date ? `<img src="${item.date}" alt="" class="course-testimonial-date" aria-hidden="true"${item.dateOffset ? ` style="margin-left: ${item.dateOffset}px;"` : ''}>` : ''}
+      </div>
+    `;
+    return content;
   }
 
   function goTo(index, dir) {
@@ -565,10 +638,15 @@ function setupCourseTestimonial() {
     const outTo = dir === 'next' ? '-100%' : '100%';
     const inFrom = dir === 'next' ? '100%' : '-100%';
 
-    const nextSlide = buildSlide(COURSE_TESTIMONIALS[index]);
+    const item = COURSE_TESTIMONIALS[index];
+    const nextSlide = buildSlide(item);
+    const nextContent = buildContent(item);
     nextSlide.style.transform = `translateX(${inFrom})`;
     nextSlide.style.zIndex = '2';
+    nextContent.style.transform = `translateX(${inFrom})`;
+    nextContent.style.zIndex = '2';
     track.appendChild(nextSlide);
+    contentTrack.appendChild(nextContent);
 
     // Forzar reflow antes de animar para que la transición arranque desde inFrom
     void nextSlide.offsetWidth;
@@ -576,13 +654,19 @@ function setupCourseTestimonial() {
     requestAnimationFrame(() => {
       currentSlide.style.transition = `transform ${SLIDE_MS}ms ${EASING}`;
       nextSlide.style.transition = `transform ${SLIDE_MS}ms ${EASING}`;
+      currentContent.style.transition = `transform ${SLIDE_MS}ms ${EASING}`;
+      nextContent.style.transition = `transform ${SLIDE_MS}ms ${EASING}`;
       currentSlide.style.transform = `translateX(${outTo})`;
       nextSlide.style.transform = 'translateX(0)';
+      currentContent.style.transform = `translateX(${outTo})`;
+      nextContent.style.transform = 'translateX(0)';
     });
 
     setTimeout(() => {
       currentSlide.remove();
+      currentContent.remove();
       currentSlide = nextSlide;
+      currentContent = nextContent;
       isAnimating = false;
     }, SLIDE_MS + 50);
   }
@@ -667,28 +751,28 @@ const PASO_STEPS = {
   1: {
     number: '01',
     name: 'Selección de materiales',
-    desc: 'Cada veta es única y cada elección influye en el carácter del instrumento. Trabajamos con maderas seleccionadas como <strong>cedro, palisandro, ébano y caoba</strong>, elegidas por su resonancia, estabilidad y belleza natural.',
+    desc: 'Cada veta es única y cada elección influye en el carácter del instrumento. Trabajamos con maderas seleccionadas como cedro, palisandro, ébano y caoba, elegidas por su resonancia, estabilidad y belleza natural.',
     img: 'assets/img/Etapa01_Polaroid.png',
     frameLabel: 'SELECCIÓN DE MADERAS',
   },
   2: {
     number: '02',
     name: 'Diseño y corte',
-    desc: 'Cada instrumento comienza a tomar forma a partir de <strong>planos, plantillas y cortes precisos.</strong> Cada pieza se trabaja cuidadosamente para garantizar un encastre perfecto y respetar las proporciones que definirán su sonido y comodidad.',
+    desc: 'Cada instrumento comienza a tomar forma a partir de planos, plantillas y cortes precisos. Cada pieza se trabaja cuidadosamente para garantizar un encastre perfecto y las proporciones que definirán su sonido y comodidad.',
     img: 'assets/img/Etapa02_Polaroid.png',
     frameLabel: 'DISEÑO Y CORTE',
   },
   3: {
     number: '03',
     name: 'Ensamblado',
-    desc: 'Con cada pieza preparada, <strong>comienza el proceso de unión.</strong> Tapa, fondo, aros y mástil se ensamblan cuidadosamente para dar vida a una estructura sólida, equilibrada y lista para desarrollar todo su potencial acústico.',
+    desc: 'Con cada pieza preparada, comienza el proceso de unión. Tapa, fondo, aros y mástil se ensamblan cuidadosamente para dar vida a una estructura sólida, equilibrada y lista para desarrollar todo su potencial acústico.',
     img: 'assets/img/Etapa03_Polaroid.png',
     frameLabel: 'ENSAMBLADO',
   },
   4: {
     number: '04',
     name: 'Lijado y terminación',
-    desc: 'Cada superficie se trabaja completamente a mano para lograr un acabado uniforme y agradable al tacto. Luego se aplican las terminaciones que protegen la madera y resaltan la belleza natural de cada instrumento.',
+    desc: 'Cada superficie se trabaja a mano para lograr un acabado uniforme y agradable al tacto. Las terminaciones protegen la madera y resaltan su belleza natural.',
     img: 'assets/img/Etapa04_Polaroid.png',
     frameLabel: 'LIJADO Y TERMINACIÓN',
   },
@@ -854,6 +938,65 @@ function setupPasoStepper() {
   }
 }
 
+function setupWhyCustomParallax() {
+  const images = document.querySelectorAll('.why-custom-img');
+  if (!images.length) return;
+
+  function updateParallax() {
+    images.forEach(img => {
+      const container = img.parentElement;
+      const rect = container.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      
+      const start = viewportHeight;
+      const end = -rect.height;
+      const progress = (start - rect.top) / (start - end);
+      
+      if (progress >= 0 && progress <= 1) {
+        const maxTranslate = 50; // pixels
+        const translateVal = (progress - 0.5) * 2 * maxTranslate;
+        img.style.transform = `translateY(${translateVal}px) scale(1.1)`;
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateParallax);
+  window.addEventListener('resize', updateParallax);
+  updateParallax();
+}
+
+function setupWhyCustomReveal() {
+  const rows = document.querySelectorAll('.why-custom-row');
+  if (!rows.length) return;
+
+  rows.forEach((row) => {
+    const title = row.querySelector('.why-custom-title');
+    const label = row.querySelector('.why-custom-label');
+    const tag = row.querySelector('.why-custom-section-tag');
+    if (title) title.innerHTML = maskifyWords(title.innerHTML);
+    if (label) label.innerHTML = maskifyWords(label.innerHTML);
+    if (tag) tag.innerHTML = maskifyWords(tag.innerHTML);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        const title = entry.target.querySelector('.why-custom-title');
+        const label = entry.target.querySelector('.why-custom-label');
+        const tag = entry.target.querySelector('.why-custom-section-tag');
+        if (title) title.classList.add('is-revealed');
+        if (label) label.classList.add('is-revealed');
+        if (tag) tag.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  rows.forEach((row) => observer.observe(row));
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links, .course-nav-links');
@@ -877,13 +1020,19 @@ document.addEventListener('DOMContentLoaded', () => {
   setupStatCounters();
   setupRecorridoGlow();
   setupRecorridoReveal();
+  setupRecorridoLineFill();
   setupTestimonialsCarousel();
   setupAccordion();
   setupFaq();
   setupCourseTestimonial();
   setupPasoStepper();
   setupGallery();
-  setupInstrumentsFan();
+  setupScrollInset('.video-frame');
+  setupScrollInset('.course-testimonial-track');
+  setupExploreCards();
+  setupVideoModal();
+  setupWhyCustomParallax();
+  setupWhyCustomReveal();
 
   const manifestoSection = document.querySelector('.manifesto');
   const manifestoText = document.querySelector('.manifesto-text');
@@ -909,9 +1058,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (statsSection && statsLineTop && statsLineBottom) {
           const rect = statsSection.getBoundingClientRect();
-          const progress = getProgress(rect, window.innerHeight, 0.95, 0.55);
-          statsLineTop.style.transform = `scaleX(${progress})`;
-          statsLineBottom.style.transform = `scaleX(${progress})`;
+          const progress = getProgress(rect, window.innerHeight, 0.95, 0.1);
+          const statsRevealPercent = (1 - progress) * 100;
+          statsLineTop.style.clipPath = `inset(0 ${statsRevealPercent}% 0 0)`;
+          statsLineBottom.style.clipPath = `inset(0 0 0 ${statsRevealPercent}%)`;
         }
 
         ticking = false;

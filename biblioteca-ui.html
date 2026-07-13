@@ -4,397 +4,333 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biblioteca UI — Trastes</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/Icono_3.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;500;800&family=DM+Sans:wght@400;500;600&family=Syne:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/detail.css">
-  <style>
-    /* Estilos exclusivos de esta página de referencia (no forman parte del sitio) */
-    .ui-page {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 64px 48px 160px;
-    }
-
-    .ui-top {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid rgba(48, 48, 48, 0.15);
-      margin-bottom: 64px;
-    }
-
-    .ui-top h1 {
-      font-family: var(--font-title);
-      font-weight: 700;
-      font-size: 42px;
-      color: var(--black);
-    }
-
-    .ui-top a {
-      font-family: var(--font-mono);
-      font-size: 14px;
-      letter-spacing: 0.5px;
-      color: var(--orange);
-      text-decoration: none;
-      border-bottom: 1px solid var(--orange);
-    }
-
-    .ui-section {
-      margin-bottom: 96px;
-    }
-
-    .ui-section > h2 {
-      font-family: var(--font-mono);
-      font-weight: 400;
-      font-size: 13px;
-      letter-spacing: 1px;
-      color: var(--orange);
-      margin-bottom: 8px;
-    }
-
-    .ui-section > p.ui-desc {
-      font-family: var(--font-text);
-      font-size: 15px;
-      color: rgba(48, 48, 48, 0.6);
-      margin-bottom: 32px;
-      max-width: 600px;
-    }
-
-    .ui-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      align-items: flex-start;
-    }
-
-    .ui-block {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .ui-label {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      color: rgba(48, 48, 48, 0.55);
-    }
-
-    /* Colores */
-    .ui-swatch {
-      width: 160px;
-    }
-
-    .ui-swatch-color {
-      width: 160px;
-      height: 100px;
-      border-radius: 4px;
-      border: 1px solid rgba(48, 48, 48, 0.1);
-    }
-
-    /* Tipografía */
-    .ui-type-row {
-      display: flex;
-      align-items: baseline;
-      gap: 24px;
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(48, 48, 48, 0.08);
-    }
-
-    .ui-type-row .ui-label {
-      width: 160px;
-      flex-shrink: 0;
-    }
-
-    /* Cards demo container (fondo oscuro para las course-card) */
-    .ui-dark-surface {
-      background-color: var(--black);
-      padding: 48px;
-      border-radius: 4px;
-    }
-
-    .ui-testimonial-demo .testimonial-card {
-      flex-shrink: 0;
-    }
-
-    .ui-arrow-demo {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .ui-arrow-demo.ui-dark-surface {
-      display: inline-flex;
-      padding: 24px;
-    }
-
-    /* El "+" del acordeón es negro por defecto; sobre fondo oscuro necesita ser claro */
-    .ui-icon-cream::before,
-    .ui-icon-cream::after {
-      background-color: var(--cream);
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css?v=65">
+  <link rel="stylesheet" href="css/detail.css?v=35">
+  <link rel="stylesheet" href="css/biblioteca.css?v=8">
 </head>
-<body style="background-color: var(--cream);">
-  <div class="ui-page">
-    <div class="ui-top">
-      <h1>Biblioteca UI — Trastes</h1>
-      <a href="index.html">&larr; Volver al sitio</a>
-    </div>
+<body style="background-color: var(--course-bg);">
 
-    <!-- Colores -->
-    <section class="ui-section">
-      <h2>+ COLORES</h2>
-      <p class="ui-desc">Paleta de variables definidas en <code>:root</code> (css/style.css).</p>
-      <div class="ui-row">
-        <div class="ui-swatch">
-          <div class="ui-swatch-color" style="background-color: var(--cream);"></div>
-          <p class="ui-label">--cream · #F8F7F1</p>
-        </div>
-        <div class="ui-swatch">
-          <div class="ui-swatch-color" style="background-color: var(--orange);"></div>
-          <p class="ui-label">--orange · #FF5F2F</p>
-        </div>
-        <div class="ui-swatch">
-          <div class="ui-swatch-color" style="background-color: var(--black);"></div>
-          <p class="ui-label">--black · #303030</p>
-        </div>
-        <div class="ui-swatch">
-          <div class="ui-swatch-color" style="background-color: var(--gray);"></div>
-          <p class="ui-label">--gray · #8C8C8C</p>
-        </div>
-        <div class="ui-swatch">
-          <div class="ui-swatch-color" style="background-color: var(--course-bg);"></div>
-          <p class="ui-label">--course-bg · #141618</p>
-        </div>
-        <div class="ui-swatch">
-          <div class="ui-swatch-color" style="background-color: #8AAFB9;"></div>
-          <p class="ui-label">celeste (degradados) · #8AAFB9</p>
-        </div>
-      </div>
+  <!-- ─── Header ─── -->
+  <header class="lib-header">
+    <a href="index.html" class="lib-header-logo">
+      <img src="assets/icons/Logo_White.svg" alt="Trastes">
+      <span class="lib-header-tag">BIBLIOTECA UI</span>
+    </a>
+    <a href="index.html" class="lib-header-back">← VOLVER AL SITIO</a>
+  </header>
+
+  <main>
+
+    <!-- ─── Hero ─── -->
+    <section class="lib-hero" id="inicio">
+      <div class="lib-hero-glow"></div>
+      <p class="lib-hero-eyebrow"><span class="slash">+</span> BIBLIOTECA UI</p>
+      <h1 class="lib-hero-title">Esto es<br>Trastes</h1>
+      <p class="lib-hero-subtitle">Los colores, tipografías y elementos que definen cómo se ve y se siente la marca en cada rincón del sitio.</p>
     </section>
 
-    <!-- Tipografía -->
-    <section class="ui-section">
-      <h2>+ TIPOGRAFÍA</h2>
-      <p class="ui-desc">Tres familias: Syne para títulos, DM Sans para texto de cuerpo, Chivo Mono para labels/UI.</p>
+    <!-- ─── Tabs ─── -->
+    <nav class="lib-tabs" id="libTabs">
+      <a href="#inicio" class="lib-tab" data-tab="inicio"><span class="lib-tab-num">00</span> BIENVENIDA</a>
+      <a href="#logo" class="lib-tab" data-tab="logo"><span class="lib-tab-num">01</span> LOGO</a>
+      <a href="#color" class="lib-tab" data-tab="color"><span class="lib-tab-num">02</span> COLOR</a>
+      <a href="#tipografia" class="lib-tab" data-tab="tipografia"><span class="lib-tab-num">03</span> TIPOGRAFÍA</a>
+      <a href="#componentes" class="lib-tab" data-tab="componentes"><span class="lib-tab-num">04</span> BOTONES</a>
+      <a href="#cards" class="lib-tab" data-tab="cards"><span class="lib-tab-num">05</span> CARDS</a>
+      <a href="#fotos" class="lib-tab" data-tab="fotos"><span class="lib-tab-num">06</span> FOTOS</a>
+      <a href="#componentes-extra" class="lib-tab" data-tab="componentes-extra"><span class="lib-tab-num">07</span> COMPONENTES EXTRA</a>
+    </nav>
 
-      <div class="ui-type-row">
-        <p class="ui-label">--font-title (Syne 700)<br>64px</p>
-        <p style="font-family: var(--font-title); font-weight: 700; font-size: 64px;">El próximo instrumento</p>
-      </div>
-      <div class="ui-type-row">
-        <p class="ui-label">--font-title (Syne 700)<br>42px</p>
-        <p style="font-family: var(--font-title); font-weight: 700; font-size: 42px;">La diferencia está en el taller</p>
-      </div>
-      <div class="ui-type-row">
-        <p class="ui-label">--font-title (Syne 600)<br>28px</p>
-        <p style="font-family: var(--font-title); font-weight: 600; font-size: 28px;">Construí tu guitarra criolla</p>
-      </div>
-      <div class="ui-type-row">
-        <p class="ui-label">--font-text (DM Sans 400)<br>18px</p>
-        <p style="font-family: var(--font-text); font-weight: 400; font-size: 18px;">Trabajá con herramientas profesionales, materiales reales e instrumentos que recorren cada etapa del oficio.</p>
-      </div>
-      <div class="ui-type-row">
-        <p class="ui-label">--font-text (DM Sans 400)<br>14px</p>
-        <p style="font-family: var(--font-text); font-weight: 400; font-size: 14px;">6 cuotas sin interés</p>
-      </div>
-      <div class="ui-type-row">
-        <p class="ui-label">--font-mono (Chivo Mono 400)<br>15px</p>
-        <p style="font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.5px;">+ DE MAESTRO A APRENDIZ</p>
-      </div>
-      <div class="ui-type-row">
-        <p class="ui-label">--font-mono (Chivo Mono 400)<br>13px</p>
-        <p style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.5px;">CURSO MÁS ELEGIDO</p>
-      </div>
-    </section>
+    <!-- ─── Logo ─── -->
+    <section class="lib-section" id="logo">
+      <p class="lib-section-eyebrow"><span class="slash">+</span> 01 — MARCA</p>
+      <h2 class="lib-section-title">Logo</h2>
+      <p class="lib-section-desc">El logo de Trastes es un isologo tipográfico. Usá la versión clara sobre fondos oscuros y la oscura sobre fondos claros — nunca lo combines con colores fuera de la paleta.</p>
 
-    <!-- Botones -->
-    <section class="ui-section">
-      <h2>+ BOTONES</h2>
-      <p class="ui-desc">Todos comparten el mismo patrón de hover: cambio de color + <code>transform: scale(0.94)</code>.</p>
-
-      <div class="ui-row">
-        <div class="ui-block">
-          <a href="#" class="btn hero-btn" onclick="return false;">CONOCÉ EL TALLER</a>
-          <p class="ui-label">.btn.hero-btn</p>
-        </div>
-        <div class="ui-block ui-dark-surface" style="padding: 24px;">
-          <a href="#" class="course-nav-cta" onclick="return false;">CONTACTANOS</a>
-          <p class="ui-label" style="color: rgba(248,247,241,0.6);">.course-nav-cta / .nav-cta</p>
-        </div>
-        <div class="ui-block ui-dark-surface" style="padding: 24px;">
-          <a href="#" class="course-btn-secondary" onclick="return false;">VER MÁS CURSOS</a>
-          <p class="ui-label" style="color: rgba(248,247,241,0.6);">.course-btn-secondary</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Iconos / flechas -->
-    <section class="ui-section">
-      <h2>+ BOTONES DE ÍCONO</h2>
-      <p class="ui-desc">Usados en carruseles (galería de instrumentos, testimonios del curso).</p>
-      <div class="ui-row">
-        <div class="ui-block">
-          <div class="ui-arrow-demo">
-            <button class="gallery-arrow" onclick="return false;">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <button class="gallery-arrow" onclick="return false;">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
+      <p class="lib-color-group-label">VARIANTES</p>
+      <div class="lib-logo-grid">
+        <div class="lib-logo-card lib-logo-card--dark">
+          <img src="assets/icons/Logo_White.svg" alt="Logo Trastes, versión blanca">
+          <div class="lib-logo-card-info">
+            <span class="lib-logo-card-name">Blanco</span>
+            <span class="lib-logo-card-usage">Sobre fondo oscuro (#141618, #303030)</span>
           </div>
-          <p class="ui-label">.gallery-arrow</p>
         </div>
-        <div class="ui-block ui-dark-surface ui-arrow-demo">
-          <button class="course-testimonial-arrow" onclick="return false;">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="lib-logo-card lib-logo-card--light">
+          <img src="assets/icons/Logo_Black.svg" alt="Logo Trastes, versión negra">
+          <div class="lib-logo-card-info">
+            <span class="lib-logo-card-name">Negro</span>
+            <span class="lib-logo-card-usage">Sobre fondo claro (#F8F7F1, blanco)</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="lib-color-group-label">USO INCORRECTO</p>
+      <div class="lib-logo-misuse-grid">
+        <div class="lib-logo-misuse">
+          <img src="assets/icons/Logo_White.svg" alt="" style="transform: scaleX(1.6);">
+          <span class="lib-logo-misuse-label">✕ No estirar ni deformar</span>
+        </div>
+        <div class="lib-logo-misuse">
+          <img src="assets/icons/Logo_White.svg" alt="" style="filter: drop-shadow(4px 4px 0 var(--orange));">
+          <span class="lib-logo-misuse-label">✕ No agregar sombras ni efectos</span>
+        </div>
+        <div class="lib-logo-misuse">
+          <img src="assets/icons/Logo_Black.svg" alt="" style="background:#141618; padding:8px;">
+          <span class="lib-logo-misuse-label">✕ No usar la versión negra sobre fondo oscuro</span>
+        </div>
+        <div class="lib-logo-misuse">
+          <img src="assets/icons/Logo_White.svg" alt="" style="transform: rotate(-8deg);">
+          <span class="lib-logo-misuse-label">✕ No rotar ni inclinar</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Color ─── -->
+    <section class="lib-section" id="color">
+      <p class="lib-section-eyebrow"><span class="slash">+</span> 02 — COLOR</p>
+      <h2 class="lib-section-title">Paleta</h2>
+      <p class="lib-section-desc">La paleta de Trastes nace del taller: madera, cuero y el naranja que marca cada llamado a la acción. El crema es la superficie principal; el naranja, el acento que guía la mirada.</p>
+
+      <p class="lib-color-group-label">PRIMARIOS</p>
+      <div class="lib-color-grid">
+        <button class="lib-swatch" data-hex="#FF5F2F">
+          <span class="lib-swatch-fill" style="background-color:#FF5F2F;">
+            <span class="lib-swatch-copy">COPIAR</span>
+          </span>
+          <span class="lib-swatch-info">
+            <span class="lib-swatch-name">Naranja</span>
+            <span class="lib-swatch-hex">#FF5F2F</span>
+          </span>
+        </button>
+        <button class="lib-swatch" data-hex="#F8F7F1">
+          <span class="lib-swatch-fill" style="background-color:#F8F7F1;">
+            <span class="lib-swatch-copy" style="color:#111;">COPIAR</span>
+          </span>
+          <span class="lib-swatch-info">
+            <span class="lib-swatch-name">Crema</span>
+            <span class="lib-swatch-hex">#F8F7F1</span>
+          </span>
+        </button>
+        <button class="lib-swatch" data-hex="#303030">
+          <span class="lib-swatch-fill" style="background-color:#303030;">
+            <span class="lib-swatch-copy">COPIAR</span>
+          </span>
+          <span class="lib-swatch-info">
+            <span class="lib-swatch-name">Negro</span>
+            <span class="lib-swatch-hex">#303030</span>
+          </span>
+        </button>
+        <button class="lib-swatch" data-hex="#141618">
+          <span class="lib-swatch-fill" style="background-color:#141618;">
+            <span class="lib-swatch-copy">COPIAR</span>
+          </span>
+          <span class="lib-swatch-info">
+            <span class="lib-swatch-name">Fondo oscuro</span>
+            <span class="lib-swatch-hex">#141618</span>
+          </span>
+        </button>
+      </div>
+
+      <p class="lib-color-group-label">SECUNDARIOS</p>
+      <div class="lib-color-grid">
+        <button class="lib-swatch" data-hex="#8C8C8C">
+          <span class="lib-swatch-fill" style="background-color:#8C8C8C;">
+            <span class="lib-swatch-copy">COPIAR</span>
+          </span>
+          <span class="lib-swatch-info">
+            <span class="lib-swatch-name">Gris</span>
+            <span class="lib-swatch-hex">#8C8C8C</span>
+          </span>
+        </button>
+        <button class="lib-swatch" data-hex="#8AAFB9">
+          <span class="lib-swatch-fill" style="background-color:#8AAFB9;">
+            <span class="lib-swatch-copy">COPIAR</span>
+          </span>
+          <span class="lib-swatch-info">
+            <span class="lib-swatch-name">Celeste (glow)</span>
+            <span class="lib-swatch-hex">#8AAFB9</span>
+          </span>
+        </button>
+        <button class="lib-swatch" data-hex="#FFFFFF">
+          <span class="lib-swatch-fill" style="background-color:#FFFFFF;">
+            <span class="lib-swatch-copy" style="color:#111;">COPIAR</span>
+          </span>
+          <span class="lib-swatch-info">
+            <span class="lib-swatch-name">Blanco</span>
+            <span class="lib-swatch-hex">#FFFFFF</span>
+          </span>
+        </button>
+        <button class="lib-swatch" data-hex="rgba(140,138,128,0.38)">
+          <span class="lib-swatch-fill" style="background-color:#141618; border: 1px solid rgba(140,138,128,0.38); display:flex; align-items:center; justify-content:center;">
+            <span style="font-family:var(--font-mono); font-size:12px; color:rgba(248,247,241,0.5);">LÍNEA / BORDE</span>
+            <span class="lib-swatch-copy">COPIAR</span>
+          </span>
+          <span class="lib-swatch-info">
+            <span class="lib-swatch-name">Borde</span>
+            <span class="lib-swatch-hex">rgba(140,138,128,.38)</span>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ─── Tipografía ─── -->
+    <section class="lib-section" id="tipografia">
+      <p class="lib-section-eyebrow"><span class="slash">+</span> 03 — TIPOGRAFÍA</p>
+      <h2 class="lib-section-title">Sistema tipográfico</h2>
+      <p class="lib-section-desc">Tres tipografías, cada una con un rol fijo. Syne para lo que tiene que pesar, DM Sans para lo que se lee, Chivo Mono para lo que se etiqueta.</p>
+
+      <div class="lib-type-block">
+        <div class="lib-type-head">
+          <p class="lib-type-num">01</p>
+          <div>
+            <p class="lib-type-name">Syne</p>
+            <p class="lib-type-role">TÍTULOS · DISPLAY</p>
+          </div>
+          <p class="lib-type-desc">Reservada para títulos de hero, encabezados de sección y números destacados. Le da peso editorial a la marca — se usa poco y con intención.</p>
+        </div>
+        <p class="lib-type-sample lib-type-sample--display">El origen de tu sonido</p>
+      </div>
+
+      <div class="lib-type-block">
+        <div class="lib-type-head">
+          <p class="lib-type-num">02</p>
+          <div>
+            <p class="lib-type-name">DM Sans</p>
+            <p class="lib-type-role">TEXTO · UI</p>
+          </div>
+          <p class="lib-type-desc">Descripciones, títulos secundarios y todo el copy de lectura. Medium para lo que necesita jerarquía, Regular para el resto.</p>
+        </div>
+        <p class="lib-type-sample lib-type-sample--text">Construimos instrumentos artesanales y compartimos el oficio que los hace posibles.</p>
+      </div>
+
+      <div class="lib-type-block">
+        <div class="lib-type-head">
+          <p class="lib-type-num">03</p>
+          <div>
+            <p class="lib-type-name">Chivo Mono</p>
+            <p class="lib-type-role">LABELS · DATOS</p>
+          </div>
+          <p class="lib-type-desc">Labels, botones, badges y datos técnicos. Siempre en mayúscula.</p>
+        </div>
+        <p class="lib-type-sample lib-type-sample--mono">+ Nuestro manifiesto</p>
+      </div>
+
+      <div class="lib-type-scale">
+        <div class="lib-scale-row">
+          <p class="lib-scale-label">HERO<span>Syne · 700 · clamp(42–100px)</span></p>
+          <p class="lib-scale-sample" style="font-size:clamp(32px,5vw,64px);">El origen de tu sonido</p>
+        </div>
+        <div class="lib-scale-row">
+          <p class="lib-scale-label">TÍTULO DE SECCIÓN<span>Syne · 700 · 42px</span></p>
+          <p class="lib-scale-sample" style="font-size:32px;">Cada etapa construye el resultado</p>
+        </div>
+        <div class="lib-scale-row">
+          <p class="lib-scale-label">CUERPO<span>DM Sans · 400 · 18px</span></p>
+          <p class="lib-scale-sample" style="font-family:var(--font-text); font-weight:400; font-size:18px;">Trabajá con herramientas profesionales y materiales reales.</p>
+        </div>
+        <div class="lib-scale-row">
+          <p class="lib-scale-label">LABEL<span>Chivo Mono · 400 · 16–20px</span></p>
+          <p class="lib-scale-sample" style="font-family:var(--font-mono); font-weight:400; font-size:18px; text-transform:uppercase; letter-spacing:0.5px;">+ Quiénes somos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Componentes ─── -->
+    <section class="lib-section" id="componentes">
+      <p class="lib-section-eyebrow"><span class="slash">+</span> 04 — BOTONES</p>
+      <h2 class="lib-section-title">Sistema de botones</h2>
+      <p class="lib-section-desc">Dos jerarquías. El primario lleva a la acción principal de cada pantalla; el secundario acompaña, nunca compite. Pasá el mouse para ver el estado hover.</p>
+
+      <p class="lib-color-group-label">PRIMARIO</p>
+      <div class="lib-component-row">
+        <div class="lib-component-demo">
+          <a href="#" class="btn" onclick="return false;">CONOCER CURSOS</a>
+        </div>
+        <div class="lib-component-meta">
+          <p class="lib-component-name">Botón primario</p>
+          <p class="lib-component-desc">Fondo naranja sólido, texto blanco. Al hover se invierte: fondo blanco, texto naranja. Uso: una sola acción principal por sección.</p>
+          <code class="lib-component-class">.btn</code>
+        </div>
+      </div>
+
+      <p class="lib-color-group-label">SECUNDARIO</p>
+      <div class="lib-component-row">
+        <div class="lib-component-demo">
+          <a href="#" class="btn hero-btn-secondary" onclick="return false;">PEDIR PRESUPUESTO</a>
+        </div>
+        <div class="lib-component-meta">
+          <p class="lib-component-name">Botón secundario</p>
+          <p class="lib-component-desc">Fondo oscuro, borde blanco fino, texto blanco. Al hover se rellena de blanco. Uso: acción alternativa, junto a un primario.</p>
+          <code class="lib-component-class">.btn.hero-btn-secondary</code>
+        </div>
+      </div>
+
+      <p class="lib-color-group-label">TRANSPARENTE — SOBRE FOTO</p>
+      <div class="lib-component-row lib-component-row--photo">
+        <div class="lib-component-demo">
+          <button class="video-btn" onclick="return false;">
+            VER EL PROCESO
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 4.5L19 12L6 19.5V4.5Z" fill="currentColor"/></svg>
           </button>
-          <button class="course-testimonial-arrow" onclick="return false;">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+        </div>
+        <div class="lib-component-meta">
+          <p class="lib-component-name">Botón transparente</p>
+          <p class="lib-component-desc">Sin relleno, solo borde crema. Pensado para ir encima de fotos o videos (sección "Dentro del taller", cards de instrumentos). Al hover se rellena de crema.</p>
+          <code class="lib-component-class">.video-btn</code>
         </div>
       </div>
     </section>
 
-    <!-- Líneas y detalles decorativos -->
-    <section class="ui-section">
-      <h2>+ LÍNEAS Y DETALLES DECORATIVOS</h2>
-      <p class="ui-desc">Elementos gráficos chicos que se repiten a lo largo del sitio para separar y marcar contenido.</p>
+    <!-- ─── Cards ─── -->
+    <section class="lib-section" id="cards">
+      <p class="lib-section-eyebrow"><span class="slash">+</span> 05 — CARDS</p>
+      <h2 class="lib-section-title">Componentes informativos</h2>
+      <p class="lib-section-desc">Tres familias de card: de curso (con precio y CTA), de texto (sin imagen) y con foto (donde la imagen es protagonista).</p>
 
-      <div class="ui-row" style="align-items: stretch; margin-bottom: 32px;">
-        <div class="ui-block" style="width: 320px;">
-          <p style="font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.5px;"><span class="slash" style="color: var(--orange);">+</span> DE MAESTRO A APRENDIZ</p>
-          <p class="ui-label">.slash — prefijo de los labels de sección</p>
-        </div>
-
-        <div class="ui-block" style="width: 320px;">
-          <div style="position: relative; height: 24px;">
-            <div style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; background-color: rgba(48, 48, 48, 0.35); transform: translateY(-50%) scaleX(1);"></div>
+      <p class="lib-color-group-label">CARDS DE CURSO</p>
+      <div class="lib-card-showcase lib-card-showcase--courses">
+        <article class="course-card">
+          <div class="course-info">
+            <h3 class="course-title">Calibración de violín</h3>
+            <p class="course-description">Ajustá y poné a punto un violín, trabajando el puente, las clavijas y los accesorios para optimizar su sonido.</p>
+            <p class="course-price"><span class="price-sign">$</span>300.000</p>
+            <p class="course-installments">6 cuotas sin interés</p>
           </div>
-          <p class="ui-label">.manifesto-line / .stats-line — crecen desde un costado al hacer scroll</p>
-        </div>
-
-        <div class="ui-block ui-dark-surface" style="width: 320px; padding: 16px 24px;">
-          <div class="stepper" style="margin: 0; max-width: 100%;">
-            <div class="stepper-line" style="position: relative; top: 0; transform: none;">
-              <div class="stepper-progress" style="width: 45%;"></div>
-            </div>
-            <button class="stepper-dot is-done" style="position: relative;"></button>
-            <button class="stepper-dot is-active" style="position: relative;"></button>
-            <button class="stepper-dot" style="position: relative;"></button>
+          <div class="course-details">
+            <div class="course-detail-row"><span>NIVEL</span><span>AVANZADO</span></div>
+            <div class="course-detail-row"><span>MODALIDAD</span><span>PRESENCIAL</span></div>
+            <div class="course-detail-row"><span>DURACIÓN</span><span>4 MESES</span></div>
+            <a href="#" class="course-btn" onclick="return false;">CONOCER MÁS</a>
           </div>
-          <p class="ui-label" style="color: rgba(248,247,241,0.6); margin-top: 12px;">.stepper-line / .stepper-dot — "Paso a paso"</p>
-        </div>
-      </div>
-
-      <div class="ui-row" style="align-items: center;">
-        <div class="ui-block ui-dark-surface" style="width: 220px; align-items: center; padding: 32px;">
-          <div class="accordion-item" style="border: none; margin: 0; padding: 0; width: auto;">
-            <div class="accordion-icon ui-icon-cream"></div>
+        </article>
+        <article class="course-card course-card--featured">
+          <span class="course-badge"><span class="slash">+</span> CURSO MÁS ELEGIDO</span>
+          <div class="course-info">
+            <h3 class="course-title">Construí tu guitarra criolla</h3>
+            <p class="course-description">Diseñá y construí una guitarra hecha con tus propias manos, recorriendo cada etapa del proceso artesanal.</p>
+            <p class="course-price"><span class="price-sign">$</span>560.000</p>
+            <p class="course-installments">6 cuotas sin interés</p>
           </div>
-          <p class="ui-label" style="color: rgba(248,247,241,0.6);">.accordion-icon (cerrado)</p>
-        </div>
-        <div class="ui-block ui-dark-surface" style="width: 220px; align-items: center; padding: 32px;">
-          <div class="accordion-item is-active" style="border: none; margin: 0; padding: 0; width: auto; background: none;">
-            <div class="accordion-icon"></div>
+          <div class="course-details">
+            <div class="course-detail-row"><span>NIVEL</span><span>PRINCIPIANTE</span></div>
+            <div class="course-detail-row"><span>MODALIDAD</span><span>PRESENCIAL</span></div>
+            <div class="course-detail-row"><span>DURACIÓN</span><span>6 MESES</span></div>
+            <a href="#" class="course-btn" onclick="return false;">CONOCER MÁS</a>
           </div>
-          <p class="ui-label" style="color: rgba(248,247,241,0.6);">.accordion-icon.is-active (abierto → "-")</p>
-        </div>
+        </article>
       </div>
-    </section>
+      <p class="lib-card-caption"><code class="lib-component-class">.course-card</code> — stroke gris, uso general &nbsp; · &nbsp; <code class="lib-component-class">.course-card--featured</code> — borde naranja, para destacar una opción</p>
 
-    <!-- Badge -->
-    <section class="ui-section">
-      <h2>+ BADGES</h2>
-      <p class="ui-desc">Etiqueta que marca la card destacada de la sección "Cursos", superpuesta al borde superior.</p>
-      <div class="ui-row">
-        <div class="ui-block ui-dark-surface" style="padding: 32px;">
-          <span class="course-badge" style="position: static;">CURSO MÁS ELEGIDO</span>
-          <p class="ui-label" style="color: rgba(248,247,241,0.6); margin-top:16px;">.course-badge</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Degradados -->
-    <section class="ui-section">
-      <h2>+ DEGRADADOS · PASO A PASO</h2>
-      <p class="ui-desc">Manchas radiales celeste (#8AAFB9) y naranja con blur, más el grano/ruido sutil, usados de fondo en la sección "Paso a paso".</p>
-      <div style="position: relative; height: 320px; overflow: hidden; border-radius: 4px; background-color: #141618;">
-        <div class="paso-glow paso-glow--blue"></div>
-        <div class="paso-glow paso-glow--orange"></div>
-        <div class="paso-noise"></div>
-      </div>
-      <p class="ui-label" style="margin-top: 16px;">.paso-glow--blue · .paso-glow--orange · .paso-noise</p>
-    </section>
-
-    <!-- Cards de cursos -->
-    <section class="ui-section">
-      <h2>+ CARDS · CURSOS</h2>
-      <p class="ui-desc">Card default y card destacada (<code>.course-card--featured</code>), con degradado naranja/celeste al hacer hover.</p>
-      <div class="ui-dark-surface" style="padding: 48px;">
-        <div class="cursos-grid" style="max-width: 100%;">
-          <article class="course-card">
-            <div class="course-info">
-              <h3 class="course-title">Calibración de violín</h3>
-              <p class="course-description">Ajustá y poné a punto un violín, trabajando el puente, las clavijas y los accesorios.</p>
-              <p class="course-price"><span class="price-sign">$</span>300.000</p>
-              <p class="course-installments">6 cuotas sin interés</p>
-            </div>
-            <div class="course-details">
-              <div class="course-detail-row"><span>NIVEL</span><span>AVANZADO</span></div>
-              <div class="course-detail-row"><span>MODALIDAD</span><span>PRESENCIAL</span></div>
-              <div class="course-detail-row"><span>DURACIÓN</span><span>4 MESES</span></div>
-              <a href="#" class="course-btn" onclick="return false;">CONOCER MÁS</a>
-            </div>
-          </article>
-
-          <article class="course-card course-card--featured">
-            <span class="course-badge">CURSO MÁS ELEGIDO</span>
-            <div class="course-info">
-              <h3 class="course-title">Construí tu guitarra criolla</h3>
-              <p class="course-description">Diseñá y construí una guitarra hecha con tus propias manos.</p>
-              <p class="course-price"><span class="price-sign">$</span>560.000</p>
-              <p class="course-installments">6 cuotas sin interés</p>
-            </div>
-            <div class="course-details">
-              <div class="course-detail-row"><span>NIVEL</span><span>PRINCIPIANTE</span></div>
-              <div class="course-detail-row"><span>MODALIDAD</span><span>PRESENCIAL</span></div>
-              <div class="course-detail-row"><span>DURACIÓN</span><span>6 MESES</span></div>
-              <a href="#" class="course-btn" onclick="return false;">CONOCER MÁS</a>
-            </div>
-          </article>
-
-          <article class="course-card">
-            <div class="course-info">
-              <h3 class="course-title">Personalizá tu instrumento</h3>
-              <p class="course-description">Aprendé técnicas de personalización para transformar instrumentos con acabados, colores y detalles únicos.</p>
-              <p class="course-price"><span class="price-sign">$</span>210.000</p>
-              <p class="course-installments">6 cuotas sin interés</p>
-            </div>
-            <div class="course-details">
-              <div class="course-detail-row"><span>NIVEL</span><span>PRINCIPIANTE</span></div>
-              <div class="course-detail-row"><span>MODALIDAD</span><span>PRESENCIAL</span></div>
-              <div class="course-detail-row"><span>DURACIÓN</span><span>2 MESES</span></div>
-              <a href="#" class="course-btn" onclick="return false;">CONOCER MÁS</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonios -->
-    <section class="ui-section">
-      <h2>+ CARD · TESTIMONIO</h2>
-      <div class="ui-row ui-testimonial-demo">
+      <p class="lib-color-group-label">CARDS DE TEXTO</p>
+      <div class="lib-card-showcase lib-card-showcase--text">
         <div class="testimonial-card">
           <span class="testimonial-quote">&ldquo;</span>
-          <p class="testimonial-text">El curso superó mis expectativas. Terminé con una guitarra criolla que refleja el sonido que buscaba.</p>
+          <p class="testimonial-text">El curso superó mis expectativas. No solo aprendí técnicas de luthería, sino que terminé con una guitarra criolla que refleja el sonido y la estética que buscaba"</p>
           <div class="testimonial-footer">
             <div class="testimonial-person">
               <p class="testimonial-name">MATÍAS ARIAS</p>
@@ -403,39 +339,203 @@
             <p class="testimonial-tag">CONSTRUÍ TU PROPIA<br>GUITARRA CRIOLLA</p>
           </div>
         </div>
+        <div class="includes-item">
+          <p class="includes-category">MATERIALES</p>
+          <h3 class="includes-item-title">Materiales seleccionados</h3>
+          <p class="includes-item-desc">Trabajá con maderas y componentes de alta calidad seleccionados para tu proyecto.</p>
+        </div>
+      </div>
+      <p class="lib-card-caption"><code class="lib-component-class">.testimonial-card</code> — home, carrusel de testimonios &nbsp; · &nbsp; <code class="lib-component-class">.includes-item</code> — detalle, sección "Qué incluye"</p>
+
+      <p class="lib-color-group-label">CARDS CON FOTO</p>
+      <div class="lib-card-showcase lib-card-showcase--photo">
+        <div class="team-card">
+          <div class="team-card-inner">
+            <div class="team-card-media">
+              <img src="assets/img/Jorge_Profe.png" alt="Jorge Talledo">
+              <div class="team-card-glow"></div>
+              <div class="team-card-content">
+                <p class="team-card-role"><span class="slash">+</span> DIRECTOR Y MAESTRO LUTHIER</p>
+                <h3 class="team-card-name">Jorge Talledo</h3>
+                <p class="team-card-desc">Luthier con amplia trayectoria en guitarras de autor. Coordina el programa académico y guía a los alumnos en los procesos estructurales más complejos del oficio.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="explore-card" onclick="return false;">
+          <span class="explore-card-inner">
+            <span class="explore-card-media">
+            <img src="assets/img/acustica_galeria_1.jpg" alt="Guitarra acústica">
+            <span class="explore-card-content">
+              <span class="explore-card-text">
+                <span class="explore-card-title">Guitarra acústica</span>
+                <span class="explore-card-desc">Construida con maderas seleccionadas para lograr un sonido cálido, equilibrado y natural.</span>
+              </span>
+              <span class="explore-card-btn">VER MÁS</span>
+            </span>
+            </span>
+          </span>
+        </a>
+      </div>
+      <p class="lib-card-caption"><code class="lib-component-class">.team-card</code> — detalle, sección "Profesores" &nbsp; · &nbsp; <code class="lib-component-class">.explore-card</code> — home, galería de instrumentos</p>
+    </section>
+
+    <!-- ─── Fotos ─── -->
+    <section class="lib-section" id="fotos">
+      <p class="lib-section-eyebrow"><span class="slash">+</span> 06 — FOTOS</p>
+      <h2 class="lib-section-title">Estilo fotográfico</h2>
+      <p class="lib-section-desc">Conjunto de recursos fotográficos utilizados a lo largo del sitio, incluyendo imágenes con estilo Polaroid, composiciones apiladas con animación y fotografías sin borde para adaptarse a distintos contextos y reforzar la identidad visual del proyecto.</p>
+
+      <p class="lib-color-group-label">POLAROID — CON BORDE</p>
+      <div class="lib-component-row lib-component-row--photo">
+        <div class="lib-component-demo" style="background:none;">
+          <div class="polaroid" style="width:240px;">
+            <img src="assets/img/QuienesSomos_Polaroid-06.png" alt="" class="about-img">
+          </div>
+        </div>
+        <div class="lib-component-meta">
+          <p class="lib-component-name">Polaroid suelta</p>
+          <p class="lib-component-desc">Fotografía con marco tipo Polaroid y anotaciones manuscritas en la parte inferior, utilizada para reforzar la estética documental y artesanal del proyecto.</p>
+          <code class="lib-component-class">.polaroid</code>
+        </div>
+      </div>
+      <div class="lib-component-row lib-component-row--photo">
+        <div class="lib-component-demo" style="padding:40px 0 72px; background:none;">
+          <div class="paso-frame" style="width:300px;">
+            <img class="paso-frame-stack paso-frame-stack--2" src="assets/img/Etapa03_Polaroid.png" alt="">
+            <img class="paso-frame-stack paso-frame-stack--1" src="assets/img/Etapa02_Polaroid.png" alt="">
+            <img src="assets/img/Etapa01_Polaroid.png" alt="" style="width:100%; display:block;">
+          </div>
+        </div>
+        <div class="lib-component-meta">
+          <p class="lib-component-name">Polaroid apilada</p>
+          <p class="lib-component-desc">Conjunto de fotografías superpuestas con animación, pensado para aportar dinamismo y simular un registro documental del taller.</p>
+          <code class="lib-component-class">.paso-frame / .paso-frame-stack</code>
+        </div>
+      </div>
+
+      <p class="lib-color-group-label">SIN BORDE</p>
+      <div class="lib-component-row lib-component-row--photo">
+        <div class="lib-component-demo" style="padding:0; background:none;">
+          <img src="assets/img/recorrido_fundamentos.png" alt="" style="width:260px; height:300px; object-fit:cover; display:block;">
+        </div>
+        <div class="lib-component-meta">
+          <p class="lib-component-name">Foto sin borde</p>
+          <p class="lib-component-desc">Fotografía a pantalla completa o sin marco, utilizada para resaltar detalles, texturas y el trabajo artesanal con mayor protagonismo.</p>
+          <code class="lib-component-class">.recorrido-img-col img</code>
+        </div>
       </div>
     </section>
 
-    <!-- Stats -->
-    <section class="ui-section">
-      <h2>+ ESTADÍSTICAS</h2>
-      <p class="ui-desc">Números animados (cuentan desde 0 al entrar en pantalla) con líneas divisorias sutiles.</p>
-      <div class="stats-grid" style="max-width: 900px;">
-        <div class="stat">
-          <p class="stat-number"><span class="stat-count">30</span> <span class="stat-suffix">+</span></p>
-          <p class="stat-label">Años de experiencia</p>
+    <!-- ─── Componentes extra ─── -->
+    <section class="lib-section" id="componentes-extra">
+      <p class="lib-section-eyebrow"><span class="slash">+</span> 07 — COMPONENTES EXTRA</p>
+      <h2 class="lib-section-title">Recursos complementarios</h2>
+      <p class="lib-section-desc">Componentes complementarios utilizados para enriquecer la experiencia de navegación y reforzar la identidad visual del proyecto. Incluye elementos funcionales y decorativos reutilizables en distintas secciones de la interfaz.</p>
+
+      <p class="lib-color-group-label">FLECHAS DE CARRUSEL</p>
+      <div class="lib-component-row">
+        <div class="lib-component-demo">
+          <button class="gallery-arrow" style="margin-right:16px;" onclick="return false;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="gallery-arrow" onclick="return false;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
-        <div class="stat">
-          <p class="stat-number"><span class="stat-count">500</span> <span class="stat-suffix">+</span></p>
-          <p class="stat-label">Instrumentos realizados</p>
+        <div class="lib-component-meta">
+          <p class="lib-component-name">Flechas de carrusel</p>
+          <p class="lib-component-desc">Flechas de navegación utilizadas para recorrer carruseles y galerías de contenido. Mantienen una interacción clara y consistente en toda la interfaz.</p>
+          <code class="lib-component-class">.gallery-arrow / .explore-next / .explore-prev / .course-testimonial-arrow</code>
         </div>
-        <div class="stat">
-          <p class="stat-number"><span class="stat-count">100</span> <span class="stat-suffix">%</span></p>
-          <p class="stat-label">Trabajo artesanal</p>
+      </div>
+
+      <p class="lib-color-group-label">LÍNEA DE TIEMPO</p>
+      <div class="lib-component-row">
+        <div class="lib-component-demo" style="min-width:280px;">
+          <div class="stepper-line" style="position:relative; top:0; transform:none; width:240px;">
+            <div class="stepper-progress" style="width:45%;"></div>
+          </div>
+        </div>
+        <div class="lib-component-meta">
+          <p class="lib-component-name">Paso a paso</p>
+          <p class="lib-component-desc">Línea de tiempo interactiva que organiza el paso a paso en etapas y acompaña el recorrido del usuario mediante una animación de progreso al hacer scroll.</p>
+          <code class="lib-component-class">.stepper-line / .stepper-progress</code>
+        </div>
+      </div>
+      <div class="lib-component-row">
+        <div class="lib-component-demo" style="min-width:280px; height:120px;">
+          <div style="position:relative; height:100%; width:2px; background-color:var(--course-border);">
+            <div class="recorrido-progress-line" style="left:0; transform:scaleY(0.5);"></div>
+          </div>
+        </div>
+        <div class="lib-component-meta">
+          <p class="lib-component-name">Recorrido del curso</p>
+          <p class="lib-component-desc">Línea de tiempo interactiva que organiza el recorrido en etapas y acompaña el recorrido del usuario mediante una animación de progreso al hacer scroll.</p>
+          <code class="lib-component-class">.recorrido-progress-line</code>
+        </div>
+      </div>
+
+      <p class="lib-color-group-label">ACORDEÓN</p>
+      <div class="lib-component-row lib-component-row--photo">
+        <div class="lib-component-demo" style="padding:0; background:var(--cream);">
+          <div class="accordion-item is-active" style="margin:0; padding:0 32px; width:100%;">
+            <button class="accordion-header">
+              <span class="accordion-number">01</span>
+              <span class="accordion-name">Maderas</span>
+              <span class="accordion-icon"></span>
+            </button>
+            <div class="accordion-panel" style="max-height:160px;">
+              <div class="accordion-panel-inner">
+                <div class="accordion-text"><p></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-component-meta">
+          <p class="lib-component-name">Acordeón</p>
+          <p class="lib-component-desc">Componente desplegable utilizado para organizar grandes volúmenes de información en un espacio reducido, facilitando la lectura y la navegación.</p>
+          <code class="lib-component-class">.accordion-item / .accordion-header / .accordion-panel</code>
         </div>
       </div>
     </section>
 
-    <!-- Gallery card -->
-    <section class="ui-section">
-      <h2>+ CARD · GALERÍA</h2>
-      <div class="ui-row" style="background-color: var(--cream); padding: 32px 0;">
-        <div class="gallery-card is-center" style="position: static;">
-          <img src="assets/img/electrica_galeria_3.jpg" alt="Guitarra eléctrica">
-          <p class="gallery-card-name">Guitarra eléctrica</p>
-        </div>
-      </div>
-    </section>
-  </div>
+  </main>
+
+  <footer class="lib-footer">
+    <span>Trastes — Biblioteca UI</span>
+    <a href="index.html">Volver al sitio ↗</a>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lib-swatch').forEach((swatch) => {
+      swatch.addEventListener('click', () => {
+        const hex = swatch.dataset.hex;
+        navigator.clipboard.writeText(hex).then(() => {
+          swatch.classList.add('is-copied');
+          const label = swatch.querySelector('.lib-swatch-copy');
+          const original = label.textContent;
+          label.textContent = 'COPIADO';
+          setTimeout(() => {
+            swatch.classList.remove('is-copied');
+            label.textContent = original;
+          }, 1200);
+        });
+      });
+    });
+
+    const tabs = document.querySelectorAll('.lib-tab');
+    const sections = document.querySelectorAll('.lib-hero, .lib-section');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tabs.forEach((tab) => {
+            tab.classList.toggle('is-active', tab.dataset.tab === id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -40% 0px' });
+
+    sections.forEach((section) => observer.observe(section));
+  </script>
+
 </body>
 </html>

@@ -1,0 +1,755 @@
+/* =============================================
+   BIBLIOTECA UI — biblioteca-ui.html
+   ============================================= */
+
+.lib-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 85px;
+  padding: 0 var(--side-margin);
+  background-color: rgba(20, 22, 24, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--course-border);
+}
+
+.lib-header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  outline: none;
+}
+
+.lib-header-logo img {
+  height: 24px;
+}
+
+.lib-header-tag {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: rgba(248, 247, 241, 0.5);
+  padding-left: 12px;
+  border-left: 1px solid var(--course-border);
+}
+
+.lib-header-back {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: #F8F7F1;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.25s ease;
+}
+
+.lib-header-back:hover {
+  opacity: 1;
+}
+
+/* ---- Hero ---- */
+
+.lib-hero {
+  position: relative;
+  padding: 180px var(--side-margin) 60px;
+  background-color: var(--course-bg);
+  overflow: hidden;
+}
+
+
+
+.lib-hero-eyebrow {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: var(--orange);
+  margin-bottom: 24px;
+}
+
+.lib-hero-eyebrow .slash {
+  color: var(--orange);
+}
+
+.lib-hero-title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(56px, 8vw, 108px);
+  line-height: 0.98;
+  color: #F8F7F1;
+  max-width: 900px;
+}
+
+.lib-hero-subtitle {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(248, 247, 241, 0.7);
+  max-width: 520px;
+  margin-top: 28px;
+}
+
+/* ---- Tabs de navegación ---- */
+
+.lib-tabs {
+  position: sticky;
+  top: 85px;
+  z-index: 50;
+  display: flex;
+  gap: 10px;
+  padding: 20px var(--side-margin);
+  background-color: rgba(20, 22, 24, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--course-border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.lib-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.lib-tab {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--course-border);
+  background-color: transparent;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: rgba(248, 247, 241, 0.55);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.lib-tab-num {
+  color: var(--orange);
+  opacity: 0.7;
+}
+
+.lib-tab:hover,
+.lib-tab.is-active {
+  background-color: var(--orange);
+  border-color: var(--orange);
+  color: #ffffff;
+}
+
+.lib-tab:hover .lib-tab-num,
+.lib-tab.is-active .lib-tab-num {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* ---- Secciones generales ---- */
+
+.lib-section {
+  padding: 140px var(--side-margin);
+  background-color: var(--course-bg);
+  border-bottom: 1px solid var(--course-border);
+}
+
+.lib-section--light {
+  background-color: var(--cream);
+  border-bottom: none;
+}
+
+.lib-section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: var(--orange);
+  margin-bottom: 24px;
+}
+
+.lib-section-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(40px, 4.5vw, 72px);
+  color: #F8F7F1;
+  margin-bottom: 24px;
+}
+
+.lib-section--light .lib-section-title {
+  color: var(--black);
+}
+
+.lib-section-desc {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(248, 247, 241, 0.75);
+  max-width: 640px;
+  margin-bottom: 64px;
+}
+
+.lib-section--light .lib-section-desc {
+  color: #5A5A5A;
+}
+
+/* ---- Logo ---- */
+
+.lib-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.lib-logo-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--course-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lib-logo-card img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  padding: 56px;
+}
+
+.lib-logo-card--dark img {
+  background-color: #141618;
+}
+
+.lib-logo-card--light img {
+  background-color: #F8F7F1;
+}
+
+.lib-logo-card-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.lib-logo-card-name {
+  font-family: var(--font-text);
+  font-weight: 500;
+  font-size: 15px;
+  color: #F8F7F1;
+}
+
+.lib-logo-card-usage {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(248, 247, 241, 0.45);
+}
+
+.lib-logo-misuse-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.lib-logo-misuse {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--course-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lib-logo-misuse img {
+  display: block;
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  padding: 32px;
+  background-color: #141618;
+}
+
+.lib-logo-misuse-label {
+  display: block;
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: rgba(248, 247, 241, 0.55);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* ---- Color ---- */
+
+.lib-color-group-label {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: rgba(248, 247, 241, 0.45);
+  margin-bottom: 24px;
+}
+
+.lib-color-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.lib-swatch {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--course-border);
+  background: none;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition: transform 0.25s ease;
+}
+
+.lib-swatch:hover {
+  transform: translateY(-4px);
+}
+
+.lib-swatch-fill {
+  display: block;
+  height: 140px;
+  position: relative;
+}
+
+.lib-swatch-copy {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.lib-swatch:hover .lib-swatch-copy {
+  opacity: 1;
+}
+
+.lib-swatch.is-copied .lib-swatch-copy {
+  opacity: 1;
+  background-color: var(--orange);
+}
+
+.lib-swatch-info {
+  display: block;
+  padding: 14px 16px;
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.lib-swatch-name {
+  display: block;
+  font-family: var(--font-text);
+  font-weight: 500;
+  font-size: 15px;
+  color: #F8F7F1;
+}
+
+.lib-swatch-hex {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: rgba(248, 247, 241, 0.5);
+  margin-top: 2px;
+}
+
+/* ---- Tipografía ---- */
+
+.lib-type-block {
+  padding: 56px 0;
+  border-top: 1px solid var(--course-border);
+}
+
+.lib-type-block:last-child {
+  padding-bottom: 0;
+}
+
+.lib-type-head {
+  display: grid;
+  grid-template-columns: 90px 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 40px;
+}
+
+.lib-type-num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--orange);
+}
+
+.lib-type-name {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 28px;
+  color: #F8F7F1;
+}
+
+.lib-type-role {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: rgba(248, 247, 241, 0.45);
+  margin-top: 6px;
+}
+
+.lib-type-desc {
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(248, 247, 241, 0.65);
+}
+
+.lib-type-sample {
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.1;
+  color: #F8F7F1;
+  padding: 24px 0;
+}
+
+.lib-type-sample--display {
+  font-family: var(--font-title);
+  font-weight: 700;
+}
+
+.lib-type-sample--text {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: clamp(24px, 3.4vw, 40px);
+}
+
+.lib-type-sample--mono {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: clamp(20px, 2.6vw, 32px);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.lib-type-scale {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 96px;
+}
+
+.lib-scale-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid var(--course-border);
+}
+
+.lib-scale-row:last-child {
+  border-bottom: 1px solid var(--course-border);
+}
+
+.lib-scale-label {
+  flex-shrink: 0;
+  width: 220px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: rgba(248, 247, 241, 0.45);
+}
+
+.lib-scale-label span {
+  display: block;
+  color: rgba(248, 247, 241, 0.3);
+  margin-top: 4px;
+}
+
+.lib-scale-sample {
+  flex: 1;
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: #F8F7F1;
+}
+
+/* ---- Fix: detail.css pinta ".course-badge .slash" naranja para el hero
+   de la página de detalle; en la card de curso (home) el "+" va crema. ---- */
+.lib-card-showcase .course-badge .slash {
+  color: var(--cream);
+}
+
+/* ---- Componentes ---- */
+
+.lib-component-row {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 40px;
+  border: 1px solid var(--course-border);
+  border-radius: 8px;
+  margin-bottom: 48px;
+}
+
+.lib-component-row:last-child {
+  margin-bottom: 64px;
+}
+
+.lib-component-row--photo {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.lib-component-row--photo .lib-component-demo {
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 180px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #3a2c1f 0%, #1c140d 60%, #0d0a07 100%);
+}
+
+.lib-component-demo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 280px;
+}
+
+.lib-component-demo .btn {
+  margin-top: 0;
+  animation: none;
+}
+
+.lib-component-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.lib-component-name {
+  font-family: var(--font-text);
+  font-weight: 500;
+  font-size: 17px;
+  color: #F8F7F1;
+  margin-bottom: 8px;
+}
+
+.lib-component-desc {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(248, 247, 241, 0.6);
+  margin-bottom: 12px;
+}
+
+.lib-component-class {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--orange);
+  background-color: rgba(255, 95, 47, 0.1);
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+
+/* ---- Cards ---- */
+
+.lib-card-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+
+.lib-card-showcase--courses .course-card {
+  flex: 1 1 320px;
+  max-width: 400px;
+}
+
+.lib-card-showcase--text .includes-item {
+  flex-shrink: 0;
+}
+
+.lib-card-showcase--photo .team-card {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.lib-card-caption {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: rgba(248, 247, 241, 0.4);
+  margin-bottom: 64px;
+}
+
+.lib-card-caption:last-child {
+  margin-bottom: 0;
+}
+
+.lib-card-caption .lib-component-class {
+  color: var(--orange);
+  background: none;
+  padding: 0;
+}
+
+/* ---- Footer ---- */
+
+.lib-footer {
+  padding: 48px var(--side-margin);
+  background-color: var(--course-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: rgba(248, 247, 241, 0.4);
+}
+
+.lib-footer a {
+  color: rgba(248, 247, 241, 0.7);
+  text-decoration: none;
+}
+
+.lib-footer a:hover {
+  color: var(--orange);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 1100px) {
+  .lib-color-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .lib-logo-misuse-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lib-type-head {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .lib-header,
+  .lib-tabs,
+  .lib-hero,
+  .lib-section,
+  .lib-footer {
+    padding-left: var(--side-margin);
+    padding-right: var(--side-margin);
+  }
+
+  .lib-header-tag {
+    display: none;
+  }
+
+  .lib-color-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lib-logo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lib-card-showcase {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lib-card-showcase--courses .course-card,
+  .lib-card-showcase--photo .team-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .lib-component-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .lib-component-demo {
+    min-width: 0;
+  }
+
+  .lib-tabs {
+    top: 0;
+  }
+
+  .lib-hero {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .lib-header,
+  .lib-tabs,
+  .lib-hero,
+  .lib-section,
+  .lib-footer {
+    padding-left: var(--side-margin);
+    padding-right: var(--side-margin);
+  }
+
+  .lib-hero-subtitle {
+    font-size: 17px;
+  }
+
+  .lib-section {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .lib-color-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .lib-logo-misuse-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lib-scale-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .lib-scale-label {
+    width: auto;
+  }
+
+  .lib-footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
