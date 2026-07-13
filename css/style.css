@@ -3450,6 +3450,20 @@ img {
     width: 340px;
     height: 378px;
   }
+
+  .explore-card {
+    flex: 0 0 338px;
+    width: 338px;
+    height: 400px;
+  }
+
+  .explore-next {
+    left: calc(var(--side-margin) + 3 * 338px + 2 * 24px - 16px);
+  }
+
+  .explore-prev {
+    right: calc(var(--side-margin) + 3 * 338px + 2 * 24px - 40px);
+  }
 }
 
 @media (max-width: 1100px) {
