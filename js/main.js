@@ -997,28 +997,48 @@ function setupWhyCustomReveal() {
 
   // Scroll-triggered text opacity and parallax animation
   function updateWhyCustomOpacity() {
+    const viewportHeight = window.innerHeight;
+    const viewportCenter = viewportHeight / 2;
+
+    // Find the closest row to viewport center
+    let closestRow = null;
+    let minDistance = Infinity;
+
+    rows.forEach((row) => {
+      const rect = row.getBoundingClientRect();
+      const rowCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(rowCenter - viewportCenter);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestRow = row;
+      }
+    });
+
+    // Apply opacity and parallax only to closest row
     rows.forEach((row) => {
       const textWrap = row.querySelector('.why-custom-text-wrap');
       if (!textWrap) return;
 
       const rect = row.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      // Calculate progress: 1 when row is centered, 0 when at edges
       const rowCenter = rect.top + rect.height / 2;
-      const viewportCenter = viewportHeight / 2;
       const distance = Math.abs(rowCenter - viewportCenter);
       const maxDistance = viewportHeight / 2;
 
-      // Squared curve for quicker fade in/out
-      let opacity = 1 - Math.pow(distance / maxDistance, 2);
-      opacity = Math.max(0, Math.min(1, opacity));
+      // Only show if this is the closest row
+      if (row === closestRow) {
+        // Squared curve for quicker fade in/out
+        let opacity = 1 - Math.pow(distance / maxDistance, 2);
+        opacity = Math.max(0, Math.min(1, opacity));
+        textWrap.style.opacity = opacity;
+      } else {
+        textWrap.style.opacity = 0;
+      }
 
       // Parallax effect: move text down as user scrolls down
       const scrollProgress = (viewportCenter - rowCenter) / viewportHeight;
       const translateY = scrollProgress * 400 * 0.7; // 400px parallax range, slower speed
 
-      textWrap.style.opacity = opacity;
       textWrap.style.transform = `translateY(${translateY}px)`;
     });
   }
