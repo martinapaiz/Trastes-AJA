@@ -2069,7 +2069,7 @@ img {
   grid-row: 2;
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 42px;
+  font-size: clamp(32px, 2.1875vw, 42px);
   line-height: 1.3;
   color: var(--black);
   max-width: 625px;
@@ -2082,7 +2082,7 @@ img {
   margin-top: 10px;
   font-family: var(--font-text);
   font-weight: 400;
-  font-size: 18px;
+  font-size: clamp(16px, 0.9375vw, 18px);
   line-height: 1.6;
   color: var(--black);
   max-width: 464px;
