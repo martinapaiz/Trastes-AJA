@@ -643,7 +643,7 @@ img {
   left: 50%;
   width: 100vw;
   transform: translateX(-50%);
-  margin-top: 30px;
+  top: 30px;
   clip-path: inset(0 0 0 0);
 }
 
