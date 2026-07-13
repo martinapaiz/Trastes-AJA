@@ -1065,7 +1065,7 @@
 
 .detail-cta-section .course-btn-secondary {
   color: var(--black);
-  background-color: transparent;
+  background-color: #f5f5f5;
   border: 1px solid var(--black);
 }
 
