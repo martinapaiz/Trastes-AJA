@@ -3461,7 +3461,5 @@ img {
   .why-custom-img-wrap {
     width: 100%;
     height: 480px;
-    border-top: 1px solid rgba(140, 138, 128, 0.38);
-    border-bottom: 1px solid rgba(140, 138, 128, 0.38);
   }
 }
