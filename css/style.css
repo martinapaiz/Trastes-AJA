@@ -3450,6 +3450,8 @@ img {
   }
   .why-custom-col--center {
     order: 1;
+    border-left: none;
+    border-right: none;
   }
   .why-custom-text-wrap {
     max-width: 100%;
