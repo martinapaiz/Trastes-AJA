@@ -3364,7 +3364,7 @@ img {
 
 .why-custom-section-tag .slash,
 .why-custom-label .slash {
-  color: var(--orange);
+  color: var(--orange) !important;
 }
 
 .why-custom-label {
