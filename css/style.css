@@ -2296,7 +2296,7 @@ img {
 .cta-label {
   font-family: var(--font-mono);
   font-weight: 500;
-  font-size: 16px;
+  font-size: 20px;
   color: var(--black);
   margin-bottom: 24px;
 }
