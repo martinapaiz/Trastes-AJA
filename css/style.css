@@ -3351,7 +3351,7 @@ img {
 
 .why-custom-row {
   display: grid;
-  grid-template-columns: 32px 500px 1fr 500px 32px;
+  grid-template-columns: clamp(16px, 1.667vw, 32px) clamp(300px, 26.04vw, 500px) 1fr clamp(300px, 26.04vw, 500px) clamp(16px, 1.667vw, 32px);
   border-top: 1px solid rgba(140, 138, 128, 0.38);
   min-height: 550px;
   align-items: center;
@@ -3427,8 +3427,8 @@ img {
 }
 
 .why-custom-img-wrap {
-  width: 499px;
-  height: 553px;
+  width: clamp(300px, 25.99vw, 499px);
+  height: clamp(335px, 28.80vw, 553px);
   position: relative;
   overflow: hidden;
   margin: 0 auto;
@@ -3444,24 +3444,7 @@ img {
   will-change: transform;
 }
 
-@media (max-width: 1400px) {
-  .why-custom-row {
-    grid-template-columns: 20px 340px 1fr 340px 20px;
-  }
-  .why-custom-img-wrap {
-    width: 340px;
-    height: 378px;
-  }
-}
-
 @media (max-width: 1100px) {
-  .why-custom-row {
-    grid-template-columns: 16px 300px 1fr 300px 16px;
-  }
-  .why-custom-img-wrap {
-    width: 300px;
-    height: 335px;
-  }
   .why-custom-title {
     font-size: 28px;
   }
