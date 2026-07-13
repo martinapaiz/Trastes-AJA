@@ -107,12 +107,13 @@ function setupExploreCards() {
   const items = Array.from(cards.querySelectorAll('.explore-card'));
   let index = 0;
 
-  // Cada card puede quedar flush contra el borde izquierdo del viewport
-  // usando su propio offsetLeft (así no arrastramos el desfasaje del
-  // margin-left de la primera card, que rompía el alineado tras el 1er click).
+  // scroll-padding-left reserva ese margen para el snap en TODAS las
+  // cards (no solo la primera), así que hay que restarlo del offsetLeft
+  // real para que cada card quede alineada al mismo punto de snap.
   function scrollToIndex(i) {
     index = Math.max(0, Math.min(i, items.length - 1));
-    const target = index === 0 ? 0 : items[index].offsetLeft;
+    const scrollPadding = parseFloat(getComputedStyle(cards).scrollPaddingLeft) || 0;
+    const target = index === 0 ? 0 : items[index].offsetLeft - scrollPadding;
     cards.scrollTo({ left: target, behavior: 'smooth' });
     prevBtn.classList.toggle('is-visible', index > 0);
   }
