@@ -3385,13 +3385,8 @@ img {
   text-align: center;
 }
 
-.why-custom-col--img-left,
-.why-custom-col--img-right {
-  grid-column: span 2;
-}
-
 .why-custom-img-wrap {
-  width: 100%;
+  width: 528px;
   height: 553px;
   position: relative;
   overflow: hidden;
