@@ -3444,11 +3444,11 @@ img {
 
 @media (max-width: 1400px) {
   .why-custom-row {
-    grid-template-columns: 24px 400px 1fr 400px 24px;
+    grid-template-columns: 20px 340px 1fr 340px 20px;
   }
   .why-custom-img-wrap {
-    width: 400px;
-    height: 446px;
+    width: 340px;
+    height: 378px;
   }
 }
 
