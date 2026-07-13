@@ -2036,6 +2036,7 @@ img {
   background-color: var(--cream);
   padding: 170px 0 90px;
   overflow: hidden;
+  --explore-margin: clamp(60px, 12.5vw, 240px);
 }
 
 .explore-header {
@@ -2043,9 +2044,9 @@ img {
   grid-template-columns: 1fr auto;
   column-gap: 60px;
   width: 100%;
-  max-width: calc(var(--content-max) + 2 * var(--side-margin));
+  max-width: calc(var(--content-max) + 2 * var(--explore-margin));
   margin: 0 auto 60px;
-  padding: 0 var(--side-margin);
+  padding: 0 var(--explore-margin);
 }
 
 .explore-label {
@@ -2100,13 +2101,13 @@ img {
   overflow-y: visible;
   overflow-anchor: none;
   scroll-snap-type: x mandatory;
-  scroll-padding-left: var(--side-margin);
+  scroll-padding-left: var(--explore-margin);
   scrollbar-width: none;
-  padding: 40px var(--side-margin) 40px 0;
+  padding: 40px var(--explore-margin) 40px 0;
 }
 
 .explore-card:first-child {
-  margin-left: var(--side-margin);
+  margin-left: var(--explore-margin);
 }
 
 .explore-cards::-webkit-scrollbar {
@@ -2262,11 +2263,11 @@ img {
 }
 
 .explore-next {
-  left: calc(var(--side-margin) + 3 * clamp(300px, 24.1667vw, 464px) + 2 * 24px - 16px);
+  left: calc(var(--explore-margin) + 3 * clamp(300px, 24.1667vw, 464px) + 2 * 24px - 16px);
 }
 
 .explore-prev {
-  right: calc(var(--side-margin) + 3 * clamp(300px, 24.1667vw, 464px) + 2 * 24px - 40px);
+  right: calc(var(--explore-margin) + 3 * clamp(300px, 24.1667vw, 464px) + 2 * 24px - 40px);
   opacity: 0;
   pointer-events: none;
 }
