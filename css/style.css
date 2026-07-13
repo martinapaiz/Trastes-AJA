@@ -501,6 +501,25 @@ img {
   clip-path: inset(0 0 0 100%);
 }
 
+/* Testimonials Lines */
+
+.testimonials-line {
+  position: absolute;
+  left: 50%;
+  width: 100vw;
+  height: 1px;
+  background-color: rgba(140, 138, 128, 0.38);
+  transform: translateX(-50%);
+}
+
+.testimonials-line--top {
+  top: 0;
+}
+
+.testimonials-line--bottom {
+  bottom: 0;
+}
+
 .manifesto-label {
   max-width: var(--content-max);
   margin: 0 auto 32px;
