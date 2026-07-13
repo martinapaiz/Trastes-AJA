@@ -1065,8 +1065,9 @@
 
 .detail-cta-section .course-btn-secondary {
   color: var(--black);
-  background-color: #f5f5f5;
+  background-color: #353738;
   border: 1px solid var(--black);
+  color: #ffffff;
 }
 
 .detail-cta-section .course-btn-secondary:hover {
