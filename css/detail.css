@@ -1022,7 +1022,7 @@
   font-family: var(--font-mono);
   font-weight: 500;
   font-size: 20px;
-  color: #F8F7F1;
+  color: var(--black);
   letter-spacing: 0.5px;
   margin-bottom: 32px;
 }
@@ -1036,7 +1036,7 @@
   font-weight: 700;
   font-size: 64px;
   line-height: 1.2;
-  color: #F8F7F1;
+  color: var(--black);
   max-width: 952px;
   margin: 0 auto;
 }
@@ -1044,7 +1044,7 @@
 .detail-cta-desc {
   font-family: var(--font-text);
   font-size: 18px;
-  color: #F8F7F1;
+  color: var(--black);
   line-height: 1.65;
   max-width: 708px;
   margin: 24px auto 0;
