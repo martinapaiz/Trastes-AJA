@@ -2089,6 +2089,7 @@ img {
 
 .explore-row-wrapper {
   position: relative;
+  overflow: visible;
 }
 
 .explore-cards {
