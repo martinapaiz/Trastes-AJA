@@ -3309,7 +3309,7 @@ img {
 
 .why-custom-row {
   display: grid;
-  grid-template-columns: 32px 496px 1fr 496px 32px;
+  grid-template-columns: 32px 500px 1fr 500px 32px;
   border-top: 1px solid rgba(140, 138, 128, 0.38);
   min-height: 720px;
   align-items: center;
@@ -3386,7 +3386,7 @@ img {
 }
 
 .why-custom-img-wrap {
-  width: 528px;
+  width: 499px;
   height: 553px;
   position: relative;
   overflow: hidden;
