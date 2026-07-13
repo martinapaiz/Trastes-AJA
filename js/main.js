@@ -1015,7 +1015,7 @@ function setupWhyCustomReveal() {
 
       // Parallax effect: move text down as user scrolls down
       const scrollProgress = (viewportCenter - rowCenter) / viewportHeight;
-      const translateY = scrollProgress * 60; // 60px parallax range
+      const translateY = scrollProgress * 120; // 120px parallax range
 
       textWrap.style.opacity = opacity;
       textWrap.style.transform = `translateY(${translateY}px)`;
