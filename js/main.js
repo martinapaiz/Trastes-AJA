@@ -994,6 +994,32 @@ function setupWhyCustomReveal() {
   }, { threshold: 0.25 });
 
   rows.forEach((row) => observer.observe(row));
+
+  // Scroll-triggered text opacity animation
+  function updateWhyCustomOpacity() {
+    rows.forEach((row) => {
+      const textWrap = row.querySelector('.why-custom-text-wrap');
+      if (!textWrap) return;
+
+      const rect = row.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Calculate progress: 1 when row is centered, 0 when at edges
+      const rowCenter = rect.top + rect.height / 2;
+      const viewportCenter = viewportHeight / 2;
+      const distance = Math.abs(rowCenter - viewportCenter);
+      const maxDistance = viewportHeight / 2;
+
+      let opacity = 1 - (distance / maxDistance);
+      opacity = Math.max(0, Math.min(1, opacity));
+
+      textWrap.style.opacity = opacity;
+    });
+  }
+
+  window.addEventListener('scroll', updateWhyCustomOpacity);
+  window.addEventListener('resize', updateWhyCustomOpacity);
+  updateWhyCustomOpacity();
 }
 
 
