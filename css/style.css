@@ -3431,7 +3431,7 @@ img {
     flex-direction: column;
     min-height: auto;
     padding: 60px 28px;
-    border-top: 1px solid rgba(140, 138, 128, 0.38);
+    border-top: none;
   }
   .why-custom-col {
     border-right: none !important;
