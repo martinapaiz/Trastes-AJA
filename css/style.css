@@ -639,12 +639,8 @@ img {
 }
 
 .stats-line--top {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 30px;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  margin: 30px calc(-1 * var(--side-margin)) 40px calc(-1 * var(--side-margin));
+  width: calc(100% + 2 * var(--side-margin));
   clip-path: inset(0 100% 0 0);
 }
 
