@@ -241,7 +241,7 @@
 .detail-about-title {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: clamp(32px, 3.2vw, 52px);
+  font-size: 36px;
   line-height: 1.1;
   color: var(--black);
   margin-bottom: 28px;
@@ -299,7 +299,7 @@
 .detail-includes-title {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: clamp(32px, 3.2vw, 48px);
+  font-size: 36px;
   line-height: 1.25;
   color: var(--black);
   margin-bottom: 60px;
@@ -728,7 +728,7 @@
 .detail-team-title {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: clamp(32px, 3vw, 44px);
+  font-size: 36px;
   line-height: 1.25;
   color: var(--black);
   max-width: 620px;
@@ -914,7 +914,7 @@
 .detail-faq-title {
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: clamp(32px, 3vw, 44px);
+  font-size: 36px;
   line-height: 1.2;
   color: #303030;
   margin-bottom: 24px;
