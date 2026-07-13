@@ -2041,7 +2041,7 @@ img {
 
 .explore-header {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 464px;
   column-gap: 60px;
   width: 100%;
   max-width: calc(var(--content-max) + 2 * var(--explore-margin));
